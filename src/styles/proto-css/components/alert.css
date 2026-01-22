@@ -1,0 +1,22 @@
+:is([role="note"], [role="alert"]):not(.reset, [popover]),
+.alert {
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-primary-2);
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary-1);
+  padding: var(--space-form-y) var(--space-form-x);
+  color: var(--color-primary-5);
+  line-height: var(--line-height-input);
+
+  hr {
+    border-color: currentColor;
+  }
+
+  &[role="alert"] {
+    border-color: var(--color-danger-light);
+    background-color: var(--color-danger-lighter);
+    color: var(--color-danger);
+  }
+}

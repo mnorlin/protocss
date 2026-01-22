@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <div>
+        <h1>Accordion</h1>
+        <p>Build vertically collapsing accordions with native HTML.</p>
+      </div>
+
+      <div>
+        <h2>Regular accordion</h2>
+        <proto-code preview>
+          <details open>
+            <summary>Accordion item 1</summary>
+            This item is by default expanded as <code>&lt;details&gt;</code> has the
+            attribute <code>open</code>
+          </details>
+
+          <details>
+            <summary>Accordion item 2</summary>
+            This is the second item's body.
+          </details>
+
+          <details>
+            <summary>Accordion item 3</summary>
+            <p>This is the third item's body. It has a lot of filling text.</p>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis
+              ligula ac turpis convallis, id efficitur lorem rhoncus. Nam massa magna,
+              consectetur at nulla eu, fringilla egestas lacus. Aliquam in ligula
+              pellentesque, vehicula ipsum id, rhoncus purus. Praesent sollicitudin sem et
+              nisi dignissim ultricies.
+            </p>
+          </details>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Exclusive accordion expansion</h2>
+        <p>
+          By giving each <code>&lt;details&gt;</code> element the same
+          <code>name</code> attribute, they are linked and only allow one item being
+          expanded at a time
+        </p>
+        <proto-code preview>
+          <details name="my-accordion">
+            <summary>Accordion item 1</summary>
+            This is the first item's body.
+          </details>
+
+          <details name="my-accordion">
+            <summary>Accordion item 2</summary>
+            This is the second item's body.
+          </details>
+
+          <details name="my-accordion">
+            <summary>Accordion item 3</summary>
+            This is the third item's body.
+          </details>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

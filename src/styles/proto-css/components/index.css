@@ -1,0 +1,23 @@
+@import "accordion.css";
+@import "alert.css";
+@import "blockquote.css";
+@import "button.css";
+@import "card.css";
+@import "code.css";
+@import "dropdown.css";
+@import "hgroup.css";
+@import "horizontal-rule.css";
+@import "modal.css";
+@import "progress.css";
+@import "tab-menu.css";
+@import "table.css";
+@import "tab-menu.css";
+@import "tooltip.css";
+
+:root {
+  --transition-duration: 0.2s;
+
+  @media (prefers-reduced-motion: reduce) {
+    --transition-duration: 0s;
+  }
+}

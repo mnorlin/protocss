@@ -1,0 +1,47 @@
+/**
+ * Adds a tooltip when hovering an element with the `data-tooltip` attribute.
+ *
+ * Example usage:
+ * <button aria-describedby="tip-save">Save</button>
+ * <div role="tooltip" id="tip-save">Saves your progress</div>
+ */
+
+[aria-describedby] {
+  anchor-name: --tooltip-anchor;
+}
+
+[id][role="tooltip"]:not(.reset) {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+  translate: -50% calc(-1 * var(--space-gap-sm));
+  opacity: 0;
+  transition: opacity var(--transition-duration) ease;
+  inset-block-end: anchor(top);
+  inset-inline-start: anchor(center);
+  box-shadow: var(--interactive-shadow);
+  border-radius: var(--border-radius);
+  background: var(--color-contrast);
+  padding: var(--space-1) var(--space-2);
+  pointer-events: none;
+  color: var(--color-base);
+  font-size: var(--font-small);
+  white-space: nowrap;
+
+  &::before {
+    position: absolute;
+    translate: -50% 0;
+    inset-block-start: 100%;
+    inset-inline-start: 50%;
+    border-top: var(--space-1) solid var(--color-contrast);
+    border-right: var(--space-1) solid transparent;
+    border-left: var(--space-1) solid transparent;
+    width: 0;
+    height: 0;
+    content: "";
+  }
+}
+
+[aria-describedby]:hover + [id][role="tooltip"]:not(.reset),
+[aria-describedby]:focus-visible + [id][role="tooltip"]:not(.reset) {
+  opacity: 1;
+}

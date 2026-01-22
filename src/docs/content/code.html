@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <hgroup>
+        <h1>Code</h1>
+      </hgroup>
+
+      <div>
+        <h2>Inline code</h2>
+        <proto-code preview>
+          <span>In javascript, you can log messages with</span>
+          <code>console.log("Hello world");</code>.
+        </proto-code>
+      </div>
+      <div>
+        <h2>Code block</h2>
+        <p></p>
+        <!-- prettier-ignore -->
+        <proto-code preview>
+          <div slot="semantic">
+<pre><code>fn main() {
+  println!("Hello w<del>rld</del>");
+  println!("Hello w<ins>orld!</ins>");
+}</code></pre>
+          </div>
+          
+          <div slot="classes">
+<div class="pre"><span class="code">fn main() {
+  println!("Hello w<span class="del">rld</span>");
+  println!("Hello w<span class="ins">orld!</span>");
+}</span></div>
+          </div>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

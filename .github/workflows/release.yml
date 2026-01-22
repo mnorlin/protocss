@@ -1,0 +1,79 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+env:
+  CSS_FILENAME: protocss.min.css
+
+jobs:
+  build:
+    name: Build CSS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Minimize CSS
+        run: npm run build:css
+
+      - name: Upload minified CSS
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{env.CSS_FILENAME}}
+          path: dist/${{ env.CSS_FILENAME }}
+
+  release:
+    name: Release on GitHub
+    needs: [build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.CSS_FILENAME }}
+      - name: Release Artifact
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: ${{env.CSS_FILENAME}}
+
+  build-docs:
+    name: Publish docs
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Documentation
+        run: npm run build:docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: docs

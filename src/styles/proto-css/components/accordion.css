@@ -1,0 +1,166 @@
+/**
+ * <details> with <details>-siblings is styled as an accordion. If only one item should be expanded at one time,
+ * the same `name` attribute can be used, eg <details name="faq" /> <details name="faq" />
+ *
+ * <details open>
+ *   <summary>Open</summary>
+ *   Some expanded text
+ * </details>
+ * <details>
+ *   <summary>Closed 1</summary>
+ *   Some other text
+ * </details>
+ * <details>
+ *   <summary>Closed 2</summary>
+ *   Some other text
+ * </details>
+ *
+ *  +---------------------+
+ *  | Open             ▲  |
+ *  +---------------------+
+ *  |                     |
+ *  | Some expanded text  |
+ *  |                     |
+ *  +---------------------+
+ *  | Closed 1         ▼  |
+ *  +---------------------+
+ *  | Closed 2         ▼  |
+ *  +---------------------+
+ */
+
+details:not(.reset),
+.accordion {
+  position: relative;
+  transition:
+    color var(--transition-duration),
+    background-color var(--transition-duration);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-base);
+  color: var(--color-text);
+
+  &:first-of-type,
+  &:first-of-type::before {
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+  }
+
+  &:last-of-type,
+  &:last-of-type::before {
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    box-shadow: var(--interactive-shadow);
+    content: "";
+  }
+
+  > summary,
+  .title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-gap);
+    transition: color var(--transition-duration);
+    cursor: pointer;
+    margin-inline-start: -2px;
+    border-radius: var(--border-radius);
+    padding: var(--space-3) var(--space-4);
+    font-weight: bold;
+    list-style: none;
+    &:hover {
+      color: var(--color-primary-3);
+    }
+
+    &::after {
+      display: inline-block;
+      transform: rotate(0deg);
+      transform-origin: center;
+      mask: var(--symbol-chevron-down) center/contain no-repeat;
+      transition: transform var(--transition-duration);
+      margin-inline-start: auto;
+      background-color: currentColor;
+      width: 1rem;
+      height: 1rem;
+      content: "";
+    }
+  }
+
+  &[open] {
+    transition: border-color var(--transition-duration);
+    border-inline-start: 3px solid var(--color-primary);
+    background-color: var(--color-primary-1);
+
+    > summary,
+    .title {
+      margin-inline-start: -4px;
+      border-radius: 0;
+      color: var(--color-primary-3);
+
+      &::after {
+        transform: rotate(-180deg);
+        background-color: var(--color-primary-3);
+      }
+    }
+  }
+
+  + details,
+  + .accordion {
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+
+    summary,
+    .title {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  &:has(+ details, + .accordion) {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+/*
+details:not(.reset)::details-content {
+  transition:
+    block-size var(--transition-duration),
+    content-visibility 1s,
+    color var(--transition-duration);
+  transition-behavior: allow-discrete;
+  block-size: 0;
+  color: transparent;
+}
+
+details:not(.reset)[open]::details-content {
+  block-size: auto;
+  color: currentColor;
+}
+*/
+details:not(.reset)::details-content {
+  display: block;
+  opacity: 0;
+  transition:
+    height var(--transition-duration),
+    opacity 0.5s,
+    padding var(--transition-duration),
+    padding-inline-start 0s,
+    content-visibility var(--transition-duration);
+  transition-behavior: allow-discrete;
+  padding: 0 var(--space-4);
+  height: 0;
+  overflow: hidden;
+}
+:not(.reset)[open]::details-content {
+  opacity: 1;
+  padding: var(--space-3) var(--space-4);
+  padding-inline-start: calc(var(--space-4) - 2px);
+  height: auto; /* Fallback for browsers missing 'calc-size' support */
+  height: calc-size(auto, size);
+}

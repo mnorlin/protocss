@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <div>
+        <h1>Tab menu</h1>
+      </div>
+
+      <div role="note">
+        <div>
+          Tabs needs Javascript to work. Either
+          <a href="https://htmx.org/examples/tabs-hateoas/">HTMX</a> or
+          <details style="display: block" class="reset mt-gap-sm">
+            <summary style="cursor: pointer">Custom script</summary>
+            <proto-code language="js">
+              <!-- prettier-ignore -->
+              const tablist = document.querySelector("[role='tablist']");
+              const tabs = [...tablist.querySelectorAll("[role='tab']")];
+              const tabPanels = tabs.map((tab) =>
+                document.getElementById(tab.getAttribute("aria-controls")),
+              );
+
+              tabs.forEach((tab) => tab.addEventListener("click", onTabClick));
+
+              function onTabClick(e) {
+                const selectedTab = e.currentTarget;
+                const tabPanelId = selectedTab.getAttribute("aria-controls");
+
+                tabs.forEach((tab) =>
+                  tab.setAttribute("aria-selected", tab === selectedTab),
+                );
+
+                tabPanels.forEach((panel) => (panel.hidden = panel.id !== tabPanelId));
+              }
+            </proto-code>
+          </details>
+        </div>
+      </div>
+      <proto-code preview>
+        <nav role="tablist">
+          <button
+            id="htab1"
+            aria-controls="htab1-content"
+            aria-selected="true"
+            role="tab"
+          >
+            Tab 1
+          </button>
+          <button
+            id="htab2"
+            aria-controls="htab2-content"
+            aria-selected="false"
+            role="tab"
+          >
+            Tab 2
+          </button>
+          <button
+            id="htab3"
+            aria-controls="htab3-content"
+            aria-selected="false"
+            role="tab"
+          >
+            Tab 3
+          </button>
+        </nav>
+        <div id="htab1-content" aria-labelledby="htab1" role="tabpanel">
+          Tab content of tab 1
+        </div>
+        <div hidden id="htab2-content" aria-labelledby="htab2" role="tabpanel">
+          Tab content of tab 2
+        </div>
+        <div hidden id="htab3-content" aria-labelledby="htab3" role="tabpanel">
+          Tab content of tab 3
+        </div>
+      </proto-code>
+
+      <proto-code preview>
+        <div>
+          <nav role="tablist" aria-orientation="vertical">
+            <button
+              id="vtab1"
+              aria-controls="vtab1-content"
+              aria-selected="true"
+              role="tab"
+            >
+              Tab 1
+            </button>
+            <button
+              id="vtab2"
+              aria-controls="vtab2-content"
+              aria-selected="false"
+              role="tab"
+            >
+              Tab 2
+            </button>
+            <button
+              id="vtab3"
+              aria-controls="vtab3-content"
+              aria-selected="false"
+              role="tab"
+            >
+              Tab 3
+            </button>
+          </nav>
+          <div id="vtab1-content" aria-labelledby="tab1" role="tabpanel">
+            Tab content of tab 1
+          </div>
+          <div hidden id="vtab2-content" aria-labelledby="tab2" role="tabpanel">
+            Tab content of tab 2
+          </div>
+          <div hidden id="vtab3-content" aria-labelledby="tab3" role="tabpanel">
+            Tab content of tab 3
+          </div>
+        </div>
+      </proto-code>
+    </main>
+    <script>
+      const tablists = document.querySelectorAll("[role='tablist']");
+      tablists.forEach((tablist) => {
+        const tabs = [...tablist.querySelectorAll("[role='tab']")];
+        const tabPanels = tabs.map((tab) =>
+          document.getElementById(tab.getAttribute("aria-controls")),
+        );
+
+        tabs.forEach((tab) =>
+          tab.addEventListener("click", (e) => onTabClick(e, tabs, tabPanels)),
+        );
+      });
+
+      function onTabClick(e, tabs, tabPanels) {
+        const selectedTab = e.currentTarget;
+        const tabPanelId = selectedTab.getAttribute("aria-controls");
+
+        tabs.forEach((tab) => tab.setAttribute("aria-selected", tab === selectedTab));
+
+        tabPanels.forEach((panel) => (panel.hidden = panel.id !== tabPanelId));
+      }
+    </script>
+  </body>
+</html>
