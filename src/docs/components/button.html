@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <div>
+        <h1>Button</h1>
+
+        <p>Buttons are using the native <code>&lt;button&gt;</code> tag.</p>
+      </div>
+
+      <div>
+        <h2>Regular button</h2>
+        <proto-code preview>
+          <div slot="semantic">
+            <button>Regular button</button>
+          </div>
+          <div slot="classes">
+            <span class="button" tabindex="0">Regular button</span>
+          </div>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Disabled button</h2>
+        <proto-code preview>
+          <div slot="semantic">
+            <button disabled>Disabled button</button>
+          </div>
+
+          <div slot="classes">
+            <span class="button disabled">Disabled button</span>
+          </div>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Busy button</h2>
+        <proto-code preview>
+          <div slot="semantic">
+            <button aria-busy="true">Busy button</button>
+          </div>
+
+          <div slot="classes">
+            <span class="button busy">Busy button</span>
+          </div>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Grouped buttons</h2>
+        <p>Buttons can be grouped with the attribute <code>role="group"</code></p>
+        <proto-code preview>
+          <div slot="semantic">
+            <div role="group">
+              <button>Group</button>
+              <button>of</button>
+              <button>buttons</button>
+            </div>
+          </div>
+
+          <div slot="classes">
+            <div class="role-group">
+              <span class="button">Group</span>
+              <span class="button">of</span>
+              <span class="button">buttons</span>
+            </div>
+          </div>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

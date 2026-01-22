@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <div>
+        <h1>Switch</h1>
+      </div>
+
+      <div>
+        <proto-code preview>
+          <label>
+            <input type="checkbox" role="switch" />
+            I have read the terms and conditions
+          </label>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Sizing</h2>
+        <proto-code preview>
+          <span style="font-size: 2rem">
+            <input type="checkbox" role="switch" />
+          </span>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Shape</h2>
+        <p>
+          The switch is normally rounded and doesn't follow the
+          <code>--border-radius</code> setting, but it can be overriden.
+        </p>
+        <proto-code preview>
+          <span style="--switch-radius: var(--border-radius)">
+            <input type="checkbox" role="switch" />
+          </span>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

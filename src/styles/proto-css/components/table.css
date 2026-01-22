@@ -1,0 +1,233 @@
+/**
+ * Correct HTML semantics is required to properly style the table.
+ *
+ * Make table headings: set heading cell as [scope="col]
+ * <thead>
+ *  <tr> <th scope="col">My heading</th> </tr>
+ * </thead>
+ *
+ *
+ * Make an entire row clickable: set a cell as <th> with [scope="row"], with a link inside
+ * <tr>
+ *   <th scope="row">
+ *     <a href="...">Link will wrap entire row</a>
+ *   </th>
+ *   <td>Will be wrapped in the link</td>
+ * </tr>
+ *
+ *
+ * Create a row divider in the table: set a <th> with colspan and [scope="colgroup"]
+ *  +==========+=======+
+ *  |   Name   | Age ▼ |
+ *  +==========+=======+
+ *  | ECONOMY          |
+ *  +----------+-------+
+ *  | Martin   |  35   |
+ *  +----------+-------+
+ *  | Anna     |  34   |
+ *  +----------+-------+
+ *  | HR               |
+ *  +----------+-------+
+ *  | Katarina |  34   |
+ *  +----------+-------+
+ *
+ * <table>
+ *   <thead>
+ *     <tr>
+ *       <th>Name</th>
+ *       <th aria-sort="descending">Age</th>
+ *    </tr>
+ *   </thead>
+ *   <tbody>
+ *     <tr><th colspan="2" scope="colgroup">Economy</th></tr>
+ *     <tr><td>Martin</td><td>35</td></tr>
+ *     <tr><td>Anna</td><td>34</td></tr>
+ *   </tbody>
+ *   <tbody>
+ *     <tr><th colspan="2" scope="colgroup">HR</th></tr>
+ *     <tr><td>Katarina</td><td>34</td></tr>
+ *   </tbody>
+ * </table>
+ *
+ */
+table:not(.reset) {
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+  border-collapse: collapse;
+  background-color: var(--color-base);
+  width: 100%;
+  color: var(--color-text);
+  --space-form-x: var(--space-1);
+  --space-form-y: var(--space-2);
+
+  &:has(caption) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &:not(:has(caption)) {
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  caption {
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    background-color: var(--color-base);
+    padding: var(--space-2) 0;
+    caption-side: bottom;
+    color: var(--color-text-muted);
+    font-style: italic;
+    font-size: var(--font-p);
+    font-size: var(--typogra-small);
+    text-align: center;
+  }
+
+  td,
+  th {
+    padding: var(--space-2) var(--space-4);
+    font-weight: normal;
+    text-align: start;
+
+    &[aria-sort]::after {
+      display: inline-block;
+      vertical-align: middle;
+      transform-origin: center;
+      mask: var(--symbol-chevron-down) center/contain no-repeat;
+      transition: transform 0.2s;
+      margin-inline-start: var(--space-1);
+      background-color: var(--color-text);
+      width: 1em;
+      height: 1em;
+      content: "";
+    }
+
+    &[aria-sort="ascending"]::after {
+      transform: rotate(180deg);
+    }
+
+    &[aria-sort="descending"]::after {
+      transform: rotate(0deg);
+    }
+  }
+
+  thead {
+    tr {
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    th[scope] {
+      font-weight: bold;
+      text-align: start;
+    }
+  }
+
+  tbody,
+  tfoot {
+    tr {
+      /* -- Start hack -- */
+      /* position:relative; not working in Safari, https://bugs.webkit.org/show_bug.cgi?id=240961 */
+      transform: translate(0);
+      clip-path: inset(0);
+      /* -- Stop hack -- */
+
+      border-bottom: 1px solid var(--color-border);
+
+      th[scope="row"] {
+        /* If a link is inside a table heading with scope="row", the entire row becomes clickable */
+        font-weight: bold;
+
+        > a:not(.reset) {
+          color: currentColor;
+          text-decoration: none;
+
+          &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            content: "";
+          }
+        }
+      }
+
+      &:has(th[scope="row"] > a:not(.reset)) {
+        &:has(th[scope="row"] > a:not(.reset):hover) {
+          background-color: oklch(from var(--color-contrast) l c h / 5%);
+        }
+
+        td {
+          /* If entire row is clickable, make it possible to still click other buttons and links in row */
+          a,
+          button,
+          [data-tooltip] {
+            position: relative;
+            z-index: 2;
+          }
+        }
+      }
+
+      &:has(th[scope="colgroup"]) {
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        background-color: var(--color-contrast-1);
+        th[scope="colgroup"] {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  tfoot {
+    border-top: 2px solid var(--color-border);
+    th {
+      font-weight: bold;
+    }
+  }
+
+  &:has(th[scope="colgroup"]) {
+    /* If the table is complex (eg. has colgroups), make the table more grid like. */
+
+    th,
+    td {
+      &:not(:last-child) {
+        border-inline-end: 1px solid var(--color-border);
+      }
+    }
+  }
+
+  button:not(.reset),
+  .btn,
+  :is(
+    input:not([type="checkbox"], [type="radio"], [type="color"], [type="range"]),
+    select
+  ):not(.reset) {
+    position: relative;
+    z-index: 1;
+    /* Prevent buttons from affecting row height */
+    margin-top: calc(-1 * var(--space-1));
+    margin-bottom: calc(-1 * var(--space-1));
+    padding-top: var(--space-1);
+    padding-bottom: var(--space-1);
+  }
+
+  button:not(.reset),
+  .btn,
+  :is(
+    input:not([type="checkbox"], [type="radio"], [type="color"], [type="range"]),
+    select
+  ):not(.reset) {
+    position: relative;
+    z-index: 1;
+    margin-inline-start: calc(-1 * var(--space-form-x));
+    /* Prevent buttons from affecting row height */
+    margin-block-start: calc(-1 * var(--space-1));
+    margin-block-end: calc(-1 * var(--space-1));
+  }
+
+  input[type="checkbox"][role="switch"] {
+    position: relative;
+    z-index: 1;
+  }
+}

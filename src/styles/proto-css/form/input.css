@@ -1,0 +1,100 @@
+:is(
+  input:not(
+    [type="checkbox"],
+    [type="radio"],
+    [type="color"],
+    [type="range"],
+    [type="submit"]
+  ),
+  select,
+  textarea
+):not(.reset) {
+  box-shadow: var(--shadow-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-base);
+  padding: var(--space-form-y) var(--space-form-x);
+  max-width: 100%;
+  line-height: var(--line-height-input);
+
+  &:disabled {
+    opacity: 0.4;
+    box-shadow: none;
+    border-color: var(--color-contrast-3);
+    background-color: var(--color-contrast-2);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 1px solid var(--color-primary-2);
+    outline-offset: 0;
+    border-color: var(--color-primary-3);
+  }
+
+  &[aria-invalid="true"],
+  &:invalid {
+    border-color: var(--color-danger-light);
+    background-image: var(--symbol-warning-input);
+    background-position: right var(--space-form-x) center;
+    background-size: 1.2rem;
+    background-repeat: no-repeat;
+    background-color: var(--color-danger-lighter);
+
+    &:focus,
+    &:focus-visible {
+      outline: 1px solid var(--color-danger-light);
+      border-color: var(--color-danger);
+    }
+  }
+}
+
+[dir="rtl"] {
+  :is(
+    input:not([type="checkbox"], [type="radio"], [type="color"], [type="range"]),
+    select,
+    textarea
+  ):not(.reset) {
+    &[aria-invalid="true"],
+    &:invalid {
+      background-position: left var(--space-form-x) center;
+    }
+  }
+}
+
+label:has([aria-describedby]) {
+  anchor-name: --described-input;
+  & + *[id]:not(.reset, label, button, fieldset) {
+    /*
+    position: absolute;
+    top: anchor(--described-input, bottom);
+    width: anchor-size(--described-input width);
+    */
+    color: var(--color-text-muted);
+    font-size: var(--font-small);
+  }
+
+  & + ul[id]:not(.reset) {
+    position: absolute;
+    top: anchor(--described-input, bottom);
+    padding-left: var(--space-5);
+  }
+}
+
+/**
+ * If an input is invalid, the next element after the label (if it has an 'id' attribute) is styled as invalid.
+ * <label>
+ *   Age
+ *   <input type="number" aria-invalid="true" aria-describedby="error-message">
+ * </label>
+ * <span id="error-message">Age must be between 0-130</span>
+ */
+label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
+  & + *[id]:not(.reset, label, button, fieldset) {
+    color: var(--color-danger);
+    font-size: var(--font-small);
+  }
+
+  & + ul[id]:not(.reset) {
+    padding-left: var(--space-5);
+  }
+}

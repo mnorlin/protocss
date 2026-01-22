@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <hgroup>
+        <h1>Checkbox</h1>
+      </hgroup>
+      <div>
+        <h2>Vertical</h2>
+        <proto-code preview>
+          <label>
+            <input type="checkbox" name="my-checkbox" checked />
+            Checked
+          </label>
+
+          <label>
+            <input type="checkbox" name="my-checkbox" />
+            Unchecked
+          </label>
+
+          <label>
+            <input type="checkbox" name="my-checkbox" disabled />
+            Disabled
+          </label>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Horizontal</h2>
+        <proto-code preview>
+          <input checked type="checkbox" id="box-1" /><label for="box-1">Checked</label>
+
+          <input type="checkbox" id="box-2" /><label for="box-2">Unchecked</label>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Disabled</h2>
+        <proto-code preview>
+          <label>
+            <input disabled type="checkbox" name="my-checkbox" checked />
+            Checked
+          </label>
+
+          <label>
+            <input disabled type="checkbox" name="my-checkbox" />
+            Unchecked
+          </label>
+
+          <label>
+            <input disabled type="checkbox" name="my-checkbox" />
+            Invalid
+          </label>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Sizing</h2>
+        <proto-code preview>
+          <label style="font-size: 2rem">
+            <input id type="checkbox" name="my-checkbox" checked />
+            Large checkbox
+          </label>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

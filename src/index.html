@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <hgroup style="margin-bottom: calc(10 * var(--space-base))">
+        <h1>ProtoCSS</h1>
+        <p>
+          A CSS framework that utilises modern HTML5 semantics, guiding you to build clean
+          and accessible websites.
+        </p>
+      </hgroup>
+
+      <div class="space-y-gap">
+        <div>
+          <h2>Automatic Styling of Semantic Elements</h2>
+          ProtoCSS formats standard HTML elements like
+          <code>&lt;button&gt;</code> automatically, no additional classes needed.
+
+          <proto-code preview>
+            <button>Button</button>
+          </proto-code>
+        </div>
+
+        <div>
+          <h2>Easy Opt-Out</h2>
+          Want the browser default styles? Simply add the
+          <code>reset</code> class to any element, and you can then easily override it
+          with another class.
+
+          <proto-code preview>
+            <button class="reset">Button</button>
+          </proto-code>
+        </div>
+
+        <div>
+          <h2>Class-Based Components</h2>
+          Every component has a corresponding class, useful when you want to use a
+          component, but for some reason want to avoid the semantic meaning of the regular
+          html element.
+          <proto-code preview>
+            <div class="button">Button</div>
+          </proto-code>
+        </div>
+
+        <div>
+          <h2>Light and Dark Mode Support</h2>
+          ProtoCSS supports light and dark modes:
+          <proto-code language="css">
+            <!-- prettier-ignore -->
+            :root {
+              color-scheme: light dark; /* default follows system settings */
+            }
+          </proto-code>
+
+          <p>You can set a specific theme for the entire site:</p>
+
+          <proto-code>&lt;body data-theme="dark"&gt;...&lt;/body&gt;</proto-code>
+
+          <p>Or set it per component:</p>
+
+          <proto-code>
+            <table data-theme="dark"></table>
+          </proto-code>
+        </div>
+
+        <div>
+          <h2>Global CSS Variables</h2>
+          Easily customize your project with global variables:
+          <proto-code language="css">
+            <!-- prettier-ignore -->
+            :root {
+              --color-primary: #0073e4;
+              --space-base: 4px;
+              --border-radius: 4px;
+            }
+          </proto-code>
+        </div>
+
+        <div>
+          <h2>Utility Classes for Spacing</h2>
+          ProtoCSS provides utility classes for margins, padding, and spacing. Examples:
+          <proto-code preview>
+            <button>Button 1</button>
+            <button class="ml-3">Button with left margin</button>
+          </proto-code>
+        </div>
+      </div>
+      <div>
+        <h3>When to Use ProtoCSS</h3>
+
+        <ul>
+          <li>
+            <strong>Quick prototyping</strong> - Build functional, visually consistent
+            websites without writing custom CSS.
+          </li>
+          <li>
+            <strong>Accessible design</strong> - Automatically styled semantic elements
+            help meet accessibility standards.
+          </li>
+          <li>
+            <strong>Flexible styling</strong> - Use the <code>.reset</code> class to
+            revert elements to browser defaults whenever needed, making it easy to grow
+            and adapt your project.
+          </li>
+          <li>
+            <strong>Light/Dark mode support out-of-the-box</strong> - Perfect for modern
+            websites needing theme flexibility.
+          </li>
+          <li>
+            <strong>Customizable without complexity</strong> - Easily override global
+            variables or use utility classes for precise spacing and layout.
+          </li>
+          <li>
+            <strong>Projects where simplicity matters</strong> - Keep your markup clean
+            and readable while still looking polished.
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
