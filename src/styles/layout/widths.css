@@ -1,0 +1,66 @@
+@layer utilities {
+  :root {
+    --width-sm: calc((1 / 3) * min(100%, var(--layout-max-width)));
+    --width-md: calc((1 / 2) * min(100%, var(--layout-max-width)));
+    --width-lg: calc((2 / 3) * min(100%, var(--layout-max-width)));
+    --width-xl: calc((3 / 3) * min(100%, var(--layout-max-width)));
+  }
+
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: var(--space-gap);
+
+    .width-sm {
+      width: calc(var(--width-sm) - var(--space-gap) / 2);
+    }
+    .width-md {
+      width: calc(var(--width-md) - var(--space-gap) / 2);
+    }
+    .width-lg {
+      width: calc(var(--width-lg) - var(--space-gap) / 2);
+    }
+    .width-xl {
+      width: var(--width-xl);
+    }
+  }
+
+  /* Utility classes */
+  .items-end {
+    align-items: end;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .justify-end {
+    justify-content: end;
+  }
+
+  .grow {
+    flex-grow: 1;
+  }
+
+  .width-sm {
+    width: calc(var(--width-sm));
+  }
+  .width-md {
+    width: calc(var(--width-md));
+  }
+  .width-lg {
+    width: calc(var(--width-lg));
+  }
+  .width-xl {
+    width: var(--width-xl);
+  }
+}

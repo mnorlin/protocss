@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <hgroup>
+        <h1>Form</h1>
+      </hgroup>
+
+      <div>
+        <h2>Vertical spacing</h2>
+        <p>
+          Elements wrapped inside a <code>&lt;form&gt;</code> has an automatic vertical
+          spacing.
+        </p>
+        <proto-code preview>
+          <form class="space-y-gap">
+            <label for="email">
+              E-mail
+              <input type="email" />
+            </label>
+
+            <label>
+              Password
+              <input type="password" />
+            </label>
+
+            <label>
+              <input type="checkbox" />
+              Remember me
+            </label>
+
+            <button>Login</button>
+          </form>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Horizontal spacing</h2>
+        <p>By using <code>.space-x-gap</code> the form can be vertical</p>
+        <proto-code preview>
+          <form class="space-x-gap">
+            <label>
+              First name
+              <input type="text" />
+            </label>
+
+            <label>
+              Last name
+              <input type="text" />
+            </label>
+
+            <button class="mt-gap">Login</button>
+          </form>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Grouping</h2>
+        <p>Elements can be grouped in a <code>&lt;fieldset&gt;</code></p>
+        <proto-code preview>
+          <fieldset>
+            <legend>Question</legend>
+
+            <label> <input type="checkbox" /> Checkbox 1 </label>
+            <label> <input type="checkbox" /> Checkbox 2 </label>
+            <label> <input type="checkbox" /> Checkbox 3 </label>
+          </fieldset>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

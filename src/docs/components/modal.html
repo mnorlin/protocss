@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <div>
+        <h1>Modal</h1>
+      </div>
+
+      <proto-code preview>
+        <button command="show-modal" commandfor="my-dialog">Click me!</button>
+
+        <dialog id="my-dialog">
+          <section>
+            <header>
+              Modal header
+              <button command="close" commandfor="my-dialog"></button>
+            </header>
+
+            Congratulations, you just opened a modal with pure HTML and CSS!
+
+            <footer>
+              <button command="close" commandfor="my-dialog">Close</button>
+            </footer>
+          </section>
+        </dialog>
+      </proto-code>
+    </main>
+  </body>
+</html>

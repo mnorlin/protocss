@@ -1,0 +1,38 @@
+<aside id="desktop-menu">
+  <load src="/app/menu.html" />
+</aside>
+
+<aside popover id="mobile-menu">
+  <load src="/app/menu.html" />
+</aside>
+
+<script>
+  updateActiveMenuItem();
+  restoreScroll();
+
+  function updateActiveMenuItem() {
+    const path = window.location.pathname;
+    const menuLinks = document.querySelectorAll("body > aside menu a");
+    [...menuLinks].forEach((link) => {
+      const linkPath = new URL(link.href).pathname;
+
+      if (path == linkPath) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function restoreScroll() {
+    const sidebar = document.getElementById("desktop-menu");
+
+    document.body.addEventListener("htmx:beforeRequest", (evt) => {
+      document.body.dataset.scrollTop = sidebar.scrollTop;
+    });
+
+    document.body.addEventListener("htmx:afterSwap", (evt) => {
+      sidebar.scrollTop = document.body.dataset.scrollTop || 0;
+    });
+  }
+</script>

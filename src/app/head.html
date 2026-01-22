@@ -1,0 +1,68 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProtoCSS</title>
+  <link rel="stylesheet" href="/styles/index.css" />
+  <script type="module" src="/index.js"></script>
+  <style>
+    body:not(.reset) {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "header header header"
+        "aside main main";
+      align-items: stretch;
+      min-height: 100vh;
+
+      > header {
+        grid-area: header;
+      }
+
+      > main {
+        grid-area: main;
+      }
+
+      > aside {
+        grid-area: aside;
+      }
+    }
+
+    body:not(.reset) {
+      > header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-gap);
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--space-2) var(--space-4);
+        height: fit-content;
+      }
+
+      > aside {
+        width: fit-content;
+        min-width: 200px;
+      }
+
+      > main {
+        padding: var(--space-4);
+      }
+    }
+
+    @media (width >= 720px) {
+      #desktop-menu {
+        display: block !important;
+      }
+
+      #menu-open-button {
+        display: none !important;
+      }
+
+      #mobile-menu {
+        display: none !important;
+      }
+    }
+  </style>
+  <style id="config">
+    /* Injected theme config */
+  </style>
+</head>

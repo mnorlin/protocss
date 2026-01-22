@@ -1,0 +1,36 @@
+<header>
+  <div class="space-x-gap" style="align-items: center">
+    <button
+      id="menu-open-button"
+      class="reset"
+      popovertarget="mobile-menu"
+      aria-label="Main menu"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="h3 mb-0" style="color: var(--color-primary)">ProtoCSS</div>
+    <div
+      style="
+        font-size: var(--font-small, 0.75rem);
+        color: var(--color-danger, red);
+        padding: var(--space-1) var(--space-2);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-danger);
+        background-color: var(--color-danger-lighter);
+        font-weight: bold;
+        margin-left: calc(-1 * var(--space-3));
+      "
+    >
+      BETA VERSION
+    </div>
+  </div>
+  <button aria-label="Open theme config" popovertarget="theme-config">
+    <i class="bi bi-palette2"></i>
+  </button>
+  <proto-config
+    configId="config"
+    id="theme-config"
+    popover
+    style="background-color: var(--color-base)"
+  ></proto-config>
+</header>

@@ -1,0 +1,74 @@
+button[type="button"][commandfor][command="toggle-popover"] {
+  &::after {
+    display: inline-block;
+    vertical-align: middle;
+    transform-origin: center;
+    mask: var(--symbol-chevron-down) center/contain no-repeat;
+    transition: transform 0.2s;
+    margin-inline-start: var(--space-1);
+    background-color: var(--color-primary-contrast);
+    width: 1em;
+    height: 1em;
+    content: "";
+  }
+
+  & ~ ul[popover] {
+    position: absolute;
+    top: anchor(bottom);
+    margin-top: var(--space-1);
+    margin-inline-start: 0;
+    inset-inline-start: anchor(start);
+    box-shadow: var(--interactive-shadow);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--space-1) 0;
+    width: anchor-size(width);
+    min-width: fit-content;
+    list-style: none;
+
+    hr {
+      margin-block-start: var(--space-1);
+      margin-block-end: var(--space-1);
+    }
+
+    a {
+      padding: var(--space-2) var(--space-3);
+      width: -webkit-fill-available;
+      width: stretch;
+      color: var(--color-text);
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--color-contrast-1);
+      }
+
+      &:active {
+        background-color: var(--color-contrast-2);
+      }
+
+      &[aria-current="page"],
+      &[aria-current="true"] {
+        background-color: var(--color-primary);
+        color: var(--color-primary-contrast);
+      }
+    }
+
+    button {
+      all: unset;
+      cursor: pointer;
+      padding: var(--space-2) var(--space-3);
+      width: -webkit-fill-available;
+      width: stretch;
+      color: var(--color-text);
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--color-contrast-1);
+      }
+
+      &:active {
+        background-color: var(--color-contrast-2);
+      }
+    }
+  }
+}
