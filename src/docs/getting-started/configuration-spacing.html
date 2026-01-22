@@ -1,0 +1,44 @@
+<nav role="tablist" hx-target="this" hx-swap="outerHTML">
+  <button
+    id="colors"
+    aria-controls="colors-content"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-colors.html"
+  >
+    Colors
+  </button>
+  <button
+    id="typography"
+    aria-controls="typography-content"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-typography.html"
+  >
+    Typography
+  </button>
+  <button
+    id="spacing"
+    aria-controls="spacing-content"
+    aria-selected="true"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-spacing.html"
+  >
+    Spacing
+  </button>
+</nav>
+<div
+  hidden
+  id="colors-content"
+  aria-labelledby="colors"
+  role="tabpanel"
+  hx-swap-oob="true"
+></div>
+<div
+  hidden
+  id="typography-content"
+  aria-labelledby="typography"
+  role="tabpanel"
+  hx-swap-oob="true"
+></div>
+<div id="spacing-content" aria-labelledby="spacing" role="tabpanel" hx-swap-oob="true">
+  TODO
+</div>

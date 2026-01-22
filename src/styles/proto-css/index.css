@@ -1,0 +1,23 @@
+@layer reset, base, components, utilities;
+
+@import "modern-normalize/modern-normalize.css" layer(reset);
+
+@import "symbols.css" layer(base);
+
+@import "colors.css" layer(base);
+
+@import "typography.css" layer(base);
+@import "typography-utilities.css" layer(utilities);
+
+@import "space.css" layer(base);
+@import "space-utilities.css" layer(utilities);
+
+@import "components/index.css" layer(components);
+@import "form/index.css" layer(components);
+
+@layer base {
+  *:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 2px;
+  }
+}

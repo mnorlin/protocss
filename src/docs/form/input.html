@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <div>
+        <h1>Input</h1>
+      </div>
+
+      <div>
+        <h2>Input</h2>
+        <proto-code preview>
+          <form class="space-y-gap">
+            <div>
+              <label>
+                Regular
+                <input type="text" aria-describedby="form-text" />
+              </label>
+              <div id="help-text" class="form-text">
+                This is some help text to the input
+              </div>
+            </div>
+
+            <div>
+              <label>
+                Invalid
+                <input aria-invalid="true" aria-describedby="error-text" />
+              </label>
+              <span id="error-text">
+                This help text can be used to give details about the input error
+              </span>
+            </div>
+
+            <label>
+              Disabled
+              <input disabled type="text" />
+            </label>
+          </form>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Input types</h2>
+        <proto-code preview>
+          <form class="space-y-gap">
+            <label>
+              Text
+              <input type="text" />
+            </label>
+
+            <label>
+              Number
+              <input type="number" />
+            </label>
+
+            <label>
+              Password
+              <input type="password" />
+            </label>
+
+            <label>
+              Date
+              <input type="date" />
+            </label>
+
+            <label>
+              Time
+              <input type="time" />
+            </label>
+
+            <label>
+              Date and time
+              <input type="datetime-local" />
+            </label>
+          </form>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

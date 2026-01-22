@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <style>
+      .color {
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid var(--color-contrast);
+        border-radius: 50%;
+        background-color: transparent;
+        width: 1rem;
+        height: 1rem;
+      }
+    </style>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <hgroup>
+        <h1>Configuration</h1>
+        <p>
+          ProtoCSS is primarily configured using CSS variables, allowing the framework to
+          be tailored to specific project requirements.
+        </p>
+      </hgroup>
+
+      <h2 class="reset h6">Global tokens</h2>
+      <p>
+        Global tokens define the primitive values of the ProtoCSS variable system and act
+        as the source of truth for all other tokens. Updating a token such as
+        <code>--color-primary</code> automatically generates a predefined set of six color
+        shades used throughout the system.
+      </p>
+
+      <h2 class="reset h6">Derived tokens</h2>
+      <p>
+        Derived tokens are automatically generated from <em>Global tokens</em> and
+        represent computed values such as shades or contrasts. These tokens are not
+        intended to be modified directly.
+      </p>
+
+      <h2 class="reset h6">Alias tokens</h2>
+      <p class="mb-gap">
+        Alias tokens assign semantic roles to <em>Global</em> and
+        <em>Derived tokens</em> and are reused across components for consistent styling.
+        For example, <code>--color-border</code> defines the color used for all borders in
+        ProtoCSS.
+      </p>
+
+      <nav role="tablist" hx-target="this" hx-swap="outerHTML">
+        <button
+          id="colors"
+          aria-controls="colors-content"
+          aria-selected="true"
+          role="tab"
+          hx-trigger="click, load"
+          hx-get="/docs/getting-started/configuration-colors.html"
+        >
+          Colors
+        </button>
+        <button
+          id="typography"
+          aria-controls="typography-content"
+          role="tab"
+          hx-get="/docs/getting-started/configuration-typography.html"
+        >
+          Typography
+        </button>
+        <button
+          id="spacing"
+          aria-controls="spacing-content"
+          role="tab"
+          hx-get="/docs/getting-started/configuration-spacing.html"
+        >
+          Spacing
+        </button>
+      </nav>
+      <div id="colors-content" aria-labelledby="colors" role="tabpanel"></div>
+      <div
+        hidden
+        id="typography-content"
+        aria-labelledby="typography"
+        role="tabpanel"
+      ></div>
+      <div hidden id="spacing-content" aria-labelledby="spacing" role="tabpanel"></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main id="main" class="container">
+      <hgroup>
+        <h1>Table</h1>
+        <p>
+          Clean styling of the <code>&lt;table&gt;</code> element with support for row
+          links.
+        </p>
+      </hgroup>
+
+      <div>
+        <h2>Simple table</h2>
+        <p>This is the basic style of <code>&lt;table&gt;</code>.</p>
+        <proto-code preview>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Alice</td>
+                <td>Smith</td>
+                <td>42</td>
+              </tr>
+              <tr>
+                <td>Bob</td>
+                <td>Johnson</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <td>Eve</td>
+                <td>Brown</td>
+                <td>25</td>
+              </tr>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th colspan="2">Mean age</th>
+                <td>40</td>
+              </tr>
+            </tfoot>
+          </table>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Table with row links</h2>
+        <p>
+          If a row header cell contains a link, the framework automatically makes the
+          whole row clickable.
+        </p>
+        <proto-code preview>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row"><a href="#">Alice</a></th>
+                <td>Smith</td>
+                <td>42</td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="#">Bob</a></th>
+                <td>Johnson</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="#">Eve</a></th>
+                <td>Brown</td>
+                <td>25</td>
+              </tr>
+            </tbody>
+          </table>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Advanced table</h2>
+        <p>A more complex table that shows</p>
+        <ul>
+          <li>table caption, <code>&lt;caption&gt;</code></li>
+          <li>column sorting, <code>aria-sort="descending"</code></li>
+          <li>grouping of rows, <code>scope="colgroup"</code></li>
+        </ul>
+        <proto-code preview>
+          <table>
+            <caption>
+              Table 1: This is a table description
+            </caption>
+
+            <thead>
+              <tr>
+                <th scope="col" aria-sort="descending">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="colgroup" colspan="3">Administrators</th>
+              </tr>
+              <tr>
+                <td>Alice</td>
+                <td>Smith</td>
+                <td>42</td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="colgroup" colspan="3">Users</th>
+              </tr>
+              <tr>
+                <td>Bob</td>
+                <td>Johnson</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <td>Eve</td>
+                <td>Brown</td>
+                <td>25</td>
+              </tr>
+            </tbody>
+          </table>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>
