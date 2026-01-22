@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProtoCSS</title>
+  <style>.container{margin:0 auto;max-width:800px;width:100%}body>header{backdrop-filter:blur(5px);background-color:oklch(from var(--color-base) l c h/50%);display:flex;justify-content:space-between;position:sticky;top:0;z-index:100;button{box-shadow:none}[popover]{border:1px solid var(--color-border);border-radius:4px;box-shadow:var(--interactive-shadow-lg);inset-block-start:anchor(bottom);inset-inline-end:anchor(inline-end);margin-block-start:4px;margin-inline-end:0;padding:16px;width:400px}}body>aside{border-inline-end:1px solid var(--color-border);min-width:200px;padding:var(--space-3) var(--space-5);menu menu{border-inline-start:1px solid var(--color-contrast-2);li{margin:0;margin-inline-start:-1px}}a{border-inline-start:1px solid transparent;color:var(--color-contrast-4);font-size:.9em;padding:var(--space-1) var(--space-3);text-decoration:none;&:hover{border-color:var(--color-contrast-3)}&:hover,&[aria-current=page]{color:var(--color-contrast-6)}&[aria-current=page]{border-color:var(--color-contrast);font-weight:700}}menu{display:flex;flex-direction:column;gap:var(--space-1);list-style:none;margin:var(--space-3) 0 var(--space-8) 0;padding:0;strong{color:var(--color-contrast-4);display:block;font-size:var(--font-small);text-transform:uppercase}}}#desktop-menu{display:none}#mobile-menu{background:var(--color-base);border:none;display:block;height:100dvh;inset:unset;inset-block-start:0;inset-inline-start:0;min-width:250px;transform:translateX(-100%);transition:transform .2s,overlay .2s ease-out;width:fit-content;&:popover-open{transform:translateX(0)}&::backdrop{backdrop-filter:blur(1px);background-color:rgba(0,0,0,.8)}}@media (width >= 720px){#desktop-menu{display:block}#menu-open-button{display:none}}[dir=rtl]{#mobile-menu{display:block;transform:translateX(100%);&:popover-open{transform:translateX(0)}}}</style>
+  <style id="config"></style>
+  <script type="module" crossorigin src="/assets/index-CaNWPi6p.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DdFBqlUT.css">
+</head>
+
+  <body>
+    <header>
+  <div class="space-x-gap" style="align-items: center">
+    <button
+      id="menu-open-button"
+      class="reset"
+      popovertarget="mobile-menu"
+      aria-label="Main menu"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="h3 mb-0" style="color: var(--color-primary)">ProtoCSS</div>
+  </div>
+  <button popovertarget="theme-config"><i class="bi bi-palette2"></i></button>
+  <proto-config configId="config" id="theme-config" popover></proto-config>
+</header>
+
+    <aside id="desktop-menu">
+  <menu class="space-y-gap" hx-boost="true">
+  <li>
+    <strong>Getting started</strong>
+    <menu>
+      <li><a href="/">Overview</a></li>
+      <li><a href="/docs/getting-started/usage.html">Usage</a></li>
+      <li><a href="/docs/getting-started/configuration.html">Configuration</a></li>
+    </menu>
+  </li>
+
+  <li>
+    <strong>Content</strong>
+    <menu>
+      <li><a href="/docs/content/code.html">Code</a></li>
+      <li><a href="/docs/content/link.html">Link</a></li>
+      <li><a href="/docs/content/typography.html">Typography</a></li>
+      <li><a href="/docs/content/table.html">Table</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong>Form</strong>
+    <menu>
+      <li><a href="/docs/form/overview.html">Overview</a></li>
+      <li><a href="/docs/form/checkbox.html">Checkbox</a></li>
+      <li><a href="/docs/form/input.html">Input</a></li>
+      <li><a href="/docs/form/select.html">Select</a></li>
+      <li><a href="/docs/form/switch.html">Switch</a></li>
+      <li><a href="/docs/form/radio.html">Radio button</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong>Components</strong>
+    <menu>
+      <li><a href="/docs/components/accordion.html">Accordion</a></li>
+      <li><a href="/docs/components/alert.html">Alert</a></li>
+      <li><a href="/docs/components/button.html">Button</a></li>
+      <li><a href="/docs/components/card.html">Card</a></li>
+      <li><a href="/docs/components/dropdown.html">Dropdown</a></li>
+      <li><a href="/docs/components/modal.html">Modal</a></li>
+      <li><a href="/docs/components/progress.html">Progress</a></li>
+      <li><a href="/docs/components/tabs.html">Tabs</a></li>
+    </menu>
+  </li>
+  <!--<li>
+    <strong><i class="bi bi-file-richtext"></i> Content</strong>
+    <menu>
+      <li><a href="/docs/content/code.html">Code</a></li>
+      <li><a href="/docs/content/link.html">Link</a></li>
+      <li><a href="/docs/content/typography.html">Typography</a></li>
+      <li><a href="/docs/content/table.html">Table</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong><i class="bi bi-ui-radios"></i> Form</strong>
+    <menu>
+      <li><a href="/docs/form/overview.html">Overview</a></li>
+      <li><a href="/docs/form/checkbox.html">Checkbox</a></li>
+      <li><a href="/docs/form/input.html">Input</a></li>
+      <li><a href="/docs/form/select.html">Select</a></li>
+      <li><a href="/docs/form/switch.html">Switch</a></li>
+      <li><a href="/docs/form/radio.html">Radio button</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong><i class="bi bi-box"></i> Components</strong>
+    <menu>
+      <li><a href="/docs/components/accordion.html">Accordion</a></li>
+      <li><a href="/docs/components/alert.html">Alert</a></li>
+      <li><a href="/docs/components/button.html">Button</a></li>
+      <li><a href="/docs/components/card.html">Card</a></li>
+      <li><a href="/docs/components/dropdown.html">Dropdown</a></li>
+      <li><a href="/docs/components/modal.html">Modal</a></li>
+      <li><a href="/docs/components/progress.html">Progress</a></li>
+      <li><a href="/docs/components/tabs.html">Tabs</a></li>
+    </menu>
+  </li>-->
+</menu>
+
+</aside>
+
+<aside popover id="mobile-menu">
+  <menu class="space-y-gap" hx-boost="true">
+  <li>
+    <strong>Getting started</strong>
+    <menu>
+      <li><a href="/">Overview</a></li>
+      <li><a href="/docs/getting-started/usage.html">Usage</a></li>
+      <li><a href="/docs/getting-started/configuration.html">Configuration</a></li>
+    </menu>
+  </li>
+
+  <li>
+    <strong>Content</strong>
+    <menu>
+      <li><a href="/docs/content/code.html">Code</a></li>
+      <li><a href="/docs/content/link.html">Link</a></li>
+      <li><a href="/docs/content/typography.html">Typography</a></li>
+      <li><a href="/docs/content/table.html">Table</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong>Form</strong>
+    <menu>
+      <li><a href="/docs/form/overview.html">Overview</a></li>
+      <li><a href="/docs/form/checkbox.html">Checkbox</a></li>
+      <li><a href="/docs/form/input.html">Input</a></li>
+      <li><a href="/docs/form/select.html">Select</a></li>
+      <li><a href="/docs/form/switch.html">Switch</a></li>
+      <li><a href="/docs/form/radio.html">Radio button</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong>Components</strong>
+    <menu>
+      <li><a href="/docs/components/accordion.html">Accordion</a></li>
+      <li><a href="/docs/components/alert.html">Alert</a></li>
+      <li><a href="/docs/components/button.html">Button</a></li>
+      <li><a href="/docs/components/card.html">Card</a></li>
+      <li><a href="/docs/components/dropdown.html">Dropdown</a></li>
+      <li><a href="/docs/components/modal.html">Modal</a></li>
+      <li><a href="/docs/components/progress.html">Progress</a></li>
+      <li><a href="/docs/components/tabs.html">Tabs</a></li>
+    </menu>
+  </li>
+  <!--<li>
+    <strong><i class="bi bi-file-richtext"></i> Content</strong>
+    <menu>
+      <li><a href="/docs/content/code.html">Code</a></li>
+      <li><a href="/docs/content/link.html">Link</a></li>
+      <li><a href="/docs/content/typography.html">Typography</a></li>
+      <li><a href="/docs/content/table.html">Table</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong><i class="bi bi-ui-radios"></i> Form</strong>
+    <menu>
+      <li><a href="/docs/form/overview.html">Overview</a></li>
+      <li><a href="/docs/form/checkbox.html">Checkbox</a></li>
+      <li><a href="/docs/form/input.html">Input</a></li>
+      <li><a href="/docs/form/select.html">Select</a></li>
+      <li><a href="/docs/form/switch.html">Switch</a></li>
+      <li><a href="/docs/form/radio.html">Radio button</a></li>
+    </menu>
+  </li>
+  <li>
+    <strong><i class="bi bi-box"></i> Components</strong>
+    <menu>
+      <li><a href="/docs/components/accordion.html">Accordion</a></li>
+      <li><a href="/docs/components/alert.html">Alert</a></li>
+      <li><a href="/docs/components/button.html">Button</a></li>
+      <li><a href="/docs/components/card.html">Card</a></li>
+      <li><a href="/docs/components/dropdown.html">Dropdown</a></li>
+      <li><a href="/docs/components/modal.html">Modal</a></li>
+      <li><a href="/docs/components/progress.html">Progress</a></li>
+      <li><a href="/docs/components/tabs.html">Tabs</a></li>
+    </menu>
+  </li>-->
+</menu>
+
+</aside>
+
+<script>
+  updateActiveMenuItem();
+
+  function updateActiveMenuItem() {
+    const path = window.location.pathname;
+    const menuLinks = document.querySelectorAll("body > aside menu a");
+    [...menuLinks].forEach((link) => {
+      const linkPath = new URL(link.href).pathname;
+
+      if (path == linkPath) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+</script>
+
+    <main class="container">
+      <hgroup>
+        <h1>Table</h1>
+        <p>
+          Clean styling of the <code>&lt;table&gt;</code> element with support for row
+          links.
+        </p>
+      </hgroup>
+
+      <div>
+        <h2>Simple table</h2>
+        <p>This is the basic style of <code>&lt;table&gt;</code>.</p>
+        <proto-code preview>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Alice</td>
+                <td>Smith</td>
+                <td>42</td>
+              </tr>
+              <tr>
+                <td>Bob</td>
+                <td>Johnson</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <td>Eve</td>
+                <td>Brown</td>
+                <td>25</td>
+              </tr>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th colspan="2">Mean age</th>
+                <td>40</td>
+              </tr>
+            </tfoot>
+          </table>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Table with row links</h2>
+        <p>
+          If a row header cell contains a link, the framework automatically makes the
+          whole row clickable.
+        </p>
+        <proto-code preview>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row"><a href="#">Alice</a></th>
+                <td>Smith</td>
+                <td>42</td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="#">Bob</a></th>
+                <td>Johnson</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <th scope="row"><a href="#">Eve</a></th>
+                <td>Brown</td>
+                <td>25</td>
+              </tr>
+            </tbody>
+          </table>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Advanced table</h2>
+        <p>A more complex table that shows</p>
+        <ul>
+          <li>table caption, <code>&lt;caption&gt;</code></li>
+          <li>column sorting, <code>aria-sort="descending"</code></li>
+          <li>grouping of rows, <code>scope="colgroup"</code></li>
+        </ul>
+        <proto-code preview>
+          <table>
+            <caption>
+              Table 1: This is a table description
+            </caption>
+
+            <thead>
+              <tr>
+                <th scope="col" aria-sort="descending">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="colgroup" colspan="3">Administrators</th>
+              </tr>
+              <tr>
+                <td>Alice</td>
+                <td>Smith</td>
+                <td>42</td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="colgroup" colspan="3">Users</th>
+              </tr>
+              <tr>
+                <td>Bob</td>
+                <td>Johnson</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <td>Eve</td>
+                <td>Brown</td>
+                <td>25</td>
+              </tr>
+            </tbody>
+          </table>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>
