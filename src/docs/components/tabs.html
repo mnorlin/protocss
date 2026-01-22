@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main class="container">
+      <div>
+        <h1>Tab menu</h1>
+      </div>
+
+      <proto-code preview>
+        <nav role="tablist">
+          <a
+            id="tab1"
+            aria-controls="tab1-content"
+            href="#tab1"
+            aria-selected="true"
+            role="tab"
+            >Tab 1</a
+          >
+          <a id="tab2" aria-controls="tab2-content" href="#tab2" role="tab">Tab 2</a>
+          <a id="tab3" aria-controls="tab3-content" href="#tab3" role="tab">Tab 3</a>
+        </nav>
+        <div id="tab1-content" aria-labelledby="tab1" role="tabpanel">
+          Tabs1 are great
+        </div>
+        <div hidden id="tab2-content" aria-labelledby="tab2" role="tabpanel">
+          Tabs2 are great
+        </div>
+        <div hidden id="tab3-content" aria-labelledby="tab3" role="tabpanel">
+          Tabs3 are great
+        </div>
+      </proto-code>
+
+      <proto-code preview>
+        <div>
+          <nav role="tablist" aria-orientation="vertical">
+            <a
+              id="tab1"
+              aria-controls="tab1-content"
+              href="#tab1"
+              aria-selected="true"
+              role="tab"
+              >Tab 1</a
+            >
+            <a id="tab2" aria-controls="tab2-content" href="#tab2" role="tab">Tab 2</a>
+            <a id="tab3" aria-controls="tab3-content" href="#tab3" role="tab">Tab 3</a>
+          </nav>
+          <div id="tab1-content" aria-labelledby="tab1" role="tabpanel">
+            Tabs1 are great
+          </div>
+          <div hidden id="tab2-content" aria-labelledby="tab2" role="tabpanel">
+            Tabs2 are great
+          </div>
+          <div hidden id="tab3-content" aria-labelledby="tab3" role="tabpanel">
+            Tabs3 are great
+          </div>
+        </div>
+      </proto-code>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+
+    <main class="container">
+      <hgroup>
+        <h1>Typography</h1>
+        <p>
+          Documentation and examples typography, including global settings, headings, body
+          text, lists, and more.
+        </p>
+      </hgroup>
+
+      <proto-code preview>
+        <div slot="semantic">
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+
+          <p>Paragraph</p>
+          <small>small</small>
+        </div>
+
+        <div slot="classes">
+          <span class="h1">Heading 1</span>
+          <span class="h2">Heading 2</span>
+          <span class="h3">Heading 3</span>
+          <span class="h4">Heading 4</span>
+          <span class="h5">Heading 5</span>
+          <span class="h6">Heading 6</span>
+
+          <span class="p">Paragraph</span>
+          <span class="small">small</span>
+        </div>
+      </proto-code>
+
+      <div>
+        <p>
+          By using the class <code>.reset</code> you can remove the default styling, and
+          apply your own. This makes it possible to create custom styling but still
+          preserve the semantic meaning.
+        </p>
+        <proto-code preview>
+          <div class="text-center">
+            <h1 class="reset small">Now in cinemas</h1>
+            <p class="reset h2">The Matrix</p>
+          </div>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Heading group</h2>
+        <p>
+          By wrapping a header and a paragraph with <code>&lt;hgroup&gt;</code> the
+          paragraph gets slightly bigger and muted color.
+        </p>
+        <proto-code preview>
+          <div slot="semantic">
+            <hgroup>
+              <h2>My title</h2>
+              <p>Some descriptive text</p>
+            </hgroup>
+          </div>
+
+          <div slot="classes">
+            <div class="hgroup">
+              <h2>My title</h2>
+              <p>Some descriptive text</p>
+            </div>
+          </div>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Inline text elements</h2>
+
+        <proto-code preview>
+          <div slot="semantic" class="space-y-gap-sm">
+            <abbr title="Abbrivation">abbr.</abbr>
+            <strong>Strong</strong>
+            <b>Bring attention</b>
+
+            <em>Emphasisis</em>
+            <i>Idiomatic term</i>
+            <cite>Citation</cite>
+
+            <del>Deleted</del>
+            <ins>Inserted</ins>
+            <kbd>Ctrl + f</kbd>
+            <mark>Highlighted</mark>
+            <s>Strikethrough</s>
+            <u>Underline</u>
+            <!-- prettier-ignore -->
+            <span>
+              <sup>235</sup>U
+            </span>
+            <!-- prettier-ignore -->
+            <span>
+              <sub>92</sub>U
+            </span>
+          </div>
+
+          <div slot="classes" class="space-y-gap-sm">
+            <span class="abbr" title="Abbrivation">abbr.</span>
+            <span class="strong">Strong</span>
+            <span class="b">Bring attention</span>
+
+            <span class="em">Emphasisis</span>
+            <span class="i">Idiomatic term</span>
+            <span class="cite">Citation</span>
+
+            <span class="del">Deleted</span>
+            <span class="ins">Inserted</span>
+            <span class="kbd">Ctrl + f</span>
+            <span class="mark">Highlighted</span>
+            <span class="s">Strikethrough</span>
+            <span class="u">Underline</span>
+            <!-- prettier-ignore -->
+            <span>
+              <span class="sup">235</span>U
+            </span>
+            <!-- prettier-ignore -->
+            <span>
+              <span class="sub">92</span>U
+            </span>
+          </div>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Blockquote</h2>
+        <proto-code preview>
+          <figure>
+            <blockquote>
+              <p>Curiosity killed the cat, but satisfaction brought it back.</p>
+            </blockquote>
+            <figcaption>Iggy Pop, <cite>Curiosity</cite></figcaption>
+          </figure>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Utilities</h2>
+        <p>Align text according to the document's text flow.</p>
+        <proto-code preview>
+          <div class="text-start">Aligned start</div>
+          <div class="text-center">Aligned center</div>
+          <div class="text-end">Aligned end</div>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main class="container">
+      <hgroup>
+        <h1>Select</h1>
+      </hgroup>
+
+      <div>
+        <h2>Single select</h2>
+        <proto-code preview>
+          <label>
+            Select an option
+            <select>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </label>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Multi select</h2>
+        <proto-code preview>
+          <label>
+            Select many option
+            <select multiple size="3">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+            <small class="mt-1">Hold <kbd>ctrl</kbd> to select multiple</small>
+          </label>
+        </proto-code>
+      </div>
+
+      <!--
+      <div>
+        <h2>Multi select</h2>
+        <div role="status">
+          This component is not fully accessible, as navigation should be
+          possible via arrow keys etc.
+        </div>
+        <proto-code preview>
+          <div role="listbox" aria-multiselectable="true">
+            <button popovertarget="my-select">Select items</button>
+            <ul id="my-select" popover>
+              <li role="option">
+                <label><input type="checkbox" />Item 1</label>
+              </li>
+              <li role="option">
+                <label><input type="checkbox" />Item 2</label>
+              </li>
+              <li role="option">
+                <label><input type="checkbox" />Item 3</label>
+              </li>
+            </ul>
+          </div>
+        </proto-code>
+      </div>
+      -->
+    </main>
+  </body>
+</html>

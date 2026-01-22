@@ -1,0 +1,47 @@
+/**
+ * Adds a tooltip when hovering an element with the `data-tooltip` attribute.
+ *
+ * Example usage:
+ * <span data-tooltip="I am a tooltip">Hover me</span>
+ */
+
+[data-tooltip] {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    opacity: 0;
+    z-index: 100;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+
+  &::before {
+    transform: translateX(-50%);
+    border-width: 4px 5px 0 5px;
+    border-style: solid;
+    border-color: var(--color-contrast-5) transparent transparent transparent;
+    content: "";
+  }
+
+  &::after {
+    transform: translateX(-50%) translateY(-100%);
+    box-shadow: 0 0 4px -1px rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius);
+    background: var(--color-contrast-5);
+    padding: var(--space-1) var(--space-2);
+    width: max-content;
+    content: attr(data-tooltip);
+    color: white;
+    font-size: var(--font-small);
+    text-align: center;
+  }
+
+  &:hover::after,
+  &:hover::before {
+    opacity: 1;
+  }
+}

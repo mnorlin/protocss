@@ -1,0 +1,26 @@
+fieldset:not(.reset) {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-base);
+  padding: var(--space-4);
+  padding-top: var(--space-3);
+  color: var(--color-text);
+
+  label:has([type="checkbox"], [type="radio"]) {
+    /* Prevents the label click area to fill entire width */
+    align-self: flex-start;
+  }
+
+  legend {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-contrast-1);
+    padding: 0 var(--space-1);
+    font-size: var(--font-small);
+    line-height: 1.5;
+  }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main class="container">
+      <hgroup>
+        <h1>Radio buttons</h1>
+      </hgroup>
+
+      <div>
+        <h2>Vertical</h2>
+        <proto-code preview>
+          <label>
+            <input type="radio" name="my-radio1" checked />
+            Checked
+          </label>
+
+          <label>
+            <input type="radio" name="my-radio1" />
+            Unchecked
+          </label>
+
+          <label>
+            <input type="radio" name="my-radio1" disabled />
+            Disabled
+          </label>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Horizontal</h2>
+        <proto-code preview>
+          <input type="radio" id="box-1" name="my-radio2" checked /><label for="box-1"
+            >Checked</label
+          >
+
+          <input type="radio" id="box-2" name="my-radio2" /><label for="box-2"
+            >Unchecked</label
+          >
+        </proto-code>
+      </div>
+      <div>
+        <h2>Disabled</h2>
+        <proto-code preview>
+          <label>
+            <input disabled type="radio" name="my-radio3" checked />
+            Checked
+          </label>
+
+          <label>
+            <input disabled type="radio" name="my-radio3" />
+            Unchecked
+          </label>
+
+          <label>
+            <input disabled type="radio" name="my-radio3" />
+            Invalid
+          </label>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Sizing</h2>
+        <proto-code preview>
+          <div style="font-size: 2rem">
+            <label>
+              <input type="radio" name="my-radio4" checked />
+              Checked
+            </label>
+
+            <label>
+              <input type="radio" name="my-radio4" />
+              Unchecked
+            </label>
+          </div>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

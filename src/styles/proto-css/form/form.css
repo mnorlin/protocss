@@ -1,0 +1,5 @@
+form:not(.reset) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap);
+}

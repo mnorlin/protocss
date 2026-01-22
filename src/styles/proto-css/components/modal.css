@@ -1,0 +1,85 @@
+dialog:has(> section, > .card):not(.reset),
+.modal {
+  --start-translation: translateY(-100vh);
+  border: none;
+  padding: 0;
+  width: var(--width-sm);
+
+  button[command="close"]:empty {
+    all: unset;
+    cursor: pointer;
+    margin-right: calc(-1 * var(--space-3));
+    background-color: transparent;
+    padding: 0 var(--space-2);
+    width: var(--space-6);
+    color: var(--color-contrast-3);
+    &:hover {
+      background-color: transparent;
+      color: var(--color-contrast-4);
+    }
+    &:active {
+      color: var(--color-contrast-5);
+    }
+    &::before {
+      content: "×";
+      font-weight: normal;
+      font-size: var(--space-8);
+      line-height: 0.6;
+    }
+  }
+}
+
+dialog:has(> section, > .card):not(.reset),
+.modal {
+  transform: var(--start-translation);
+  opacity: 0;
+  transition:
+    all var(--transition-duration),
+    display var(--transition-duration);
+  transition-behavior: allow-discrete;
+  width: fit-content;
+
+  &[open],
+  &.modal--open {
+    transform: translateY(0);
+    opacity: 1;
+    border-radius: var(--border-radius);
+    @starting-style {
+      transform: var(--start-translation);
+      opacity: 0;
+    }
+  }
+}
+
+dialog:has(> section, > .card):not(.reset) {
+  section:not(.reset) {
+    border: 0;
+
+    header {
+      justify-content: space-between;
+    }
+
+    footer {
+      justify-content: end;
+    }
+  }
+}
+
+/* backdrop animation */
+dialog:has(> section, > .card):not(.reset)::backdrop {
+  opacity: 0;
+  transition: all var(--transition-duration);
+  transition-behaviour: allow-discrete;
+  @starting-style {
+    opacity: 1;
+  }
+}
+
+dialog[open]:has(> section, > .card):not(.reset)::backdrop {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  @starting-style {
+    opacity: 0;
+  }
+}

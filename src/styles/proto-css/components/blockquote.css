@@ -1,0 +1,21 @@
+blockquote:not(.reset),
+.blockquote {
+  margin-inline-start: 0;
+  border-inline-start: var(--space-1) solid var(--color-contrast-2);
+  padding-inline-start: var(--space-4);
+  p {
+    font-size: var(--font-h5);
+  }
+
+  ~ figcaption {
+    margin-inline-start: var(--space-5);
+    color: var(--color-text-muted);
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+figure:has(blockquote) {
+  margin: 0;
+}

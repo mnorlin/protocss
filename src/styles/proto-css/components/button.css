@@ -1,0 +1,115 @@
+button:not(.reset),
+[role="button"]:not(.reset),
+input[type="submit"]:not(.reset),
+.button {
+  display: inline-block;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.4s;
+  box-shadow: var(--interactive-shadow-lg);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  padding: var(--space-form-y) var(--space-form-x);
+  width: max-content;
+  color: var(--color-primary-contrast);
+  font-weight: normal;
+  font-size: 1rem;
+  text-decoration: none;
+  text-wrap: nowrap;
+
+  &::before {
+    vertical-align: -0.125em;
+    transition-duration: 0.2s;
+    transition-property: margin, width;
+    margin-inline-end: 0;
+    width: 0;
+    content: "";
+  }
+
+  &[aria-busy="true"],
+  &.busy {
+    &::before {
+      display: inline-block;
+      mask: var(--symbol-busy) center/contain no-repeat;
+      margin-inline-end: var(--space-gap-sm);
+      background-color: currentColor;
+      width: 1em;
+      height: 1em;
+      content: "";
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    box-shadow: none;
+    border-color: var(--color-contrast-2);
+    background-color: var(--color-contrast-1);
+    color: var(--color-contrast-4);
+  }
+
+  &:hover:not(:disabled),
+  &.hover:not(.disabled) {
+    cursor: pointer;
+    border-color: var(--color-primary-4);
+    background-color: var(--color-primary-4);
+  }
+
+  &:is(:active, [aria-pressed="true"]):not(:disabled),
+  &.active:not(.disabled) {
+    box-shadow: none;
+    border-color: var(--color-primary-5);
+    background-color: var(--color-primary-5);
+  }
+}
+
+[role="group"]:not(.reset),
+.role-group {
+  display: inline-flex;
+
+  > :is(button, [role="button"], input[type="submit"]):not(.reset),
+  > .button {
+    box-shadow: none;
+    &:not(:disabled, .disabled) {
+      border: 1px solid var(--color-primary-4);
+    }
+    &:not(:first-child) {
+      border-inline-start-width: 0;
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      width: auto;
+      content: "";
+    }
+
+    &:not(:active, :disabled, .active, .disabled)::before {
+      box-shadow: var(--interactive-shadow-lg);
+    }
+
+    &:not(:last-child) {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
+}
+
+input[type="reset"]:not(.reset) {
+  cursor: pointer;
+  border: 1px solid transparent; /* make it same height as other buttons */
+  background-color: transparent;
+  padding: var(--space-form-y) 0;
+  width: max-content;
+  color: var(--color-danger);
+}

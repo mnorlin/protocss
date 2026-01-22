@@ -1,0 +1,5 @@
+hr:not(.reset) {
+  border: 1px solid var(--color-border);
+  border-bottom: 0;
+  width: 100%;
+}

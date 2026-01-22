@@ -1,0 +1,79 @@
+:root {
+  color-scheme: light dark;
+
+  /* Global tokens */
+  --color-primary: #1c71d8;
+  --color-primary-contrast: white; /*contrast-color(var(--color-primary));*/
+  --color-green: oklch(0.58 0.23 170);
+  --color-yellow: oklch(92.486% 0.19429 102.902);
+  --color-red: oklch(53.583% 0.20269 31.947);
+
+  --color-base: light-dark(white, rgb(34, 34, 34));
+  --color-contrast: light-dark(rgb(34, 34, 34), white);
+
+  /* Derived global tokens */
+  --color-primary-1: color-mix(in oklch, var(--color-primary), var(--color-base) 92%);
+  --color-primary-2: color-mix(in oklch, var(--color-primary), var(--color-base) 70%);
+  --color-primary-3: var(--color-primary);
+  --color-primary-4: color-mix(in oklch, var(--color-primary), var(--color-contrast) 15%);
+  --color-primary-5: color-mix(in oklch, var(--color-primary), var(--color-contrast) 30%);
+
+  --color-green-1: color-mix(in oklch, var(--color-green), var(--color-base) 90%);
+  --color-green-2: color-mix(in oklch, var(--color-green), var(--color-base) 70%);
+  --color-green-3: var(--color-green);
+
+  --color-red-1: color-mix(in oklch, var(--color-red), var(--color-base) 90%);
+  --color-red-2: color-mix(in oklch, var(--color-red), var(--color-base) 65%);
+  --color-red-3: var(--color-red);
+
+  --color-yellow-1: oklch(from var(--color-yellow) l c h / 10%);
+  --color-yellow-2: oklch(from var(--color-yellow) l c h / 40%);
+  --color-yellow-3: var(--color-yellow);
+
+  --color-contrast-1: color-mix(in oklch, var(--color-contrast), var(--color-base) 96%);
+  --color-contrast-2: color-mix(in oklch, var(--color-contrast), var(--color-base) 80%);
+  --color-contrast-3: color-mix(in oklch, var(--color-contrast), var(--color-base) 50%);
+  --color-contrast-4: color-mix(in oklch, var(--color-contrast), var(--color-base) 30%);
+  --color-contrast-5: color-mix(in oklch, var(--color-contrast), var(--color-base) 10%);
+  --color-contrast-6: var(--color-contrast);
+
+  /* Alias tokens */
+  --color-text: var(--color-contrast-6);
+  --color-text-muted: var(--color-contrast-4);
+  --color-border: var(--color-contrast-2);
+
+  --color-success: var(--color-green-3);
+  --color-success-light: var(--color-green-2);
+  --color-success-lighter: var(--color-green-1);
+
+  --color-danger: var(--color-red-3);
+  --color-danger-light: var(--color-red-2);
+  --color-danger-lighter: var(--color-red-1);
+
+  --color-warning: var(--color-yellow-3);
+  --color-warning-light: var(--color-yellow-2);
+  --color-warning-lighter: var(--color-yellow-1);
+}
+
+*[data-theme="light"] {
+  color-scheme: light;
+}
+
+*[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+*[data-theme="system"] {
+  color-scheme: light dark;
+}
+
+body:not(.reset) {
+  background: var(--color-base);
+  color: var(--color-text);
+}
+
+:root {
+  @media (prefers-contrast: more) {
+    --color-border: var(--color-contrast);
+  }
+}

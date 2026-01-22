@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main class="container">
+      <hgroup>
+        <h1>Dropdown</h1>
+        <p>Build native dropdowns</p>
+      </hgroup>
+
+      <div>
+        <h2>Dropdown with links</h2>
+        <p>
+          To create a dropdown, a <code>&lt;button&gt;</code> must be directly followed by
+          a <code>&lt;ul popover&gt;</code>. The button must be specified to be of
+          <code>type="button"</code> and have a <code>command="toggle-popover"</code>.
+        </p>
+        <proto-code preview>
+          <button type="button" command="toggle-popover" commandfor="mydropdown">
+            Click to open
+          </button>
+
+          <ul id="mydropdown" popover>
+            <li>
+              <a href="#">Item 1</a>
+            </li>
+            <li>
+              <a href="#">Item 2</a>
+            </li>
+            <li>
+              <a href="#">Item 3</a>
+            </li>
+          </ul>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Dropdown with buttons</h2>
+        <proto-code preview>
+          <button type="button" commandfor="mydropdown2" command="toggle-popover">
+            Click to open
+          </button>
+
+          <ul id="mydropdown2" popover>
+            <li>
+              <button>Item 1 ItemItemItemItem ItemItemItem</button>
+            </li>
+            <li>
+              <button>Item 2</button>
+            </li>
+            <li>
+              <button>Item 3</button>
+            </li>
+            <li>
+              <hr />
+            </li>
+            <li>
+              <button>Item 4</button>
+            </li>
+          </ul>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+[type="checkbox"][role="switch"]:not(.reset) {
+  --switch-size-internal: var(--switch-size, var(--space-6));
+  --switch-ratio-internal: var(--switch-ratio, 1.6);
+  position: relative;
+  appearance: none;
+  transition: all var(--transition-duration) ease-out;
+  cursor: pointer;
+  margin: 0;
+  border-radius: calc(var(--switch-size-internal) / 2);
+  background-color: var(--color-contrast-2);
+  width: calc(var(--switch-size-internal) * var(--switch-ratio-internal));
+  height: var(--switch-size-internal);
+
+  &::after {
+    position: absolute;
+    top: var(--space-1);
+    left: var(--space-1);
+    transition: all var(--transition-duration) ease-out;
+    box-shadow: var(--interactive-shadow-lg);
+    border-radius: 50%;
+    background-color: var(--color-base);
+    width: calc(var(--switch-size-internal) - 2 * var(--space-1));
+    height: calc(var(--switch-size-internal) - 2 * var(--space-1));
+    content: "";
+  }
+
+  &:checked {
+    background-color: var(--color-primary);
+
+    &::after {
+      left: calc(
+        (var(--switch-size-internal) * var(--switch-ratio-internal)) -
+          var(--switch-size-internal) + var(--space-1)
+      );
+    }
+  }
+}

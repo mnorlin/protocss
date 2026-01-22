@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <load src="/app/head.html" />
+  <body>
+    <load src="/app/header.html" />
+    <load src="/app/aside.html" />
+    <main class="container">
+      <div>
+        <h1>Input</h1>
+      </div>
+
+      <div>
+        <h2>Input</h2>
+        <proto-code preview>
+          <form>
+            <label>
+              Regular
+              <input type="text" />
+            </label>
+
+            <label>
+              Disabled
+              <input disabled type="text" />
+            </label>
+
+            <label>
+              Invalid
+              <input aria-invalid="true" aria-describedby="error-text" />
+            </label>
+            <span id="error-text">
+              This is some detailed message of what went wrong
+            </span>
+          </form>
+        </proto-code>
+      </div>
+      <div>
+        <h2>Input types</h2>
+        <proto-code preview>
+          <form>
+            <label>
+              Text
+              <input type="text" />
+            </label>
+
+            <label>
+              Number
+              <input type="number" />
+            </label>
+
+            <label>
+              Password
+              <input type="password" />
+            </label>
+
+            <label>
+              Date
+              <input type="date" />
+            </label>
+
+            <label>
+              Time
+              <input type="time" />
+            </label>
+
+            <label>
+              Date and time
+              <input type="datetime-local" />
+            </label>
+          </form>
+        </proto-code>
+      </div>
+    </main>
+  </body>
+</html>
