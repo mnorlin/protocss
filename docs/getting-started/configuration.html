@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ProtoCSS</title>
-  <style>:root{--header-height:calc(var(--font-h3)*var(--line-height) + var(--space-2)*2 + 1px)}.container{margin:0 auto;max-width:800px;width:100%}body>header{backdrop-filter:blur(5px);background-color:oklch(from var(--color-base) l c h/50%);display:flex;inset-block-start:0;justify-content:space-between;position:sticky;z-index:100;button{box-shadow:none}[popover]{border:1px solid var(--color-border);border-radius:var(--border-radius);box-shadow:var(--interactive-shadow-lg);inset-block-start:anchor(bottom);inset-inline-end:anchor(inline-end);margin-block-start:4px;margin-inline-end:0;max-height:calc(100vh - var(--header-height));padding:var(--space-4);width:400px}}body>aside{border-inline-end:1px solid var(--color-border);height:calc(100vh - var(--header-height));inset-block-start:var(--header-height);min-width:200px;overflow-y:auto;padding:var(--space-3) var(--space-5);position:sticky;menu menu{border-inline-start:2px solid var(--color-contrast-2);gap:var(--space-1);margin-block-start:var(--space-3);li{margin:0;margin-inline-start:-2px}}a{border-inline-start:2px solid transparent;color:var(--color-contrast-4);display:block;font-size:.9em;padding:0 var(--space-3);text-decoration:none;&:hover{border-color:var(--color-contrast-3);color:var(--color-contrast-6)}&[aria-current=page]{border-color:var(--color-primary);color:var(--color-primary);font-weight:700}}menu{display:flex;flex-direction:column;gap:var(--space-8);list-style:none;padding:0;strong{color:var(--color-contrast-4);display:block;font-size:var(--font-small);text-transform:uppercase}}}#desktop-menu{display:none}#mobile-menu{background:var(--color-base);border:none;display:block;height:100dvh;inset:unset;inset-block-start:0;inset-inline-start:0;min-width:250px;transform:translateX(-100%);transition:transform .2s,overlay .2s ease-out;width:fit-content;&:popover-open{transform:translateX(0)}&::backdrop{backdrop-filter:blur(1px);background-color:rgba(0,0,0,.8)}}@media (width >= 720px){#desktop-menu{display:block}#menu-open-button,#mobile-menu{display:none}}[dir=rtl]{#mobile-menu{display:block;transform:translateX(100%);&:popover-open{transform:translateX(0)}}}</style>
+  <style>body:not(.reset){align-items:stretch;display:grid;grid-template-areas:"header header header" "aside main main";grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;min-height:100vh;>header{grid-area:header}>main{grid-area:main}>aside{grid-area:aside}}body:not(.reset){>header{align-items:center;border-bottom:1px solid var(--color-border);display:flex;gap:var(--space-gap);height:fit-content;padding:var(--space-2) var(--space-4)}>aside{min-width:200px;width:fit-content}>main{padding:var(--space-4)}}@media (width >= 720px){#desktop-menu{display:block}#menu-open-button,#mobile-menu{display:none}}</style>
   <style id="config"></style>
-  <script type="module" crossorigin src="/protocss/assets/index-BCJ5LZ1N.js"></script>
-  <link rel="stylesheet" crossorigin href="/protocss/assets/index-COSDNNj3.css">
+  <script type="module" crossorigin src="/protocss/assets/index-D9aJblzq.js"></script>
+  <link rel="stylesheet" crossorigin href="/protocss/assets/index-DzgNNSQe.css">
 </head>
 
   <body>
@@ -25,13 +25,12 @@
     <div class="h3 mb-0" style="color: var(--color-primary)">ProtoCSS</div>
     <div
       style="
-        font-size: var(--font-small);
-        color: var(--color-danger);
+        font-size: var(--font-small, 0.75rem);
+        color: var(--color-danger, red);
         padding: var(--space-1) var(--space-2);
         border-radius: var(--border-radius);
         border: 1px solid var(--color-danger);
         background-color: var(--color-danger-lighter);
-        font-weight: bold;
         margin-left: calc(-1 * var(--space-3));
       "
     >
