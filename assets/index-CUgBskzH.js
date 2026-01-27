@@ -34,17 +34,19 @@ https://github.com/highlightjs/highlight.js/issues/2277`),tt=_e,He=Re),we===void
 
     .wrapper {
       gap: var(--space-gap);
-      border: 1px solid var(--color-border);
-      border-radius: var(--border-radius);
     }
 
     .rendered {
-      border-bottom: 1px solid var(--color-border);
+      margin-bottom: -1px;
+      border: 1px solid var(--color-border);
+      border-top-right-radius: var(--border-radius);
+      border-top-left-radius: var(--border-radius);
       padding: var(--space-5);
     }
 
     .code {
-      border-radius: var(--border-radius);
+      border: 1px solid var(--color-border);
+      border-radius: var(--internal-border-radius);
       background: var(--color-contrast-1);
       .controls {
         display: none;
@@ -98,7 +100,10 @@ https://github.com/highlightjs/highlight.js/issues/2277`),tt=_e,He=Re),we===void
           <slot name="classes" @slotchange=${this.#n}></slot>
         </div>
       </div>
-      <div class="code">
+      <div
+        class="code"
+        style="${this.preview?"--internal-border-radius: 0 0 var(--border-radius) var(--border-radius)":"--internal-border-radius: var(--border-radius)"}"
+      >
         <div class="controls" ?hidden=${!this.codeClasses}>
           <div style="display: flex; justify-content: end;">
             <label>
