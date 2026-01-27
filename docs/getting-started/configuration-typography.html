@@ -1,0 +1,117 @@
+<nav role="tablist" hx-target="this" hx-swap="outerHTML">
+  <button
+    id="colors"
+    aria-controls="colors-content"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-colors.html"
+  >
+    Colors
+  </button>
+  <button
+    id="typography"
+    aria-controls="typography-content"
+    aria-selected="true"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-typography.html"
+  >
+    Typography
+  </button>
+  <button
+    id="spacing"
+    aria-controls="spacing-content"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-spacing.html"
+  >
+    Spacing
+  </button>
+</nav>
+<div
+  hidden
+  id="colors-content"
+  aria-labelledby="colors"
+  role="tabpanel"
+  hx-swap-oob="true"
+></div>
+<div
+  id="typography-content"
+  aria-labelledby="typography"
+  role="tabpanel"
+  hx-swap-oob="true"
+>
+  <p>
+    To configure the font family, font weight etc. you can use regular CSS:
+    <proto-code language="css">
+      <!-- prettier-ignore -->
+      body {
+        font-family: "Comic Sans";
+      }
+      h1 {
+        font-weight: 800;
+      }
+    </proto-code>
+
+    Sizing is controlled by CSS variables, to make sure that the rest of the site scales
+    to the new settings.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Variable</th>
+        <th scope="col">Default value</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="colgroup" colspan="3">Global tokens</th>
+      </tr>
+      <tr>
+        <td><code>--heading-h1</code></td>
+        <td><code>2.5rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--heading-h2</code></td>
+        <td><code>2.25rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--heading-h3</code></td>
+        <td><code>2rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--heading-h4</code></td>
+        <td><code>1.75rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--heading-h5</code></td>
+        <td><code>1.5rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--heading-h6</code></td>
+        <td><code>1.25rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--heading-p</code></td>
+        <td><code>1rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--heading-small</code></td>
+        <td><code>0.75rem</code></td>
+      </tr>
+      <tr>
+        <td><code>--line-height</code></td>
+        <td><code>1.5</code></td>
+      </tr>
+      <tr>
+        <td><code>--line-height-input</code></td>
+        <td><code>1.25</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  hidden
+  id="spacing-content"
+  aria-labelledby="spacing"
+  role="tabpanel"
+  hx-swap-oob="true"
+></div>

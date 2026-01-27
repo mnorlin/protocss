@@ -179,74 +179,17 @@
 
     <main id="main" class="container">
       <hgroup>
-        <h1>Radio buttons</h1>
+        <h1>Tooltip</h1>
+        <p>Show some descriptive text when hovering or focusing on an element</p>
       </hgroup>
 
       <div>
-        <h2>Vertical</h2>
+        Place the tooltip
+        <strong>immediately</strong> after the element that should have the tooltip. Link
+        them together via <code>aria-describedby</code> and <code>id</code>.
         <proto-code preview>
-          <label>
-            <input type="radio" name="my-radio1" checked />
-            Checked
-          </label>
-
-          <label>
-            <input type="radio" name="my-radio1" />
-            Unchecked
-          </label>
-
-          <label>
-            <input type="radio" name="my-radio1" disabled />
-            Disabled
-          </label>
-        </proto-code>
-      </div>
-
-      <div>
-        <h2>Horizontal</h2>
-        <proto-code preview>
-          <input type="radio" id="box-1" name="my-radio2" checked /><label for="box-1"
-            >Checked</label
-          >
-
-          <input type="radio" id="box-2" name="my-radio2" /><label for="box-2"
-            >Unchecked</label
-          >
-        </proto-code>
-      </div>
-      <div>
-        <h2>Disabled</h2>
-        <proto-code preview>
-          <label>
-            <input disabled type="radio" name="my-radio3" checked />
-            Checked
-          </label>
-
-          <label>
-            <input disabled type="radio" name="my-radio3" />
-            Unchecked
-          </label>
-
-          <label>
-            <input disabled type="radio" name="my-radio3" />
-            Invalid
-          </label>
-        </proto-code>
-      </div>
-      <div>
-        <h2>Sizing</h2>
-        <proto-code preview>
-          <div style="font-size: 2rem">
-            <label>
-              <input type="radio" name="my-radio4" checked />
-              Checked
-            </label>
-
-            <label>
-              <input type="radio" name="my-radio4" />
-              Unchecked
-            </label>
-          </div>
+          <button aria-describedby="tip-save">Save</button>
+          <div role="tooltip" id="tip-save">Saves your progress</div>
         </proto-code>
       </div>
     </main>

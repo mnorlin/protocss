@@ -1,0 +1,359 @@
+<nav role="tablist" hx-target="this" hx-swap="outerHTML">
+  <button
+    id="colors"
+    aria-controls="colors-content"
+    aria-selected="true"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-colors.html"
+  >
+    Colors
+  </button>
+  <button
+    id="typography"
+    aria-controls="typography-content"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-typography.html"
+  >
+    Typography
+  </button>
+  <button
+    id="spacing"
+    aria-controls="spacing-content"
+    role="tab"
+    hx-get="/docs/getting-started/configuration-spacing.html"
+  >
+    Spacing
+  </button>
+</nav>
+<div id="colors-content" aria-labelledby="colors" role="tabpanel" hx-swap-oob="true">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Variable</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="colgroup" colspan="3">Global tokens</th>
+      </tr>
+      <tr>
+        <td><code>--color-primary</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-primary)"></div>
+          The primary color, used in buttons, links etc.
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-primary-contrast</code></td>
+        <td>
+          <div
+            class="color"
+            style="background-color: var(--color-primary-contrast)"
+          ></div>
+          Contrast color for the primary color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-green</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-green)"></div>
+          The success/green color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-yellow</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-yellow)"></div>
+          The warning/yellow color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-red</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-red)"></div>
+          The danger/red color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-scheme-light</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-scheme-light)"></div>
+          Light color scheme background
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-scheme-dark</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-scheme-dark)"></div>
+          Dark color scheme background
+        </td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <tr>
+        <th scope="colgroup" colspan="3">Derived global tokens</th>
+      </tr>
+      <tr>
+        <td><code>--color-base</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-base)"></div>
+          The base color, sets the body background etc.
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-contrast</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-contrast)"></div>
+          Contrast color against the base color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-primary-1</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-primary-1)"></div>
+          Lighter shade of primary
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-primary-2</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-primary-2)"></div>
+          Light shade of primary
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-primary-3</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-primary-3)"></div>
+          Standard primary color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-primary-4</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-primary-4)"></div>
+          Dark shade of primary
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-primary-5</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-primary-5)"></div>
+          Darker shade of primary
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-green-1</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-green-1)"></div>
+          Lighter shade of green
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-green-2</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-green-2)"></div>
+          Light shade of green
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-green-3</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-green-3)"></div>
+          Standard green color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-red-1</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-red-1)"></div>
+          Lighter shade of red
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-red-2</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-red-2)"></div>
+          Light shade of red
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-red-3</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-red-3)"></div>
+          Standard red color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-yellow-1</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-yellow-1)"></div>
+          Lighter shade of yellow
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-yellow-2</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-yellow-2)"></div>
+          Light shade of yellow
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-yellow-3</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-yellow-3)"></div>
+          Standard yellow color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-contrast-1</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-contrast-1)"></div>
+          Low contrast
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-contrast-2</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-contrast-2)"></div>
+          Medium low contrast
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-contrast-3</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-contrast-3)"></div>
+          Medium contrast
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-contrast-4</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-contrast-4)"></div>
+          Medium high contrast
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-contrast-5</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-contrast-5)"></div>
+          High contrast
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-contrast-6</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-contrast-6)"></div>
+          Full contrast
+        </td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <tr>
+        <th scope="colgroup" colspan="3">Alias tokens</th>
+      </tr>
+      <tr>
+        <td><code>--color-text</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-text)"></div>
+          Default text color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-text-muted</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-text-muted)"></div>
+          Muted text color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-border</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-border)"></div>
+          Border color for UI elements
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-success</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-success)"></div>
+          Success/positive feedback color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-success-light</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-success-light)"></div>
+          Light success color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-success-lighter</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-success-lighter)"></div>
+          Lightest success color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-danger</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-danger)"></div>
+          Danger/error feedback color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-danger-light</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-danger-light)"></div>
+          Light danger color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-danger-lighter</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-danger-lighter)"></div>
+          Lightest danger color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-warning</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-warning)"></div>
+          Warning/caution feedback color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-warning-light</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-warning-light)"></div>
+          Light warning color
+        </td>
+      </tr>
+      <tr>
+        <td><code>--color-warning-lighter</code></td>
+        <td>
+          <div class="color" style="background-color: var(--color-warning-lighter)"></div>
+          Lightest warning color
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  hidden
+  id="typography-content"
+  aria-labelledby="typography"
+  role="tabpanel"
+  hx-swap-oob="true"
+></div>
+<div
+  hidden
+  id="spacing-content"
+  aria-labelledby="spacing"
+  role="tabpanel"
+  hx-swap-oob="true"
+></div>

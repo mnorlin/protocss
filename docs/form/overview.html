@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ProtoCSS</title>
-  <style>.container{margin:0 auto;max-width:800px;width:100%}body>header{backdrop-filter:blur(5px);background-color:oklch(from var(--color-base) l c h/50%);display:flex;justify-content:space-between;position:sticky;top:0;z-index:100;button{box-shadow:none}[popover]{border:1px solid var(--color-border);border-radius:4px;box-shadow:var(--interactive-shadow-lg);inset-block-start:anchor(bottom);inset-inline-end:anchor(inline-end);margin-block-start:4px;margin-inline-end:0;padding:16px;width:400px}}body>aside{border-inline-end:1px solid var(--color-border);min-width:200px;padding:var(--space-3) var(--space-5);menu menu{border-inline-start:1px solid var(--color-contrast-2);li{margin:0;margin-inline-start:-1px}}a{border-inline-start:1px solid transparent;color:var(--color-contrast-4);font-size:.9em;padding:var(--space-1) var(--space-3);text-decoration:none;&:hover{border-color:var(--color-contrast-3)}&:hover,&[aria-current=page]{color:var(--color-contrast-6)}&[aria-current=page]{border-color:var(--color-contrast);font-weight:700}}menu{display:flex;flex-direction:column;gap:var(--space-1);list-style:none;margin:var(--space-3) 0 var(--space-8) 0;padding:0;strong{color:var(--color-contrast-4);display:block;font-size:var(--font-small);text-transform:uppercase}}}#desktop-menu{display:none}#mobile-menu{background:var(--color-base);border:none;display:block;height:100dvh;inset:unset;inset-block-start:0;inset-inline-start:0;min-width:250px;transform:translateX(-100%);transition:transform .2s,overlay .2s ease-out;width:fit-content;&:popover-open{transform:translateX(0)}&::backdrop{backdrop-filter:blur(1px);background-color:rgba(0,0,0,.8)}}@media (width >= 720px){#desktop-menu{display:block}#menu-open-button{display:none}}[dir=rtl]{#mobile-menu{display:block;transform:translateX(100%);&:popover-open{transform:translateX(0)}}}</style>
+  <style>:root{--header-height:calc(var(--font-h3)*var(--line-height) + var(--space-2)*2 + 1px)}.container{margin:0 auto;max-width:800px;width:100%}body>header{backdrop-filter:blur(5px);background-color:oklch(from var(--color-base) l c h/50%);display:flex;inset-block-start:0;justify-content:space-between;position:sticky;z-index:100;button{box-shadow:none}[popover]{border:1px solid var(--color-border);border-radius:var(--border-radius);box-shadow:var(--interactive-shadow-lg);inset-block-start:anchor(bottom);inset-inline-end:anchor(inline-end);margin-block-start:4px;margin-inline-end:0;max-height:calc(100vh - var(--header-height));padding:var(--space-4);width:400px}}body>aside{border-inline-end:1px solid var(--color-border);height:calc(100vh - var(--header-height));inset-block-start:var(--header-height);min-width:200px;overflow-y:auto;padding:var(--space-3) var(--space-5);position:sticky;menu menu{border-inline-start:2px solid var(--color-contrast-2);gap:var(--space-1);margin-block-start:var(--space-3);li{margin:0;margin-inline-start:-2px}}a{border-inline-start:2px solid transparent;color:var(--color-contrast-4);display:block;font-size:.9em;padding:0 var(--space-3);text-decoration:none;&:hover{border-color:var(--color-contrast-3);color:var(--color-contrast-6)}&[aria-current=page]{border-color:var(--color-primary);color:var(--color-primary);font-weight:700}}menu{display:flex;flex-direction:column;gap:var(--space-8);list-style:none;padding:0;strong{color:var(--color-contrast-4);display:block;font-size:var(--font-small);text-transform:uppercase}}}#desktop-menu{display:none}#mobile-menu{background:var(--color-base);border:none;display:block;height:100dvh;inset:unset;inset-block-start:0;inset-inline-start:0;min-width:250px;transform:translateX(-100%);transition:transform .2s,overlay .2s ease-out;width:fit-content;&:popover-open{transform:translateX(0)}&::backdrop{backdrop-filter:blur(1px);background-color:rgba(0,0,0,.8)}}@media (width >= 720px){#desktop-menu{display:block}#menu-open-button,#mobile-menu{display:none}}[dir=rtl]{#mobile-menu{display:block;transform:translateX(100%);&:popover-open{transform:translateX(0)}}}</style>
   <style id="config"></style>
-  <script type="module" crossorigin src="/protocss/assets/index-CaNWPi6p.js"></script>
-  <link rel="stylesheet" crossorigin href="/protocss/assets/index-DdFBqlUT.css">
+  <script type="module" crossorigin src="/protocss/assets/index-BCJ5LZ1N.js"></script>
+  <link rel="stylesheet" crossorigin href="/protocss/assets/index-COSDNNj3.css">
 </head>
 
   <body>
@@ -25,10 +25,11 @@
     <div
       style="
         font-size: var(--font-small);
-        color: white;
+        color: var(--color-danger);
         padding: var(--space-1) var(--space-2);
         border-radius: var(--border-radius);
-        background-color: var(--color-danger);
+        border: 1px solid var(--color-danger);
+        background-color: var(--color-danger-lighter);
         font-weight: bold;
         margin-left: calc(-1 * var(--space-3));
       "
@@ -36,8 +37,15 @@
       BETA VERSION
     </div>
   </div>
-  <button popovertarget="theme-config"><i class="bi bi-palette2"></i></button>
-  <proto-config configId="config" id="theme-config" popover></proto-config>
+  <button aria-label="Open theme config" popovertarget="theme-config">
+    <i class="bi bi-palette2"></i>
+  </button>
+  <proto-config
+    configId="config"
+    id="theme-config"
+    popover
+    style="background-color: var(--color-base)"
+  ></proto-config>
 </header>
 
     <aside id="desktop-menu">
@@ -82,41 +90,9 @@
       <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
       <li><a href="/protocss/docs/components/progress.html">Progress</a></li>
       <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
+      <li><a href="/protocss/docs/components/tooltip.html">Tooltip</a></li>
     </menu>
   </li>
-  <!--<li>
-    <strong><i class="bi bi-file-richtext"></i> Content</strong>
-    <menu>
-      <li><a href="/protocss/docs/content/code.html">Code</a></li>
-      <li><a href="/protocss/docs/content/link.html">Link</a></li>
-      <li><a href="/protocss/docs/content/typography.html">Typography</a></li>
-      <li><a href="/protocss/docs/content/table.html">Table</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong><i class="bi bi-ui-radios"></i> Form</strong>
-    <menu>
-      <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
-      <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
-      <li><a href="/protocss/docs/form/input.html">Input</a></li>
-      <li><a href="/protocss/docs/form/select.html">Select</a></li>
-      <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
-      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong><i class="bi bi-box"></i> Components</strong>
-    <menu>
-      <li><a href="/protocss/docs/components/accordion.html">Accordion</a></li>
-      <li><a href="/protocss/docs/components/alert.html">Alert</a></li>
-      <li><a href="/protocss/docs/components/button.html">Button</a></li>
-      <li><a href="/protocss/docs/components/card.html">Card</a></li>
-      <li><a href="/protocss/docs/components/dropdown.html">Dropdown</a></li>
-      <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
-      <li><a href="/protocss/docs/components/progress.html">Progress</a></li>
-      <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
-    </menu>
-  </li>-->
 </menu>
 
 </aside>
@@ -163,47 +139,16 @@
       <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
       <li><a href="/protocss/docs/components/progress.html">Progress</a></li>
       <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
+      <li><a href="/protocss/docs/components/tooltip.html">Tooltip</a></li>
     </menu>
   </li>
-  <!--<li>
-    <strong><i class="bi bi-file-richtext"></i> Content</strong>
-    <menu>
-      <li><a href="/protocss/docs/content/code.html">Code</a></li>
-      <li><a href="/protocss/docs/content/link.html">Link</a></li>
-      <li><a href="/protocss/docs/content/typography.html">Typography</a></li>
-      <li><a href="/protocss/docs/content/table.html">Table</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong><i class="bi bi-ui-radios"></i> Form</strong>
-    <menu>
-      <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
-      <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
-      <li><a href="/protocss/docs/form/input.html">Input</a></li>
-      <li><a href="/protocss/docs/form/select.html">Select</a></li>
-      <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
-      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong><i class="bi bi-box"></i> Components</strong>
-    <menu>
-      <li><a href="/protocss/docs/components/accordion.html">Accordion</a></li>
-      <li><a href="/protocss/docs/components/alert.html">Alert</a></li>
-      <li><a href="/protocss/docs/components/button.html">Button</a></li>
-      <li><a href="/protocss/docs/components/card.html">Card</a></li>
-      <li><a href="/protocss/docs/components/dropdown.html">Dropdown</a></li>
-      <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
-      <li><a href="/protocss/docs/components/progress.html">Progress</a></li>
-      <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
-    </menu>
-  </li>-->
 </menu>
 
 </aside>
 
 <script>
   updateActiveMenuItem();
+  restoreScroll();
 
   function updateActiveMenuItem() {
     const path = window.location.pathname;
@@ -218,30 +163,69 @@
       }
     });
   }
+
+  function restoreScroll() {
+    const sidebar = document.getElementById("desktop-menu");
+
+    document.body.addEventListener("htmx:beforeRequest", (evt) => {
+      document.body.dataset.scrollTop = sidebar.scrollTop;
+    });
+
+    document.body.addEventListener("htmx:afterSwap", (evt) => {
+      sidebar.scrollTop = document.body.dataset.scrollTop || 0;
+    });
+  }
 </script>
 
-    <main class="container">
+    <main id="main" class="container">
       <hgroup>
         <h1>Form</h1>
       </hgroup>
 
       <div>
-        <h2>Spacing</h2>
+        <h2>Vertical spacing</h2>
         <p>
           Elements wrapped inside a <code>&lt;form&gt;</code> has an automatic vertical
           spacing.
         </p>
         <proto-code preview>
-          <form>
-            <label>
-              Username
-              <input type="text" />
+          <form class="space-y-gap">
+            <label for="email">
+              E-mail
+              <input type="email" />
             </label>
 
             <label>
               Password
               <input type="password" />
             </label>
+
+            <label>
+              <input type="checkbox" />
+              Remember me
+            </label>
+
+            <button>Login</button>
+          </form>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Horizontal spacing</h2>
+        <p>By using <code>.space-x-gap</code> the form can be vertical</p>
+        <proto-code preview>
+          <form class="space-x-gap">
+            <label>
+              First name
+              <input type="text" />
+            </label>
+
+            <label>
+              Last name
+              <input type="text" />
+            </label>
+
+            <button class="mt-gap">Login</button>
           </form>
         </proto-code>
       </div>
