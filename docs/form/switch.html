@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ProtoCSS</title>
-  <style>body:not(.reset){align-items:stretch;display:grid;grid-template-areas:"header header header" "aside main main";grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;min-height:100vh;>header{grid-area:header}>main{grid-area:main}>aside{grid-area:aside}}body:not(.reset){>header{align-items:center;border-bottom:1px solid var(--color-border);display:flex;gap:var(--space-gap);height:fit-content;padding:var(--space-2) var(--space-4)}>aside{min-width:200px;width:fit-content}>main{padding:var(--space-4)}}@media (width >= 720px){#desktop-menu{display:block!important}#menu-open-button,#mobile-menu{display:none!important}}</style>
+  <style>body:not(.reset){align-items:stretch;display:grid;grid-template-areas:"header header header" "aside main main";grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;min-height:100vh;>header{grid-area:header}>main{grid-area:main}>aside{grid-area:aside}}body:not(.reset){>header{align-items:center;border-bottom:1px solid var(--color-border);display:flex;gap:var(--space-gap);height:fit-content;padding:var(--space-2) var(--space-4)}>aside{width:fit-content}>main{padding:var(--space-4)}}@media (width >= 720px){#desktop-menu{display:block!important}#menu-open-button,#mobile-menu{display:none!important}}</style>
   <style id="config"></style>
-  <script type="module" crossorigin src="/protocss/assets/index-CUgBskzH.js"></script>
-  <link rel="stylesheet" crossorigin href="/protocss/assets/index-LDaC3KNO.css">
+  <script type="module" crossorigin src="/protocss/assets/index-CSRTKP2C.js"></script>
+  <link rel="stylesheet" crossorigin href="/protocss/assets/index-zvIyywF9.css">
 </head>
 
   <body>
@@ -21,8 +21,8 @@
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="1em"
+        height="16em"
         fill="currentColor"
         class="bi bi-list"
         style="vertical-align: -0.125em"
@@ -53,8 +53,8 @@
   <button aria-label="Open theme config" popovertarget="theme-config">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width="1em"
+      height="1em"
       fill="currentColor"
       class="bi bi-palette2"
       viewBox="0 0 16 16"
@@ -219,9 +219,22 @@
       <div>
         <h2>Sizing</h2>
         <proto-code preview>
-          <div style="--switch-size: 2rem; --switch-ratio: 3">
+          <span style="font-size: 2rem">
             <input type="checkbox" role="switch" />
-          </div>
+          </span>
+        </proto-code>
+      </div>
+
+      <div>
+        <h2>Shape</h2>
+        <p>
+          The switch is normally rounded and doesn't follow the
+          <code>--border-radius</code> setting, but it can be overriden.
+        </p>
+        <proto-code preview>
+          <span style="--switch-radius: var(--border-radius)">
+            <input type="checkbox" role="switch" />
+          </span>
         </proto-code>
       </div>
     </main>
