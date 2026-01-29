@@ -3,15 +3,17 @@ button:not(.reset, [role="tab"]),
 input[type="submit"]:not(.reset),
 .button {
   position: relative;
-  transition:
-    background-color 0.2s,
-    border-color 0.2s,
-    box-shadow 0.2s;
+  transition: all var(--transition-duration) ease-in-out;
   box-shadow: var(--shadow-clickables);
-  border: 1px solid var(--color-primary);
+  box-shadow:
+    0 2px 8px 0 var(--color-contrast-3),
+    inset 0px -1px 0px var(--color-primary-5),
+    inset 0px -4px 0px var(--color-primary-4);
+  border: none;
   border-radius: var(--border-radius);
   background-color: var(--color-primary);
   padding: var(--space-form-y) var(--space-form-x);
+  padding-bottom: calc(var(--space-form-y) + 4px);
   width: max-content;
   color: var(--color-primary-contrast);
   font-weight: normal;
@@ -21,7 +23,7 @@ input[type="submit"]:not(.reset),
   text-wrap: nowrap;
 
   &::before {
-    transition-duration: 0.2s;
+    transition-duration: var(--transition-duration);
     transition-property: margin, width;
     margin-inline-end: 0;
     width: 0;
@@ -44,23 +46,26 @@ input[type="submit"]:not(.reset),
   &:disabled,
   &.disabled {
     box-shadow: none;
-    border-color: var(--color-contrast-2);
+    border: 1px solid var(--color-contrast-2);
     background-color: var(--color-contrast-1);
+    padding-bottom: var(--space-form-y);
     color: var(--color-contrast-4);
   }
 
   &:hover:not(:disabled),
   &.hover:not(.disabled) {
     cursor: pointer;
-    border-color: var(--color-primary-4);
-    background-color: var(--color-primary-4);
+    border-color: transparent;
   }
 
   &:is(:active, [aria-pressed="true"]):not(:disabled),
   &.active:not(.disabled) {
-    box-shadow: none;
-    border-color: var(--color-primary-5);
-    background-color: var(--color-primary-5);
+    transform: translateY(4px);
+    margin-bottom: 4px;
+    box-shadow:
+      none,
+      inset 0px -1px 0px var(--color-primary-5);
+    padding-bottom: var(--space-form-y);
   }
 }
 
@@ -110,3 +115,22 @@ input[type="reset"]:not(.reset) {
   width: max-content;
   color: var(--color-danger);
 }
+
+/* button {
+        padding: 8px 12px;
+        padding-bottom: 14px;
+        border:0;
+        font-size: 1rem;
+        transition: all 0.075s ease-in-out;
+        border-radius: 4px;
+        color: white;
+        background: #1c71d8;
+        box-shadow: rgba(99, 99, 99, 0.7) 0 2px 8px 0, inset 0px -4px 0px rgba(0, 0, 0, 0.2), inset 0px -1px 0px rgba(0, 0, 0, 0.25);
+      }
+
+      button:active {
+        margin-top: 2px;
+        padding-bottom: 12px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0 2px 6px 0, inset 0px -1px 0px rgba(0, 0, 0, 0.15);
+      }
+*/

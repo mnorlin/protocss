@@ -62,18 +62,16 @@ details:not(.reset),
     cursor: pointer;
     box-shadow:
       /* spread */
-      0 2px 8px 0 var(--color-contrast-3),
-      /* crack */ inset 0 -1px 0 0 var(--color-contrast-3),
-      /* raise */ inset 0 -4px 0 0 var(--color-contrast-2);
-    background-color: var(--color-contrast-1);
+      0 2px 6px 0 var(--color-primary-5),
+      /* crack */ inset 0 -1px 0 0 var(--color-primary-5),
+      /* raise */ inset 0 -4px 0 0 var(--color-primary-4);
+    background-color: var(--color-primary);
 
     padding: var(--space-3) var(--space-4);
     padding-bottom: calc(var(--space-3) + 3px);
+    color: var(--color-primary-contrast);
     font-weight: bold;
     list-style: none;
-    &:hover {
-      color: var(--color-primary-3);
-    }
 
     &::after {
       display: inline-block;
@@ -106,33 +104,29 @@ details:not(.reset),
     }
   }
 
-  &:not([open]) + details > summary {
-    clip-path: inset(0 -20px -20px -20px);
-  }
-
   &[open]:first-of-type > summary {
     box-shadow:
       /* spread */
       0 0 0 0 var(--color-contrast-2),
-      /* crack */ inset 0 0 0 0 var(--color-contrast-3),
-      /* raise */ inset 0 0 0 1px var(--color-contrast-2);
+      /* crack */ inset 0 0 0 0 var(--color-primary-5),
+      /* raise */ inset 0 0 0 1px var(--color-primary-4);
   }
 
   + details[open] > summary {
     box-shadow:
       /* spread */
-      0 0 0 0 var(--color-contrast-2),
-      /* crack */ inset 0 0 0 0 var(--color-contrast-2),
-      /* raise */ inset 0 0 0 1px var(--color-contrast-2),
-      /* top-spread */ inset 0 8px 6px -6px var(--color-contrast-2);
+      0 0 0 0 var(--color-primary-5),
+      /* crack */ inset 0 0 0 0 var(--color-primary-4),
+      /* raise */ inset 0 0 0 1px var(--color-primary-4),
+      /* top-spread */ inset 0 8px 6px -6px var(--color-primary-5);
   }
 
   &[open] + details[open] > summary {
     box-shadow:
       /* spread */
       0 0 0 0 var(--color-contrast-2),
-      /* crack */ inset 0 0 0 0 var(--color-contrast-2),
-      /* raise */ inset 0 0 0 1px var(--color-contrast-2),
+      /* crack */ inset 0 0 0 0 var(--color-primary-4),
+      /* raise */ inset 0 -1px 0 1px var(--color-primary-4),
       /* top-spread */ inset 0 0 0 0 var(--color-contrast-2);
   }
 
@@ -142,7 +136,6 @@ details:not(.reset),
     > summary,
     .title {
       padding-bottom: var(--space-3);
-      color: var(--color-primary-3);
 
       &::after {
         transform: rotate(-180deg);
@@ -173,9 +166,9 @@ details:not(.reset),
     display: block;
     transition: all var(--transition-duration);
     transition-behavior: allow-discrete;
-    border: 1px solid var(--color-contrast-2);
-    border-top-width: 0;
-    border-bottom-width: 0;
+    box-shadow: inset 0 0 4px -2px var(--color-primary-5);
+    border: 1px solid var(--border-color);
+    background-color: var(--color-primary-1);
     padding: 0 var(--space-4);
     height: 0;
     overflow: hidden;
@@ -190,7 +183,6 @@ details:not(.reset),
 
   &:last-of-type {
     &[open]::details-content {
-      border-bottom-width: 1px;
       border-bottom-right-radius: var(--border-radius);
       border-bottom-left-radius: var(--border-radius);
     }

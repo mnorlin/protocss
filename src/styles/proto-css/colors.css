@@ -18,8 +18,8 @@
   --color-primary-1: color-mix(in oklch, var(--color-primary), var(--color-base) 92%);
   --color-primary-2: color-mix(in oklch, var(--color-primary), var(--color-base) 70%);
   --color-primary-3: var(--color-primary);
-  --color-primary-4: color-mix(in oklch, var(--color-primary), var(--color-contrast) 15%);
-  --color-primary-5: color-mix(in oklch, var(--color-primary), var(--color-contrast) 30%);
+  --color-primary-4: color-mix(in oklch, var(--color-primary), var(--color-contrast) 40%);
+  --color-primary-5: color-mix(in oklch, var(--color-primary), var(--color-contrast) 70%);
 
   --color-green-1: color-mix(in oklch, var(--color-green), var(--color-base) 90%);
   --color-green-2: color-mix(in oklch, var(--color-green), var(--color-base) 70%);
