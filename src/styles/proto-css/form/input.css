@@ -9,6 +9,11 @@
   select,
   textarea
 ):not(.reset) {
+  transition:
+          box-shadow var(--transition-duration) ease-in-out,
+          border var(--transition-duration) ease-in-out,
+          background-position var(--transition-duration) ease-in-out,
+          padding var(--transition-duration) ease-in-out;
   box-shadow: var(--shadow-input);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
@@ -18,10 +23,9 @@
   line-height: var(--line-height-input);
 
   &:disabled {
-    opacity: 0.4;
     box-shadow: none;
-    border-color: var(--color-contrast-3);
-    background-color: var(--color-contrast-2);
+    border-color: var(--color-border);
+    background-color: var(--color-contrast-1);
   }
 
   &:focus,
@@ -96,5 +100,57 @@ label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
 
   & + ul[id]:not(.reset) {
     padding-left: var(--space-5);
+  }
+}
+
+
+[data-theme="playful"] {
+  :is(
+    input:not(
+      [type="checkbox"],
+      [type="radio"],
+      [type="color"],
+      [type="range"],
+      [type="submit"]
+    ),
+    select,
+    textarea
+  ):not(.reset) {
+    --input-height-internal: calc(
+            var(--line-height-input) * 1rem + 2 * var(--space-form-y)
+    );
+    box-shadow: /* spread */ inset 0 2px 4px -2px var(--color-contrast-3),
+      /* raise */ inset 0 0 0 0 var(--color-contrast-2),
+      /* crack */ inset 0 1px 0 0 var(--color-contrast-3);
+
+    padding-top: calc(var(--space-form-y) + 1px);
+    padding-bottom: calc(var(--space-form-y) - 1px);
+
+    &:focus,
+    &:focus-visible {
+      box-shadow: /* spread */
+              inset 0 0 0 0 var(--color-contrast-3),
+                /* raise */ inset 0 0 0 0 var(--color-contrast-2),
+                /* crack */ inset 0 0 0 0 var(--color-contrast-3);
+      padding: var(--space-form-y) var(--space-form-x);
+    }
+
+    &[aria-invalid="true"],
+    &:invalid {
+      box-shadow: /* spread */
+              inset 0 2px 4px -2px var(--color-danger),
+                /* raise */ inset 0 0 0 0 var(--color-danger-light),
+                /* crack */ inset 0 1px 0 0 var(--color-danger);
+
+      background-position: right var(--space-form-x) top
+        calc((var(--input-height-internal) - 1.2rem) / 2 + 2px);
+
+      &:focus,
+      &:focus-visible {
+        box-shadow: none;
+        background-position: right var(--space-form-x) top
+        calc((var(--input-height-internal) - 1.2rem) / 2);
+      }
+    }
   }
 }

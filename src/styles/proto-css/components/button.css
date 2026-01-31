@@ -3,10 +3,7 @@ button:not(.reset, [role="tab"]),
 input[type="submit"]:not(.reset),
 .button {
   position: relative;
-  transition:
-    background-color 0.2s,
-    border-color 0.2s,
-    box-shadow 0.2s;
+  transition: all var(--transition-duration) ease-in-out;
   box-shadow: var(--shadow-clickables);
   border: 1px solid var(--color-primary);
   border-radius: var(--border-radius);
@@ -21,7 +18,7 @@ input[type="submit"]:not(.reset),
   text-wrap: nowrap;
 
   &::before {
-    transition-duration: 0.2s;
+    transition-duration: var(--transition-duration);
     transition-property: margin, width;
     margin-inline-end: 0;
     width: 0;
@@ -44,7 +41,7 @@ input[type="submit"]:not(.reset),
   &:disabled,
   &.disabled {
     box-shadow: none;
-    border-color: var(--color-contrast-2);
+    border: 1px solid var(--color-contrast-2);
     background-color: var(--color-contrast-1);
     color: var(--color-contrast-4);
   }
@@ -109,4 +106,41 @@ input[type="reset"]:not(.reset) {
   padding: var(--space-form-y) 0;
   width: max-content;
   color: var(--color-danger);
+}
+
+[data-theme="playful"] {
+  button:not(.reset, [role="tab"]),
+  [role="button"]:not(.reset),
+  input[type="submit"]:not(.reset),
+  .button {
+    box-shadow: 0 2px 8px 0 var(--color-contrast-3),
+    inset 0 -1px 0 var(--color-primary-5),
+    inset 0 -4px 0 var(--color-primary-4);
+    border: none;
+
+    padding-bottom: calc(var(--space-form-y) + 4px);
+
+    &:disabled,
+    &.disabled {
+      padding-bottom: var(--space-form-y);
+    }
+
+    &:hover:not(:disabled),
+    &.hover:not(.disabled) {
+      border-color: transparent;
+      background-color: var(--color-primary-3);
+    }
+
+    &:is(:active, [aria-pressed="true"]):not(:disabled),
+    &.active:not(.disabled) {
+      transform: translateY(4px);
+      margin-bottom: 4px;
+      background-color: var(--color-primary-3);
+      border-color: transparent;
+      box-shadow:
+              none,
+              inset 0 -1px 0 var(--color-primary-5);
+      padding-bottom: var(--space-form-y);
+    }
+  }
 }

@@ -1,4 +1,4 @@
-@layer reset, base, components, utilities;
+@layer reset, base, components, utilities, playful;
 
 @import "modern-normalize/modern-normalize.css" layer(reset);
 
@@ -14,6 +14,8 @@
 
 @import "components/index.css" layer(components);
 @import "form/index.css" layer(components);
+
+@import "playful.css" layer(playful);
 
 @layer base {
   *:focus-visible {

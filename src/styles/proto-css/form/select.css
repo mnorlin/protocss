@@ -71,3 +71,24 @@ select:not(.reset) {
     }
   }
 }
+
+[data-theme="playful"] {
+  select:not(.reset) {
+    background-position: right var(--space-form-x) top calc((var(--input-height-internal) - 1em) / 2 + 2px);
+
+    &:focus {
+      background-position: right var(--space-form-x) top
+      calc((var(--input-height-internal) - 1em) / 2);
+    }
+  }
+
+  [dir="rtl"] select:not(.reset) {
+    background-position: left var(--space-form-x) top
+    calc((var(--input-height-internal) - 1em) / 2 + 2px);
+
+    &:focus {
+      background-position: left var(--space-form-x) top
+      calc((var(--input-height-internal) - 1em) / 2 + 2px);
+    }
+  }
+}
