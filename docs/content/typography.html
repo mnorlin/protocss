@@ -1,215 +1,294 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ProtoCSS</title>
-  <style>body:not(.reset){align-items:stretch;display:grid;grid-template-areas:"header header header" "aside main main";grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;min-height:100vh;>header{grid-area:header}>main{grid-area:main}>aside{grid-area:aside}}body:not(.reset){>header{align-items:center;border-bottom:1px solid var(--color-border);display:flex;gap:var(--space-gap);height:fit-content;padding:var(--space-2) var(--space-4)}>aside{width:fit-content}>main{padding:var(--space-4)}}@media (width >= 720px){#desktop-menu{display:block!important}#menu-open-button,#mobile-menu{display:none!important}}</style>
-  <style id="config"></style>
-  <script type="module" crossorigin src="/protocss/assets/index-CdvSI68U.js"></script>
-  <link rel="stylesheet" crossorigin href="/protocss/assets/index-Bkn2GrVf.css">
-</head>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProtoCSS</title>
+    <style>
+      body:not(.reset) {
+        align-items: stretch;
+        display: grid;
+        grid-template-areas: "header header header" "aside main main";
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+        min-height: 100vh;
+        > header {
+          grid-area: header;
+        }
+        > main {
+          grid-area: main;
+        }
+        > aside {
+          grid-area: aside;
+        }
+      }
+      body:not(.reset) {
+        > header {
+          align-items: center;
+          border-bottom: 1px solid var(--color-border);
+          display: flex;
+          gap: var(--space-gap);
+          height: fit-content;
+          padding: var(--space-2) var(--space-4);
+        }
+        > aside {
+          width: fit-content;
+        }
+        > main {
+          padding: var(--space-4);
+        }
+      }
+      @media (width >= 720px) {
+        #desktop-menu {
+          display: block !important;
+        }
+        #menu-open-button,
+        #mobile-menu {
+          display: none !important;
+        }
+      }
+    </style>
+    <style id="config"></style>
+    <script
+      type="module"
+      crossorigin
+      src="/protocss/assets/index-CdvSI68U.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="/protocss/assets/index-Bkn2GrVf.css"
+    />
+  </head>
 
   <body>
     <header>
-  <div class="space-x-gap" style="align-items: center">
-    <button
-      id="menu-open-button"
-      class="reset"
-      popovertarget="mobile-menu"
-      aria-label="Main menu"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="16em"
-        fill="currentColor"
-        class="bi bi-list"
-        style="vertical-align: -0.125em"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-        />
-      </svg>
-    </button>
-    <div class="h3 mb-0" style="color: var(--color-primary)">ProtoCSS</div>
-    <div
-      style="
-        font-size: var(--font-small, 0.75rem);
-        color: var(--color-danger, red);
-        padding: var(--space-1) var(--space-2);
-        border-radius: var(--border-radius);
-        border: 1px solid var(--color-danger);
-        background-color: var(--color-danger-lighter);
-        font-weight: bold;
-        margin-left: calc(-1 * var(--space-3));
-      "
-    >
-      BETA VERSION
-    </div>
-  </div>
-  <button aria-label="Open theme config" popovertarget="theme-config">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      fill="currentColor"
-      class="bi bi-palette2"
-      viewBox="0 0 16 16"
-      style="vertical-align: -0.125em"
-    >
-      <path
-        d="M0 .5A.5.5 0 0 1 .5 0h5a.5.5 0 0 1 .5.5v5.277l4.147-4.131a.5.5 0 0 1 .707 0l3.535 3.536a.5.5 0 0 1 0 .708L10.261 10H15.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5H3a3 3 0 0 1-2.121-.879A3 3 0 0 1 0 13.044m6-.21 7.328-7.3-2.829-2.828L6 7.188zM4.5 13a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0M15 15v-4H9.258l-4.015 4zM0 .5v12.495zm0 12.495V13z"
-      />
-    </svg>
-  </button>
-  <proto-config
-    configId="config"
-    id="theme-config"
-    popover
-    style="background-color: var(--color-base)"
-  ></proto-config>
-</header>
+      <div class="space-x-gap" style="align-items: center">
+        <button
+          id="menu-open-button"
+          class="reset"
+          popovertarget="mobile-menu"
+          aria-label="Main menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="16em"
+            fill="currentColor"
+            class="bi bi-list"
+            style="vertical-align: -0.125em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+        </button>
+        <div class="h3 mb-0" style="color: var(--color-primary)">ProtoCSS</div>
+        <div
+          style="
+            font-size: var(--font-small, 0.75rem);
+            color: var(--color-danger, red);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-danger);
+            background-color: var(--color-danger-lighter);
+            font-weight: bold;
+            margin-left: calc(-1 * var(--space-3));
+          "
+        >
+          BETA VERSION
+        </div>
+      </div>
+      <button aria-label="Open theme config" popovertarget="theme-config">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          fill="currentColor"
+          class="bi bi-palette2"
+          viewBox="0 0 16 16"
+          style="vertical-align: -0.125em"
+        >
+          <path
+            d="M0 .5A.5.5 0 0 1 .5 0h5a.5.5 0 0 1 .5.5v5.277l4.147-4.131a.5.5 0 0 1 .707 0l3.535 3.536a.5.5 0 0 1 0 .708L10.261 10H15.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5H3a3 3 0 0 1-2.121-.879A3 3 0 0 1 0 13.044m6-.21 7.328-7.3-2.829-2.828L6 7.188zM4.5 13a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0M15 15v-4H9.258l-4.015 4zM0 .5v12.495zm0 12.495V13z"
+          />
+        </svg>
+      </button>
+      <proto-config
+        configId="config"
+        id="theme-config"
+        popover
+        style="background-color: var(--color-base)"
+      ></proto-config>
+    </header>
 
     <aside id="desktop-menu">
-  <menu class="space-y-gap" hx-boost="true">
-  <li>
-    <strong>Getting started</strong>
-    <menu>
-      <li><a href="/protocss/">Overview</a></li>
-      <li><a href="/protocss/docs/getting-started/usage.html">Usage</a></li>
-      <li><a href="/protocss/docs/getting-started/configuration.html">Configuration</a></li>
-    </menu>
-  </li>
+      <menu class="space-y-gap" hx-boost="true">
+        <li>
+          <strong>Getting started</strong>
+          <menu>
+            <li><a href="/protocss/">Overview</a></li>
+            <li>
+              <a href="/protocss/docs/getting-started/usage.html">Usage</a>
+            </li>
+            <li>
+              <a href="/protocss/docs/getting-started/configuration.html"
+                >Configuration</a
+              >
+            </li>
+          </menu>
+        </li>
 
-  <li>
-    <strong>Content</strong>
-    <menu>
-      <li><a href="/protocss/docs/content/code.html">Code</a></li>
-      <li><a href="/protocss/docs/content/link.html">Link</a></li>
-      <li><a href="/protocss/docs/content/typography.html">Typography</a></li>
-      <li><a href="/protocss/docs/content/table.html">Table</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong>Form</strong>
-    <menu>
-      <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
-      <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
-      <li><a href="/protocss/docs/form/input.html">Input</a></li>
-      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
-      <li><a href="/protocss/docs/form/select.html">Select</a></li>
-      <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong>Components</strong>
-    <menu>
-      <li><a href="/protocss/docs/components/accordion.html">Accordion</a></li>
-      <li><a href="/protocss/docs/components/alert.html">Alert</a></li>
-      <li><a href="/protocss/docs/components/button.html">Button</a></li>
-      <li><a href="/protocss/docs/components/card.html">Card</a></li>
-      <li><a href="/protocss/docs/components/dropdown.html">Dropdown</a></li>
-      <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
-      <li><a href="/protocss/docs/components/progress.html">Progress</a></li>
-      <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
-      <li><a href="/protocss/docs/components/tooltip.html">Tooltip</a></li>
-    </menu>
-  </li>
-</menu>
+        <li>
+          <strong>Content</strong>
+          <menu>
+            <li><a href="/protocss/docs/content/code.html">Code</a></li>
+            <li><a href="/protocss/docs/content/link.html">Link</a></li>
+            <li>
+              <a href="/protocss/docs/content/typography.html">Typography</a>
+            </li>
+            <li><a href="/protocss/docs/content/table.html">Table</a></li>
+          </menu>
+        </li>
+        <li>
+          <strong>Form</strong>
+          <menu>
+            <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
+            <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
+            <li><a href="/protocss/docs/form/input.html">Input</a></li>
+            <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
+            <li><a href="/protocss/docs/form/select.html">Select</a></li>
+            <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
+          </menu>
+        </li>
+        <li>
+          <strong>Components</strong>
+          <menu>
+            <li>
+              <a href="/protocss/docs/components/accordion.html">Accordion</a>
+            </li>
+            <li><a href="/protocss/docs/components/alert.html">Alert</a></li>
+            <li><a href="/protocss/docs/components/button.html">Button</a></li>
+            <li><a href="/protocss/docs/components/card.html">Card</a></li>
+            <li>
+              <a href="/protocss/docs/components/dropdown.html">Dropdown</a>
+            </li>
+            <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
+            <li>
+              <a href="/protocss/docs/components/progress.html">Progress</a>
+            </li>
+            <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
+            <li>
+              <a href="/protocss/docs/components/tooltip.html">Tooltip</a>
+            </li>
+          </menu>
+        </li>
+      </menu>
+    </aside>
 
-</aside>
+    <aside popover id="mobile-menu">
+      <menu class="space-y-gap" hx-boost="true">
+        <li>
+          <strong>Getting started</strong>
+          <menu>
+            <li><a href="/protocss/">Overview</a></li>
+            <li>
+              <a href="/protocss/docs/getting-started/usage.html">Usage</a>
+            </li>
+            <li>
+              <a href="/protocss/docs/getting-started/configuration.html"
+                >Configuration</a
+              >
+            </li>
+          </menu>
+        </li>
 
-<aside popover id="mobile-menu">
-  <menu class="space-y-gap" hx-boost="true">
-  <li>
-    <strong>Getting started</strong>
-    <menu>
-      <li><a href="/protocss/">Overview</a></li>
-      <li><a href="/protocss/docs/getting-started/usage.html">Usage</a></li>
-      <li><a href="/protocss/docs/getting-started/configuration.html">Configuration</a></li>
-    </menu>
-  </li>
+        <li>
+          <strong>Content</strong>
+          <menu>
+            <li><a href="/protocss/docs/content/code.html">Code</a></li>
+            <li><a href="/protocss/docs/content/link.html">Link</a></li>
+            <li>
+              <a href="/protocss/docs/content/typography.html">Typography</a>
+            </li>
+            <li><a href="/protocss/docs/content/table.html">Table</a></li>
+          </menu>
+        </li>
+        <li>
+          <strong>Form</strong>
+          <menu>
+            <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
+            <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
+            <li><a href="/protocss/docs/form/input.html">Input</a></li>
+            <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
+            <li><a href="/protocss/docs/form/select.html">Select</a></li>
+            <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
+          </menu>
+        </li>
+        <li>
+          <strong>Components</strong>
+          <menu>
+            <li>
+              <a href="/protocss/docs/components/accordion.html">Accordion</a>
+            </li>
+            <li><a href="/protocss/docs/components/alert.html">Alert</a></li>
+            <li><a href="/protocss/docs/components/button.html">Button</a></li>
+            <li><a href="/protocss/docs/components/card.html">Card</a></li>
+            <li>
+              <a href="/protocss/docs/components/dropdown.html">Dropdown</a>
+            </li>
+            <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
+            <li>
+              <a href="/protocss/docs/components/progress.html">Progress</a>
+            </li>
+            <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
+            <li>
+              <a href="/protocss/docs/components/tooltip.html">Tooltip</a>
+            </li>
+          </menu>
+        </li>
+      </menu>
+    </aside>
 
-  <li>
-    <strong>Content</strong>
-    <menu>
-      <li><a href="/protocss/docs/content/code.html">Code</a></li>
-      <li><a href="/protocss/docs/content/link.html">Link</a></li>
-      <li><a href="/protocss/docs/content/typography.html">Typography</a></li>
-      <li><a href="/protocss/docs/content/table.html">Table</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong>Form</strong>
-    <menu>
-      <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
-      <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
-      <li><a href="/protocss/docs/form/input.html">Input</a></li>
-      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
-      <li><a href="/protocss/docs/form/select.html">Select</a></li>
-      <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
-    </menu>
-  </li>
-  <li>
-    <strong>Components</strong>
-    <menu>
-      <li><a href="/protocss/docs/components/accordion.html">Accordion</a></li>
-      <li><a href="/protocss/docs/components/alert.html">Alert</a></li>
-      <li><a href="/protocss/docs/components/button.html">Button</a></li>
-      <li><a href="/protocss/docs/components/card.html">Card</a></li>
-      <li><a href="/protocss/docs/components/dropdown.html">Dropdown</a></li>
-      <li><a href="/protocss/docs/components/modal.html">Modal</a></li>
-      <li><a href="/protocss/docs/components/progress.html">Progress</a></li>
-      <li><a href="/protocss/docs/components/tabs.html">Tabs</a></li>
-      <li><a href="/protocss/docs/components/tooltip.html">Tooltip</a></li>
-    </menu>
-  </li>
-</menu>
+    <script>
+      updateActiveMenuItem();
+      restoreScroll();
 
-</aside>
+      function updateActiveMenuItem() {
+        const path = window.location.pathname;
+        const menuLinks = document.querySelectorAll("body > aside menu a");
+        [...menuLinks].forEach((link) => {
+          const linkPath = new URL(link.href).pathname;
 
-<script>
-  updateActiveMenuItem();
-  restoreScroll();
-
-  function updateActiveMenuItem() {
-    const path = window.location.pathname;
-    const menuLinks = document.querySelectorAll("body > aside menu a");
-    [...menuLinks].forEach((link) => {
-      const linkPath = new URL(link.href).pathname;
-
-      if (path == linkPath) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
+          if (path == linkPath) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
       }
-    });
-  }
 
-  function restoreScroll() {
-    const sidebar = document.getElementById("desktop-menu");
+      function restoreScroll() {
+        const sidebar = document.getElementById("desktop-menu");
 
-    document.body.addEventListener("htmx:beforeRequest", (evt) => {
-      document.body.dataset.scrollTop = sidebar.scrollTop;
-    });
+        document.body.addEventListener("htmx:beforeRequest", (evt) => {
+          document.body.dataset.scrollTop = sidebar.scrollTop;
+        });
 
-    document.body.addEventListener("htmx:afterSwap", (evt) => {
-      sidebar.scrollTop = document.body.dataset.scrollTop || 0;
-    });
-  }
-</script>
-
+        document.body.addEventListener("htmx:afterSwap", (evt) => {
+          sidebar.scrollTop = document.body.dataset.scrollTop || 0;
+        });
+      }
+    </script>
 
     <main id="main" class="container">
       <hgroup>
         <h1>Typography</h1>
         <p>
-          Documentation and examples typography, including global settings, headings, body
-          text, lists, and more.
+          Documentation and examples typography, including global settings,
+          headings, body text, lists, and more.
         </p>
       </hgroup>
 
@@ -241,9 +320,8 @@
 
       <div>
         <p>
-          There are associated classes to the headings and text above, by using the. This
-          makes it possible to create custom styling but still preserve the semantic
-          meaning.
+          There are associated classes to the text types. This makes it possible
+          to create custom styling but still preserve the semantic meaning.
         </p>
         <proto-code preview>
           <div class="text-center">
@@ -256,8 +334,9 @@
       <div>
         <h2>Heading group</h2>
         <p>
-          By wrapping a header and a paragraph with <code>&lt;hgroup&gt;</code> the
-          paragraph gets slightly bigger and muted color.
+          By wrapping a header and a paragraph with
+          <code>&lt;hgroup&gt;</code> the paragraph gets slightly bigger and
+          muted color.
         </p>
         <proto-code preview>
           <div slot="semantic">
