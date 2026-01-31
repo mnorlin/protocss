@@ -28,6 +28,7 @@ function rewriteAbsoluteHtmlLinks() {
     transformIndexHtml(html) {
       return html
         .replace(/href="\/(?!\/)/g, `href="${BASE}`)
+        .replace(/hx-get="\/(?!\/)/g, `hx-get="${BASE}`)
         .replace(/src="\/(?!\/)/g, `src="${BASE}`);
     },
   };
