@@ -1,6 +1,0 @@
-:root {
-    [data-theme="playful"] {
-        --color-primary-4: color-mix(in oklch, var(--color-primary), var(--color-contrast) 40%);
-        --color-primary-5: color-mix(in oklch, var(--color-primary), var(--color-contrast) 70%);
-    }
-}

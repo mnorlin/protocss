@@ -22,11 +22,4 @@
   --space-form-y: var(--space-2);
 
   --border-radius: var(--space-1);
-
-  --shadow-popups: 0 2px 8px -3px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
-
-  /*
-  --shadow-clickables: 0 2px 8px -3px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
-  --shadow-input: inset 0 1px 4px -2px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
-  */
 }

@@ -1,5 +1,4 @@
-progress:not(.reset),
-.progress {
+progress:not(.reset) {
   display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;

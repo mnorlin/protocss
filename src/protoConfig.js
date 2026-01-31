@@ -2,6 +2,8 @@ import hljs from "highlight.js";
 import githubSyntax from "highlight.js/styles/github.css?inline";
 import githubSyntaxDark from "highlight.js/styles/github-dark.css?inline";
 import { LitElement, css, html, unsafeCSS } from "lit";
+import selectStyle from "./styles/proto-css/form/select.css?inline";
+import buttonStyle from "./styles/proto-css/components/button.css?inline";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import langCss from "highlight.js/lib/languages/css";
 
@@ -38,8 +40,15 @@ export class ProtoCode extends LitElement {
       ${unsafeCSS(githubSyntaxDark)}
     }
 
+    ${unsafeCSS(selectStyle)}
+    ${unsafeCSS(buttonStyle)}
+
     :host {
-      font-size: 16px;
+      font-size: 16px !important;
+      --border-radius: 4px;
+      --space-base: 4px;
+      --space-form-y: 8px;
+      --space-form-x: 12px;
     }
 
     form {
@@ -65,26 +74,9 @@ export class ProtoCode extends LitElement {
       display: flex;
       gap: 12px;
 
-      [type="submit"] {
-        cursor: pointer;
-        border: none;
-        border-radius: 4px;
-        background-color: var(--color-primary);
-        padding: 8px 16px;
-        color: var(--color-primary-contrast);
-        font-size: 16px;
-
-        &:hover {
-          filter: brightness(90%);
-        }
-      }
-
-      [type="reset"] {
-        cursor: pointer;
-        border: none;
-        background-color: transparent;
-        color: var(--color-danger);
-        font-size: 16px;
+      input,
+      button {
+        font-size: 16px !important;
       }
     }
   `;

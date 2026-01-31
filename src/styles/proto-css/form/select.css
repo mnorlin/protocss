@@ -1,3 +1,6 @@
+/* border, height etc. is defined in input.css */
+@import "./input.css";
+
 select:not(.reset) {
   appearance: none;
   cursor: pointer;
@@ -17,6 +20,29 @@ select:not(.reset) {
   background-position: left 0.75rem center;
 }
 
+[data-theme="playful"] {
+  select:not(.reset) {
+    background-position: right var(--space-form-x) top
+      calc((var(--input-height-internal) - 1em) / 2 + 2px);
+
+    &:focus {
+      background-position: right var(--space-form-x) top
+        calc((var(--input-height-internal) - 1em) / 2);
+    }
+  }
+
+  [dir="rtl"] select:not(.reset) {
+    background-position: left var(--space-form-x) top
+      calc((var(--input-height-internal) - 1em) / 2 + 2px);
+
+    &:focus {
+      background-position: left var(--space-form-x) top
+        calc((var(--input-height-internal) - 1em) / 2 + 2px);
+    }
+  }
+}
+
+/* experimental multiselect */
 [role="listbox"][aria-multiselectable="true"] {
   > button[popovertarget] {
     justify-content: start;
@@ -68,27 +94,6 @@ select:not(.reset) {
           background-color: var(--color-primary-1);
         }
       }
-    }
-  }
-}
-
-[data-theme="playful"] {
-  select:not(.reset) {
-    background-position: right var(--space-form-x) top calc((var(--input-height-internal) - 1em) / 2 + 2px);
-
-    &:focus {
-      background-position: right var(--space-form-x) top
-      calc((var(--input-height-internal) - 1em) / 2);
-    }
-  }
-
-  [dir="rtl"] select:not(.reset) {
-    background-position: left var(--space-form-x) top
-    calc((var(--input-height-internal) - 1em) / 2 + 2px);
-
-    &:focus {
-      background-position: left var(--space-form-x) top
-      calc((var(--input-height-internal) - 1em) / 2 + 2px);
     }
   }
 }

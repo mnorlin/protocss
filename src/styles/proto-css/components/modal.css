@@ -1,6 +1,5 @@
-dialog:has(> section, > .card):not(.reset),
-.modal {
-  --start-translation: translateY(-100vh);
+dialog:has(> section):not(.reset) {
+  --start-translation-internal: translateY(-100vh);
   border: none;
   padding: 0;
   width: var(--width-sm);
@@ -29,9 +28,8 @@ dialog:has(> section, > .card):not(.reset),
   }
 }
 
-dialog:has(> section, > .card):not(.reset),
-.modal {
-  transform: var(--start-translation);
+dialog:has(> section):not(.reset) {
+  transform: var(--start-translation-internal);
   opacity: 0;
   transition:
     all var(--transition-duration),
@@ -39,19 +37,18 @@ dialog:has(> section, > .card):not(.reset),
   transition-behavior: allow-discrete;
   width: fit-content;
 
-  &[open],
-  &.modal--open {
+  &[open] {
     transform: translateY(0);
     opacity: 1;
     border-radius: var(--border-radius);
     @starting-style {
-      transform: var(--start-translation);
+      transform: var(--start-translation-internal);
       opacity: 0;
     }
   }
 }
 
-dialog:has(> section, > .card):not(.reset) {
+dialog:has(> section):not(.reset) {
   section:not(.reset) {
     border: 0;
 
@@ -66,7 +63,7 @@ dialog:has(> section, > .card):not(.reset) {
 }
 
 /* backdrop animation */
-dialog:has(> section, > .card):not(.reset)::backdrop {
+dialog:has(> section):not(.reset)::backdrop {
   opacity: 0;
   transition: all var(--transition-duration);
   transition-behaviour: allow-discrete;
@@ -75,7 +72,7 @@ dialog:has(> section, > .card):not(.reset)::backdrop {
   }
 }
 
-dialog[open]:has(> section, > .card):not(.reset)::backdrop {
+dialog[open]:has(> section):not(.reset)::backdrop {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.75);
 

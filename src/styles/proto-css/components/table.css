@@ -64,11 +64,6 @@ table:not(.reset) {
     border-bottom: 1px solid var(--color-border);
   }
 
-  &:not(:has(caption)) {
-    border-bottom-right-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
-  }
-
   caption {
     border-bottom-right-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
@@ -77,8 +72,7 @@ table:not(.reset) {
     caption-side: bottom;
     color: var(--color-text-muted);
     font-style: italic;
-    font-size: var(--font-p);
-    font-size: var(--typogra-small);
+    font-size: var(--font-small);
     text-align: center;
   }
 
@@ -133,7 +127,7 @@ table:not(.reset) {
       border-bottom: 1px solid var(--color-border);
 
       th[scope="row"] {
-        /* If a link is inside a table heading with scope="row", the entire row becomes clickable */
+        /* If a link is inside a cell with scope="row", the entire row becomes clickable */
         font-weight: bold;
 
         > a:not(.reset) {
@@ -161,7 +155,7 @@ table:not(.reset) {
           /* If entire row is clickable, make it possible to still click other buttons and links in row */
           a,
           button,
-          [data-tooltip] {
+          [role="tooltip"] {
             position: relative;
             z-index: 2;
           }
@@ -198,7 +192,6 @@ table:not(.reset) {
   }
 
   button:not(.reset),
-  .btn,
   :is(
     input:not([type="checkbox"], [type="radio"], [type="color"], [type="range"]),
     select

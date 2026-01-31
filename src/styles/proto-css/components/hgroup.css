@@ -1,13 +1,11 @@
-hgroup:not(.reset),
-.hgroup {
+hgroup:not(.reset) {
   margin-bottom: var(--space-gap);
-  p:not(.reset),
-  .p {
+  p:not(.reset) {
     color: var(--color-text-muted);
     font-size: var(--font-h5);
   }
 
-  &:has(h6, .h6) {
+  &:has(h6:not(.reset)) {
     font-size: var(--font-h6);
   }
 }

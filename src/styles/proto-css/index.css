@@ -15,11 +15,38 @@
 @import "components/index.css" layer(components);
 @import "form/index.css" layer(components);
 
-@import "playful.css" layer(playful);
-
 @layer base {
   *:focus-visible {
     outline: 3px solid orange;
     outline-offset: 2px;
+  }
+}
+
+:root {
+  --transition-duration: 0.2s;
+
+  --shadow-popups: 0 2px 8px -3px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
+  --shadow-clickable: none;
+  --shadow-input: none;
+  /*
+  --shadow-clickable: 0 2px 8px -3px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
+  --shadow-input: inset 0 1px 4px -2px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
+  */
+
+  @media (prefers-reduced-motion: reduce) {
+    --transition-duration: 0s;
+  }
+
+  [data-theme="playful"] {
+    --color-primary-4: color-mix(
+      in oklch,
+      var(--color-primary),
+      var(--color-contrast) 40%
+    );
+    --color-primary-5: color-mix(
+      in oklch,
+      var(--color-primary),
+      var(--color-contrast) 70%
+    );
   }
 }

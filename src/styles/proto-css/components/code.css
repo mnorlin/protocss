@@ -1,5 +1,4 @@
-code:not(.reset),
-.code {
+code:not(.reset) {
   display: inline;
   border: 1px solid var(--color-contrast-2);
   border-radius: var(--border-radius);
@@ -11,32 +10,47 @@ code:not(.reset),
     ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   white-space: pre;
   word-wrap: break-word;
-  &:not(:has(ins, del, .ins, .del)) {
+  &:not(:has(ins, del)) {
     background: var(--color-contrast-1);
   }
 }
 
-pre:has(code):not(.reset),
-.pre:has(.code) {
+pre:has(code):not(.reset) {
   position: relative;
   z-index: 0;
   margin: var(--space-4) 0;
   border-radius: var(--border-radius);
   overflow: hidden;
 
-  &:has(ins, del, .ins, .del) {
+  &:has(ins, del) {
     background: var(--color-contrast-1);
   }
 
-  > code:not(.reset),
-  > .code {
+  > code {
     display: block;
     padding: var(--space-4);
 
-    del:not(.reset),
-    .del,
-    ins:not(.reset),
-    .ins {
+    ins {
+      --change-background-internal: var(--color-green-1);
+      --change-characters-internal: var(--color-green-2);
+      --change-color-internal: var(--color-green-3);
+      &::before {
+        content: "+";
+      }
+    }
+
+    del {
+      --change-background-internal: var(--color-red-1);
+      --change-characters-internal: var(--color-red-2);
+      --change-color-internal: var(--color-red-3);
+      &::before {
+        content: "-";
+      }
+    }
+
+    del,
+    ins {
+      background: var(--change-characters-internal);
       text-decoration: none;
 
       &::before,
@@ -44,41 +58,17 @@ pre:has(code):not(.reset),
         position: absolute;
         left: 0;
         z-index: -1;
+        background-color: var(--change-background-internal);
         width: 100%;
       }
       &::before {
         right: 0;
         padding: 0 var(--space-1);
+        color: var(--change-color-internal);
         font-weight: bolder;
       }
       &::after {
         left: 100%;
-      }
-    }
-
-    ins:not(.reset),
-    .ins {
-      background-color: var(--color-green-2);
-      &::before,
-      &::after {
-        background-color: var(--color-green-1);
-      }
-      &::before {
-        content: "+";
-        color: var(--color-green-3);
-      }
-    }
-    del:not(.reset),
-    .del {
-      background-color: var(--color-red-2);
-      &::before,
-      &::after {
-        background-color: var(--color-red-1);
-      }
-      &::before {
-        padding: 0 var(--space-1);
-        content: "-";
-        color: var(--color-red-3);
       }
     }
   }

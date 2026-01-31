@@ -21,7 +21,7 @@ nav[role="tablist"]:not(.reset) {
 
     &[aria-selected="true"],
     &[aria-current="page"] {
-      box-shadow: var(--shadow-clickables);
+      box-shadow: var(--shadow-clickable);
       background-color: var(--color-base);
     }
   }
@@ -80,6 +80,11 @@ nav[role="tablist"]:not(.reset) {
       }
     }
   }
+
+  ~ [role="tabpanel"] {
+    background-color: var(--color-base);
+    color: var(--color-text);
+  }
 }
 
 [dir="rtl"] nav[role="tablist"][aria-orientation="vertical"]:not(.reset) [role="tab"] {
@@ -96,9 +101,4 @@ nav[role="tablist"]:not([aria-orientation="vertical"]) ~ [role="tabpanel"] {
 
 nav[role="tablist"][aria-orientation="vertical"] ~ [role="tabpanel"] {
   padding-inline-start: var(--space-gap);
-}
-
-[role="tabpanel"] {
-  background-color: var(--color-base);
-  color: var(--color-text);
 }

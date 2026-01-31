@@ -36,7 +36,7 @@
     top: var(--internal-switch-padding);
     left: var(--internal-switch-padding);
     transition: all var(--transition-duration) ease-out;
-    box-shadow: var(---shadow-clickables);
+    box-shadow: var(--shadow-clickable);
     border-radius: var(--switch-radius-internal);
     background-color: var(--color-base);
     width: calc(var(--switch-size-internal) - 2 * var(--internal-switch-padding));

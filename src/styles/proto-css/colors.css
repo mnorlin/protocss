@@ -81,6 +81,6 @@ body:not(.reset) {
   @media (prefers-contrast: more) {
     --color-border: var(--color-contrast);
     --color-text: light-dark(black, white);
-    --color-text-muted: var(--color-ontrast-5);
+    --color-text-muted: var(--color-contrast-5);
   }
 }

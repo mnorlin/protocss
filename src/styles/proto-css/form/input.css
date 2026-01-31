@@ -10,10 +10,10 @@
   textarea
 ):not(.reset) {
   transition:
-          box-shadow var(--transition-duration) ease-in-out,
-          border var(--transition-duration) ease-in-out,
-          background-position var(--transition-duration) ease-in-out,
-          padding var(--transition-duration) ease-in-out;
+    box-shadow var(--transition-duration) ease-in-out,
+    border var(--transition-duration) ease-in-out,
+    background-position var(--transition-duration) ease-in-out,
+    padding var(--transition-duration) ease-in-out;
   box-shadow: var(--shadow-input);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
@@ -26,6 +26,10 @@
     box-shadow: none;
     border-color: var(--color-border);
     background-color: var(--color-contrast-1);
+  }
+
+  &:hover {
+    cursor: text;
   }
 
   &:focus,
@@ -103,7 +107,6 @@ label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
   }
 }
 
-
 [data-theme="playful"] {
   :is(
     input:not(
@@ -117,9 +120,10 @@ label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
     textarea
   ):not(.reset) {
     --input-height-internal: calc(
-            var(--line-height-input) * 1rem + 2 * var(--space-form-y)
+      var(--line-height-input) * 1rem + 2 * var(--space-form-y)
     );
-    box-shadow: /* spread */ inset 0 2px 4px -2px var(--color-contrast-3),
+    box-shadow: /* spread */
+      inset 0 2px 4px -2px var(--color-contrast-3),
       /* raise */ inset 0 0 0 0 var(--color-contrast-2),
       /* crack */ inset 0 1px 0 0 var(--color-contrast-3);
 
@@ -129,18 +133,18 @@ label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
     &:focus,
     &:focus-visible {
       box-shadow: /* spread */
-              inset 0 0 0 0 var(--color-contrast-3),
-                /* raise */ inset 0 0 0 0 var(--color-contrast-2),
-                /* crack */ inset 0 0 0 0 var(--color-contrast-3);
+        inset 0 0 0 0 var(--color-contrast-3),
+        /* raise */ inset 0 0 0 0 var(--color-contrast-2),
+        /* crack */ inset 0 0 0 0 var(--color-contrast-3);
       padding: var(--space-form-y) var(--space-form-x);
     }
 
     &[aria-invalid="true"],
     &:invalid {
       box-shadow: /* spread */
-              inset 0 2px 4px -2px var(--color-danger),
-                /* raise */ inset 0 0 0 0 var(--color-danger-light),
-                /* crack */ inset 0 1px 0 0 var(--color-danger);
+        inset 0 2px 4px -2px var(--color-danger),
+        /* raise */ inset 0 0 0 0 var(--color-danger-light),
+        /* crack */ inset 0 1px 0 0 var(--color-danger);
 
       background-position: right var(--space-form-x) top
         calc((var(--input-height-internal) - 1.2rem) / 2 + 2px);
@@ -149,7 +153,7 @@ label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
       &:focus-visible {
         box-shadow: none;
         background-position: right var(--space-form-x) top
-        calc((var(--input-height-internal) - 1.2rem) / 2);
+          calc((var(--input-height-internal) - 1.2rem) / 2);
       }
     }
   }

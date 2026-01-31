@@ -13,7 +13,7 @@
   --line-height-input: 1.25;
 }
 
-html {
+html:not(.reset) {
   font-size: 100%; /* 16px */
   line-height: var(--line-height);
 }
@@ -22,10 +22,7 @@ body:not(.reset) {
   color: var(--color-text);
 }
 
-a:not(.reset),
-.a {
-  display: inline-flex;
-  gap: var(--space-1);
+a:not(.reset) {
   cursor: pointer;
   color: var(--color-primary-3);
   text-decoration: underline;
@@ -42,52 +39,39 @@ h2:not(.reset),
 h3:not(.reset),
 h4:not(.reset),
 h5:not(.reset),
-h6:not(.reset),
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+h6:not(.reset) {
   display: block;
   margin: 0;
   margin-bottom: var(--space-2);
   font-weight: bold;
 }
 
-h1:not(.reset),
-.h1 {
+h1:not(.reset) {
   font-size: var(--font-h1);
 }
 
-h2:not(.reset),
-.h2 {
+h2:not(.reset) {
   font-size: var(--font-h2);
 }
 
-h3:not(.reset),
-.h3 {
+h3:not(.reset) {
   font-size: var(--font-h3);
 }
 
-h4:not(.reset),
-.h4 {
+h4:not(.reset) {
   font-size: var(--font-h4);
 }
 
-h5:not(.reset),
-.h5 {
+h5:not(.reset) {
   font-size: var(--font-h5);
 }
 
-h6:not(.reset),
-.h6 {
+h6:not(.reset) {
   margin-bottom: 0;
   font-size: var(--font-h6);
 }
 
-p:not(.reset),
-.p {
+p:not(.reset) {
   display: block;
   margin-top: 0;
   margin-bottom: 0.5em;
@@ -95,57 +79,47 @@ p:not(.reset),
   font-size: var(--font-p);
 }
 
-small:not(.reset),
-.small {
+small:not(.reset) {
   display: inline;
   color: var(--color-text-muted);
   font-weight: normal;
   font-size: var(--font-small);
 }
 
-abbr:not(.reset),
-.abbr {
+abbr:not(.reset) {
   cursor: help;
   text-decoration: underline dotted;
 }
 
-strong:not(.reset),
-.strong {
+strong:not(.reset) {
   font-weight: bold;
 }
 
-b:not(.reset),
-.b {
+b:not(.reset) {
   font-weight: bold;
 }
 
-em:not(.reset),
-.em {
+em:not(.reset) {
   font-style: italic;
 }
 
-i:not(.reset),
-.i {
+i:not(.reset) {
   font-style: italic;
 }
 
-cite:not(.reset),
-.cite {
+cite:not(.reset) {
   font-style: italic;
 }
 
-del:not(.reset),
-.del {
+del:not(.reset) {
   text-decoration: line-through;
 }
 
-ins:not(.reset),
-.ins {
+ins:not(.reset) {
   text-decoration: underline;
 }
 
-kbd:not(.reset),
-.kbd {
+kbd:not(.reset) {
   border: 1px solid var(--color-contrast-6);
   border-radius: var(--border-radius);
   background-color: var(--color-contrast-5);
@@ -156,24 +130,20 @@ kbd:not(.reset),
   font-family: monospace;
 }
 
-mark:not(.reset),
-.mark {
+mark:not(.reset) {
   background-color: var(--color-yellow);
   width: fit-content;
 }
 
-s:not(.reset),
-.s {
+s:not(.reset) {
   text-decoration: line-through;
 }
 
-u:not(.reset),
-.u {
+u:not(.reset) {
   text-decoration: underline;
 }
 
-sup:not(.reset),
-.sup {
+sup:not(.reset) {
   position: relative;
   top: -0.5em;
   vertical-align: baseline;
@@ -181,8 +151,7 @@ sup:not(.reset),
   line-height: 0;
 }
 
-sub:not(.reset),
-.sub {
+sub:not(.reset) {
   position: relative;
   bottom: -0.25em;
   vertical-align: baseline;

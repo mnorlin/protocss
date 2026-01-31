@@ -13,11 +13,3 @@
 @import "table.css";
 @import "tab-menu.css";
 @import "tooltip.css";
-
-:root {
-  --transition-duration: 0.2s;
-
-  @media (prefers-reduced-motion: reduce) {
-    --transition-duration: 0s;
-  }
-}

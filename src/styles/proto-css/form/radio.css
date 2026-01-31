@@ -1,6 +1,6 @@
 input[type="radio"]:not(.reset) {
   --radio-size-internal: 1.25em;
-  --radio-border-width-internal: max(1px, calc(var(--radio-size-internal) / 10));
+  --radio-border-width-internal: max(1px, calc(var(--radio-size-internal) / 20));
   display: inline-grid;
   place-content: center;
   appearance: none;
@@ -54,8 +54,8 @@ input[type="radio"]:not(.reset) {
     transition: var(--transition-duration) transform;
     box-shadow: inset 0 0 0 5em var(--color-primary-3);
     border-radius: 50%;
-    width: calc(var(--radio-size-internal) - 4 * var(--radio-border-width-internal));
-    height: calc(var(--radio-size-internal) - 4 * var(--radio-border-width-internal));
+    width: calc(var(--radio-size-internal) - 6 * var(--radio-border-width-internal));
+    height: calc(var(--radio-size-internal) - 6 * var(--radio-border-width-internal));
     content: "";
   }
 

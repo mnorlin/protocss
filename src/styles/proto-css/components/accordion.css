@@ -28,48 +28,22 @@
  *  +---------------------+
  */
 
-details:not(.reset),
-.accordion {
+details:not(.reset) {
   position: relative;
-  transition:
-    color var(--transition-duration),
-    background-color var(--transition-duration);
-  border: 1px solid var(--color-border);
+  transition: all var(--transition-duration) ease-in-out;
+  border-radius: var(--border-radius);
   background-color: var(--color-base);
   color: var(--color-text);
 
-  &:first-of-type,
-  &:first-of-type::before {
-    border-top-right-radius: var(--border-radius);
-    border-top-left-radius: var(--border-radius);
-  }
-
-  &:last-of-type,
-  &:last-of-type::before {
-    border-bottom-right-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
-  }
-
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    box-shadow: var(--shadow-clickables);
-    content: "";
-  }
-
-  > summary,
-  .title {
+  > summary {
     display: flex;
     align-items: center;
     gap: var(--space-gap);
-    transition: color var(--transition-duration);
+    transition: all var(--transition-duration);
     cursor: pointer;
-    margin-inline-start: -2px;
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
+    background-color: var(--color-contrast-1);
     padding: var(--space-3) var(--space-4);
     font-weight: bold;
     list-style: none;
@@ -91,160 +65,106 @@ details:not(.reset),
     }
   }
 
+  /* Open accordion */
   &[open] {
-    transition: border-color var(--transition-duration);
-    border-inline-start: 3px solid var(--color-primary);
-    background-color: var(--color-primary-1);
-
-    > summary,
-    .title {
-      margin-inline-start: -4px;
-      border-radius: 0;
+    > summary {
+      border-bottom: 1px solid var(--color-border);
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
       color: var(--color-primary-3);
 
       &::after {
         transform: rotate(-180deg);
-        background-color: var(--color-primary-3);
       }
     }
   }
 
-  + details,
-  + .accordion {
-    border-top: 0;
+  /* accordion is not first */
+  + details > summary {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-
-    summary,
-    .title {
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-    }
   }
 
-  &:has(+ details, + .accordion) {
+  /* accordion is not last */
+  &:has(+ details) > summary {
+    border-bottom: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 
   &::details-content {
     display: block;
-    opacity: 0;
-    transition:
-            height var(--transition-duration),
-            opacity 0.5s,
-            padding var(--transition-duration),
-            padding-inline-start 0s,
-            content-visibility var(--transition-duration);
+    transition: all var(--transition-duration) ease-in-out;
     transition-behavior: allow-discrete;
+    border: solid var(--color-border);
+    border-width: 0 1px;
     padding: 0 var(--space-4);
     height: 0;
     overflow: hidden;
   }
 
   &[open]::details-content {
-    opacity: 1;
     padding: var(--space-3) var(--space-4);
-    padding-inline-start: calc(var(--space-4) - 2px);
     height: auto; /* Fallback for browsers missing 'calc-size' support */
     height: calc-size(auto, size);
   }
+
+  &[open]:last-of-type::details-content {
+    border-bottom-width: 1px;
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+  }
 }
 
-[data-theme="playful"] {
-  details:not(.reset),
-  .accordion {
-    transition: all var(--transition-duration);
-    margin-top: -3px;
-    border: none;
+[data-theme="playful"] details:not(.reset) {
+  margin-top: -3px;
 
-    > summary,
-    .title {
-      transition: all var(--transition-duration) ease-in-out;
-      margin-inline-start: 0;
-      border-radius: 0;
-      padding-bottom: calc(var(--space-3) + 3px);
-
-      box-shadow:
+  > summary {
+    box-shadow:
         /* spread */
-              0 2px 8px 0 var(--color-contrast-3),
-                /* crack */ inset 0 -1px 0 0 var(--color-contrast-3),
-                /* raise */ inset 0 -4px 0 0 var(--color-contrast-2);
-      background-color: var(--color-contrast-1);
+      0 0 0 0 var(--color-contrast-2),
+      /* crack */ inset 0 0 0 0 var(--color-contrast-3),
+      /* raise */ inset 0 0 0 1px var(--color-contrast-2);
+    border: none;
+    padding-bottom: calc(var(--space-3) + 3px);
+  }
+
+  &[open] {
+    margin-top: 0;
+
+    > summary {
+      padding-bottom: var(--space-3);
     }
+  }
 
-
-    &:last-of-type:not(:open) {
-      & > summary,
-      .title {
-        transition: all var(--transition-duration);
-        border-bottom-right-radius: var(--border-radius);
-        border-bottom-left-radius: var(--border-radius);
-      }
-    }
-
-    &:first-of-type {
-      & > summary,
-      .title {
-        border-top-right-radius: var(--border-radius);
-        border-top-left-radius: var(--border-radius);
-      }
-    }
-
-    &:not([open]) + details > summary {
+  &:not([open]) {
+    /* prevent shadow from bleeding to previous accordion if closed */
+    + details > summary {
       clip-path: inset(0 -20px -20px -20px);
     }
 
-    &[open]:first-of-type > summary {
+    /* cast shadow if open */
+    > summary {
       box-shadow:
-        /* spread */
-              0 0 0 0 var(--color-contrast-2),
-                /* crack */ inset 0 0 0 0 var(--color-contrast-3),
-                /* raise */ inset 0 0 0 1px var(--color-contrast-2);
+          /* spread */
+        0 2px 8px 0 var(--color-contrast-3),
+        /* crack */ inset 0 -1px 0 0 var(--color-contrast-3),
+        /* raise */ inset 0 -4px 0 0 var(--color-contrast-2);
     }
 
+    /* get a shadow cast from previous element */
     + details[open] > summary {
       box-shadow:
-        /* spread */
-              0 0 0 0 var(--color-contrast-2),
-                /* crack */ inset 0 0 0 0 var(--color-contrast-2),
-                /* raise */ inset 0 0 0 1px var(--color-contrast-2),
-                /* top-spread */ inset 0 8px 6px -6px var(--color-contrast-2);
+          /* spread */
+        0 0 0 0 var(--color-contrast-2),
+        /* crack */ inset 0 0 0 0 var(--color-contrast-2),
+        /* raise */ inset 0 0 0 1px var(--color-contrast-2),
+        /* top-cast */ inset 0 8px 6px -6px var(--color-contrast-2);
     }
+  }
 
-    &[open] + details[open] > summary {
-      box-shadow:
-        /* spread */
-              0 0 0 0 var(--color-contrast-2),
-                /* crack */ inset 0 0 0 0 var(--color-contrast-2),
-                /* raise */ inset 0 0 0 1px var(--color-contrast-2),
-                /* top-spread */ inset 0 0 0 0 var(--color-contrast-2);
-    }
-
-    &[open] {
-      transition: all var(--transition-duration);
-      margin-top: 0;
-      background-color: transparent;
-      > summary,
-      .title {
-        padding-bottom: var(--space-3);
-      }
-    }
-
-    &::details-content {
-      transition: all var(--transition-duration);
-      transition-behavior: allow-discrete;
-      border: 1px solid var(--color-contrast-2);
-      border-top-width: 0;
-      border-bottom-width: 0;
-
-    }
-
-
-    &:last-of-type::details-content {
-      border-bottom-width: 1px;
-      border-bottom-right-radius: var(--border-radius);
-      border-bottom-left-radius: var(--border-radius);
-    }
+  &::details-content {
+    transition: all var(--transition-duration);
+    transition-behavior: allow-discrete;
   }
 }

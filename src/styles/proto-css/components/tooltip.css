@@ -7,12 +7,12 @@
  */
 
 [aria-describedby] {
-  anchor-name: --tooltip-anchor;
+  anchor-name: --tooltip-anchor-internal;
 }
 
 [id][role="tooltip"]:not(.reset) {
   position: absolute;
-  position-anchor: --tooltip-anchor;
+  position-anchor: --tooltip-anchor-internal;
   translate: -50% calc(-1 * var(--space-gap-sm));
   opacity: 0;
   transition: opacity var(--transition-duration) ease;

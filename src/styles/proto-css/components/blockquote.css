@@ -1,7 +1,6 @@
-blockquote:not(.reset),
-.blockquote {
+blockquote:not(.reset) {
   margin-inline-start: 0;
-  margin-bottom: var(--space-2);
+  margin-block-end: var(--space-2);
   border-inline-start: var(--space-1) solid var(--color-contrast-2);
   padding-inline-start: var(--space-4);
   p {

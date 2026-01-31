@@ -1,5 +1,4 @@
-:is([role="note"], [role="alert"]):not(.reset, [popover]),
-.alert {
+:is([role="note"], [role="alert"]):not(.reset, [popover]) {
   display: block;
   border-width: 1px;
   border-style: solid;

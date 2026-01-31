@@ -12,7 +12,7 @@ input[type="checkbox"]:not(.reset, [role="switch"]) {
   cursor: pointer;
   margin: 0;
   box-shadow: var(--shadow-input);
-  border: 2px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--check-border-radius-internal);
   aspect-ratio: 1 / 1;
   width: var(--checkbox-size-internal);
@@ -65,8 +65,8 @@ input[type="checkbox"]:not(.reset, [role="switch"]) {
     transition: var(--transition-duration) transform;
     border-radius: var(--check-border-radius-internal);
     background-color: var(--color-primary);
-    width: calc(var(--checkbox-size-internal) - 2px);
-    height: calc(var(--checkbox-size-internal) - 2px);
+    width: calc(var(--checkbox-size-internal) - 1px);
+    height: calc(var(--checkbox-size-internal) - 1px);
     content: "";
   }
 

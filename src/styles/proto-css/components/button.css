@@ -1,10 +1,11 @@
+@import "../form/input.css";
+
 button:not(.reset, [role="tab"]),
 [role="button"]:not(.reset),
-input[type="submit"]:not(.reset),
-.button {
+input[type="submit"]:not(.reset) {
   position: relative;
   transition: all var(--transition-duration) ease-in-out;
-  box-shadow: var(--shadow-clickables);
+  box-shadow: var(--shadow-clickable);
   border: 1px solid var(--color-primary);
   border-radius: var(--border-radius);
   background-color: var(--color-primary);
@@ -25,8 +26,7 @@ input[type="submit"]:not(.reset),
     content: "";
   }
 
-  &[aria-busy="true"],
-  &.busy {
+  &[aria-busy="true"] {
     &::before {
       display: inline-block;
       mask: var(--symbol-busy) center/contain no-repeat;
@@ -38,37 +38,34 @@ input[type="submit"]:not(.reset),
     }
   }
 
-  &:disabled,
-  &.disabled {
+  &:disabled {
     box-shadow: none;
     border: 1px solid var(--color-contrast-2);
     background-color: var(--color-contrast-1);
     color: var(--color-contrast-4);
   }
 
-  &:hover:not(:disabled),
-  &.hover:not(.disabled) {
-    cursor: pointer;
-    border-color: var(--color-primary-4);
-    background-color: var(--color-primary-4);
-  }
+  &:not(:disabled) {
+    &:hover {
+      cursor: pointer;
+      border-color: var(--color-primary-4);
+      background-color: var(--color-primary-4);
+    }
 
-  &:is(:active, [aria-pressed="true"]):not(:disabled),
-  &.active:not(.disabled) {
-    box-shadow: none;
-    border-color: var(--color-primary-5);
-    background-color: var(--color-primary-5);
+    &:is(:active, [aria-pressed="true"]) {
+      box-shadow: none;
+      border-color: var(--color-primary-5);
+      background-color: var(--color-primary-5);
+    }
   }
 }
 
-[role="group"]:not(.reset),
-.role-group {
+[role="group"]:not(.reset) {
   display: inline-flex;
 
-  > :is(button, [role="button"], input[type="submit"]):not(.reset),
-  > .button {
+  > :is(button, [role="button"], input[type="submit"]):not(.reset) {
     box-shadow: none;
-    &:not(:disabled, .disabled) {
+    &:not(:disabled) {
       border: 1px solid var(--color-primary-4);
     }
     &:not(:first-child) {
@@ -88,8 +85,8 @@ input[type="submit"]:not(.reset),
       content: "";
     }
 
-    &:not(:active, :disabled, .active, .disabled)::before {
-      box-shadow: var(--shadow-clickables);
+    &:not(:active, :disabled)::before {
+      box-shadow: var(--shadow-clickable);
     }
 
     &:not(:last-child) {
@@ -106,6 +103,7 @@ input[type="reset"]:not(.reset) {
   padding: var(--space-form-y) 0;
   width: max-content;
   color: var(--color-danger);
+  font-size: 1rem;
 }
 
 [data-theme="playful"] {
@@ -113,9 +111,10 @@ input[type="reset"]:not(.reset) {
   [role="button"]:not(.reset),
   input[type="submit"]:not(.reset),
   .button {
-    box-shadow: 0 2px 8px 0 var(--color-contrast-3),
-    inset 0 -1px 0 var(--color-primary-5),
-    inset 0 -4px 0 var(--color-primary-4);
+    box-shadow:
+      0 2px 8px 0 var(--color-contrast-3),
+      inset 0 -1px 0 var(--color-primary-5),
+      inset 0 -4px 0 var(--color-primary-4);
     border: none;
 
     padding-bottom: calc(var(--space-form-y) + 4px);
@@ -125,22 +124,22 @@ input[type="reset"]:not(.reset) {
       padding-bottom: var(--space-form-y);
     }
 
-    &:hover:not(:disabled),
-    &.hover:not(.disabled) {
-      border-color: transparent;
-      background-color: var(--color-primary-3);
-    }
+    &:not(:disabled) {
+      &:hover {
+        border-color: transparent;
+        background-color: var(--color-primary-3);
+      }
 
-    &:is(:active, [aria-pressed="true"]):not(:disabled),
-    &.active:not(.disabled) {
-      transform: translateY(4px);
-      margin-bottom: 4px;
-      background-color: var(--color-primary-3);
-      border-color: transparent;
-      box-shadow:
-              none,
-              inset 0 -1px 0 var(--color-primary-5);
-      padding-bottom: var(--space-form-y);
+      &:is(:active, [aria-pressed="true"]) {
+        transform: translateY(4px);
+        margin-bottom: 4px;
+        box-shadow:
+          none,
+          inset 0 -1px 0 var(--color-primary-5);
+        border-color: transparent;
+        background-color: var(--color-primary-3);
+        padding-bottom: var(--space-form-y);
+      }
     }
   }
 }
