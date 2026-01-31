@@ -48,7 +48,8 @@ input[type="checkbox"]:not(.reset, [role="switch"]) {
     background-color: var(--color-contrast-2);
   }
 
-  &:checked {
+  &:checked,
+  &:indeterminate {
     border-color: var(--color-primary-3);
 
     &:disabled {
@@ -58,10 +59,6 @@ input[type="checkbox"]:not(.reset, [role="switch"]) {
 
   &::before {
     transform: scale(0);
-    mask:
-      var(--symbol-checkmark) center/contain no-repeat,
-      linear-gradient(black);
-    mask-composite: exclude;
     transition: var(--transition-duration) transform;
     border-radius: var(--check-border-radius-internal);
     background-color: var(--color-primary);
@@ -72,6 +69,18 @@ input[type="checkbox"]:not(.reset, [role="switch"]) {
 
   &:checked::before {
     transform: scale(1);
+    mask:
+      var(--symbol-checkmark) center/contain no-repeat,
+      linear-gradient(black);
+    mask-composite: exclude;
+  }
+
+  &:indeterminate::before {
+    transform: scale(1);
+    mask:
+      var(--symbol-minus) center/contain no-repeat,
+      linear-gradient(black);
+    mask-composite: exclude;
   }
 
   &:disabled::before {
