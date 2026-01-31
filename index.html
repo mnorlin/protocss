@@ -6,8 +6,8 @@
   <title>ProtoCSS</title>
   <style>body:not(.reset){align-items:stretch;display:grid;grid-template-areas:"header header header" "aside main main";grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;min-height:100vh;>header{grid-area:header}>main{grid-area:main}>aside{grid-area:aside}}body:not(.reset){>header{align-items:center;border-bottom:1px solid var(--color-border);display:flex;gap:var(--space-gap);height:fit-content;padding:var(--space-2) var(--space-4)}>aside{width:fit-content}>main{padding:var(--space-4)}}@media (width >= 720px){#desktop-menu{display:block!important}#menu-open-button,#mobile-menu{display:none!important}}</style>
   <style id="config"></style>
-  <script type="module" crossorigin src="/protocss/assets/index-C542kakn.js"></script>
-  <link rel="stylesheet" crossorigin href="/protocss/assets/index-aLeLJJDd.css">
+  <script type="module" crossorigin src="/protocss/assets/index-CdvSI68U.js"></script>
+  <link rel="stylesheet" crossorigin href="/protocss/assets/index-Bkn2GrVf.css">
 </head>
 
   <body>
@@ -99,9 +99,9 @@
       <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
       <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
       <li><a href="/protocss/docs/form/input.html">Input</a></li>
+      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
       <li><a href="/protocss/docs/form/select.html">Select</a></li>
       <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
-      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
     </menu>
   </li>
   <li>
@@ -148,9 +148,9 @@
       <li><a href="/protocss/docs/form/overview.html">Overview</a></li>
       <li><a href="/protocss/docs/form/checkbox.html">Checkbox</a></li>
       <li><a href="/protocss/docs/form/input.html">Input</a></li>
+      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
       <li><a href="/protocss/docs/form/select.html">Select</a></li>
       <li><a href="/protocss/docs/form/switch.html">Switch</a></li>
-      <li><a href="/protocss/docs/form/radio.html">Radio button</a></li>
     </menu>
   </li>
   <li>
@@ -234,16 +234,6 @@
         </div>
 
         <div>
-          <h2>Class-Based Components</h2>
-          Every component has a corresponding class, useful when you want to use a
-          component, but for some reason want to avoid the semantic meaning of the regular
-          html element.
-          <proto-code preview>
-            <div class="button">Button</div>
-          </proto-code>
-        </div>
-
-        <div>
           <h2>Light and Dark Mode Support</h2>
           ProtoCSS supports light and dark modes:
           <proto-code language="css">
@@ -281,8 +271,7 @@
           <h2>Utility Classes for Spacing</h2>
           ProtoCSS provides utility classes for margins, padding, and spacing. Examples:
           <proto-code preview>
-            <button>Button 1</button>
-            <button class="ml-3">Button with left margin</button>
+            <button>Button 1</button><button class="ms-3">Button with left margin</button>
           </proto-code>
         </div>
       </div>
