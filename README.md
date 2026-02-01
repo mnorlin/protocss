@@ -13,19 +13,6 @@ ProtoCSS is a lightweight CSS framework that makes semantic HTML elements look g
   <button class="reset my-big-btn">Custom styled button</button>
   ```
 
-* **Class-Based Components**
-  Every component also has a corresponding class. For example, you can use either a semantic element:
-
-  ```html
-  <section>Content</section>
-  ```
-
-  ...or a class-based alternative:
-
-  ```html
-  <div class="card">Content</div>
-  ```
-
 * **Light and Dark Mode Support**
   ProtoCSS supports light and dark modes:
 
