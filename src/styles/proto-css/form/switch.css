@@ -19,7 +19,7 @@
   height: var(--switch-size-internal);
 
   &[aria-invalid="true"] {
-    background-color: var(--color-danger);
+    background-color: var(--color-danger-3);
   }
 
   &:disabled {

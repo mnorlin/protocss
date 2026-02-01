@@ -19,23 +19,23 @@ input[type="checkbox"]:not(.reset, [role="switch"]) {
   height: var(--checkbox-size-internal);
 
   &[aria-invalid="true"]:not(:disabled) {
-    border-color: var(--color-danger-light);
-    background-color: var(--color-danger-lighter);
+    border-color: var(--color-danger-2);
+    background-color: var(--color-danger-1);
 
     &::before {
-      border-color: var(--color-danger);
-      background-color: var(--color-danger);
+      border-color: var(--color-danger-3);
+      background-color: var(--color-danger-3);
     }
 
     &:checked {
-      border-color: var(--color-danger);
+      border-color: var(--color-danger-3);
     }
 
     + ul,
     span {
       margin: 0;
       padding-left: var(--space-5);
-      color: var(--color-danger);
+      color: var(--color-danger-3);
       font-size: var(--font-small);
     }
   }

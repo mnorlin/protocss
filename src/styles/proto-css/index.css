@@ -13,6 +13,7 @@
 @import "space-utilities.css" layer(utilities);
 
 @import "components/index.css" layer(components);
+@import "content/index.css" layer(components);
 @import "form/index.css" layer(components);
 
 @layer base {
@@ -24,29 +25,18 @@
 
 :root {
   --transition-duration: 0.2s;
+  --input-optional-text: "Optional";
 
-  --shadow-popups: 0 2px 8px -3px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
+  --shadow-popup: 0 2px 16px 0 light-dark(oklch(0 0 0 / 0.2), oklch(0 0 0));
   --shadow-clickable: none;
   --shadow-input: none;
+
   /*
-  --shadow-clickable: 0 2px 8px -3px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
-  --shadow-input: inset 0 1px 4px -2px light-dark(oklch(0.6 0 0), oklch(0.1 0 0));
-  */
+  --shadow-clickable: 0 2px 8px 0 light-dark(oklch(0 0 0 / 0.4), oklch(0 0 0 / 0.4));
+  --shadow-input: inset 0 1px 2px 0 light-dark(oklch(0 0 0 / 0.2), oklch(0 0 0 / 0.6));
+*/
 
   @media (prefers-reduced-motion: reduce) {
     --transition-duration: 0s;
-  }
-
-  [data-theme="playful"] {
-    --color-primary-4: color-mix(
-      in oklch,
-      var(--color-primary),
-      var(--color-contrast) 40%
-    );
-    --color-primary-5: color-mix(
-      in oklch,
-      var(--color-primary),
-      var(--color-contrast) 70%
-    );
   }
 }

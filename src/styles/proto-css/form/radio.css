@@ -13,23 +13,23 @@ input[type="radio"]:not(.reset) {
   height: var(--radio-size-internal);
 
   &:not(:disabled)[aria-invalid="true"] {
-    border-color: var(--color-danger-light);
-    background-color: var(--color-danger-lighter);
+    border-color: var(--color-danger-2);
+    background-color: var(--color-danger-1);
 
     &::before {
-      box-shadow: inset 0 0 0 5rem var(--color-danger);
-      border-color: var(--color-danger);
+      box-shadow: inset 0 0 0 5rem var(--color-danger-3);
+      border-color: var(--color-danger-3);
     }
 
     &:checked {
-      border-color: var(--color-danger);
+      border-color: var(--color-danger-3);
     }
 
     + ul,
     span {
       margin: 0;
       padding-left: var(--space-5);
-      color: var(--color-danger);
+      color: var(--color-danger-3);
       font-size: var(--font-small);
     }
   }

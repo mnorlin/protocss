@@ -6,7 +6,7 @@
   border-radius: var(--border-radius);
   background-color: var(--color-primary-1);
   padding: var(--space-form-y) var(--space-form-x);
-  color: var(--color-primary-5);
+  color: var(--color-primary);
   line-height: var(--line-height-input);
 
   hr {
@@ -14,8 +14,8 @@
   }
 
   &[role="alert"] {
-    border-color: var(--color-danger-light);
-    background-color: var(--color-danger-lighter);
-    color: var(--color-danger);
+    border-color: var(--color-danger-2);
+    background-color: var(--color-danger-1);
+    color: var(--color-danger-3);
   }
 }

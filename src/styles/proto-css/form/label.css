@@ -39,3 +39,20 @@ input[id]:is([type="checkbox"], [type="radio"]) {
 label[for] {
   cursor: pointer;
 }
+
+/* Marks non-required inputs as "Optional" */
+label:has(
+  input:not([type="checkbox"], [type="radio"]):not(:required),
+  select:not(:required)
+) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    inset-block-start: calc(var(--font-p) - var(--font-small));
+    inset-inline-end: 0;
+    content: var(--input-optional-text, "");
+    color: var(--color-text-muted);
+    font-size: var(--font-small);
+  }
+}

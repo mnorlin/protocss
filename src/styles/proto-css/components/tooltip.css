@@ -18,7 +18,7 @@
   transition: opacity var(--transition-duration) ease;
   inset-block-end: anchor(top);
   inset-inline-start: anchor(center);
-  box-shadow: var(--shadow-popups);
+  box-shadow: var(--shadow-popup);
   border-radius: var(--border-radius);
   background: var(--color-contrast);
   padding: var(--space-1) var(--space-2);

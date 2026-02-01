@@ -16,9 +16,7 @@ hljs.registerLanguage("js", jsSyntax);
 
 export class ProtoCode extends LitElement {
   static properties = {
-    codeSemantic: { type: String },
-    codeClasses: { type: String },
-    showClasses: { type: Boolean },
+    code: { type: String },
     preview: { type: Boolean },
     language: { type: String },
     colorScheme: { type: String },
@@ -63,7 +61,6 @@ export class ProtoCode extends LitElement {
       border-radius: var(--internal-border-radius);
       background: var(--color-contrast-1);
       .controls {
-        display: none;
         border-bottom: 1px solid var(--color-border);
         padding: var(--space-2) var(--space-3);
         color: var(--color-text-muted);
@@ -109,10 +106,8 @@ export class ProtoCode extends LitElement {
   constructor() {
     super();
     this.toolbar = false;
-    this.codeSemantic = null;
-    this.codeClasses = null;
+    this.code = null;
     this.preview = false;
-    this.showClasses = false;
     this.language = "xml";
     this.colorScheme = null;
   }
@@ -135,12 +130,9 @@ export class ProtoCode extends LitElement {
   render() {
     return html` <div class="wrapper">
       <div ?hidden=${!this.preview} class="rendered">
-        <div ?hidden=${this.showClasses} class="preview">
-          <slot name="semantic" @slotchange=${this.#onSlotchange}></slot>
+        <div class="preview">
+          <slot name="wrapper" @slotchange=${this.#onSlotchange}></slot>
           <slot @slotchange=${this.#onSlotchange}></slot>
-        </div>
-        <div ?hidden=${!this.showClasses} class="preview">
-          <slot name="classes" @slotchange=${this.#onSlotchange}></slot>
         </div>
       </div>
       <div
@@ -149,15 +141,16 @@ export class ProtoCode extends LitElement {
           ? "--internal-border-radius: 0 0 var(--border-radius) var(--border-radius)"
           : "--internal-border-radius: var(--border-radius)"}"
       >
-        <div class="controls" ?hidden=${!this.codeClasses}>
+        <div class="controls" hidden>
           <div style="display: flex; justify-content: end;">
             <label>
-              Class version
-              <input
-                @input=${(e) => (this.showClasses = e.target.checked)}
-                type="checkbox"
-                role="switch"
-              />
+              Version
+              <select>
+                <option>System</option>
+                <option>Light</option>
+                <option>Dark</option>
+                <option>Playful</option>
+              </select>
             </label>
           </div>
         </div>
@@ -183,15 +176,8 @@ export class ProtoCode extends LitElement {
             </svg>
           </button>
           <span id="tip-copy" role="tooltip">Copy the code</span>
-          <div ?hidden=${this.showClasses} class="source">
-            <pre><code>${unsafeHTML(
-              highligtCode(this.codeSemantic, this.language),
-            )}</code></pre>
-          </div>
-          <div ?hidden=${!this.showClasses} class="source">
-            <pre><code>${unsafeHTML(
-              highligtCode(this.codeClasses, this.language),
-            )}</code></pre>
+          <div class="source">
+            <pre><code>${unsafeHTML(highligtCode(this.code, this.language))}</code></pre>
           </div>
         </div>
       </div>
@@ -200,9 +186,7 @@ export class ProtoCode extends LitElement {
 
   async #copyToClipboard() {
     try {
-      await navigator.clipboard.writeText(
-        this.showClasses ? this.codeClasses : this.codeSemantic,
-      );
+      await navigator.clipboard.writeText(this.code);
       console.log("Content copied to clipboard");
     } catch (err) {
       console.error("Failed to copy: ", err);
@@ -225,10 +209,8 @@ export class ProtoCode extends LitElement {
       })
       .join("");
 
-    if (slot.name == "classes") {
-      this.codeClasses = formatCode(code);
-    } else if (code.trim()) {
-      this.codeSemantic = formatCode(code);
+    if (code.trim().length != 0) {
+      this.code = formatCode(code);
     }
   }
 }

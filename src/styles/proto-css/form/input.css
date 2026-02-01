@@ -4,7 +4,8 @@
     [type="radio"],
     [type="color"],
     [type="range"],
-    [type="submit"]
+    [type="submit"],
+    [type="reset"]
   ),
   select,
   textarea
@@ -28,10 +29,6 @@
     background-color: var(--color-contrast-1);
   }
 
-  &:hover {
-    cursor: text;
-  }
-
   &:focus,
   &:focus-visible {
     outline: 1px solid var(--color-primary-2);
@@ -39,19 +36,19 @@
     border-color: var(--color-primary-3);
   }
 
-  &[aria-invalid="true"],
-  &:invalid {
-    border-color: var(--color-danger-light);
+  /* &:invalid - marks required inputs as invalid before interaction */
+  &[aria-invalid="true"] {
+    border-color: var(--color-danger-2);
     background-image: var(--symbol-warning-input);
     background-position: right var(--space-form-x) center;
     background-size: 1.2rem;
     background-repeat: no-repeat;
-    background-color: var(--color-danger-lighter);
+    background-color: var(--color-danger-1);
 
     &:focus,
     &:focus-visible {
-      outline: 1px solid var(--color-danger-light);
-      border-color: var(--color-danger);
+      outline: 1px solid var(--color-danger-2);
+      border-color: var(--color-danger-3);
     }
   }
 }
@@ -98,7 +95,7 @@ label:has([aria-describedby]) {
  */
 label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
   & + *[id]:not(.reset, label, button, fieldset) {
-    color: var(--color-danger);
+    color: var(--color-danger-3);
     font-size: var(--font-small);
   }
 
@@ -142,9 +139,9 @@ label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
     &[aria-invalid="true"],
     &:invalid {
       box-shadow: /* spread */
-        inset 0 2px 4px -2px var(--color-danger),
-        /* raise */ inset 0 0 0 0 var(--color-danger-light),
-        /* crack */ inset 0 1px 0 0 var(--color-danger);
+        inset 0 2px 4px -2px var(--color-danger-3),
+        /* raise */ inset 0 0 0 0 var(--color-danger-2),
+        /* crack */ inset 0 1px 0 0 var(--color-danger-3);
 
       background-position: right var(--space-form-x) top
         calc((var(--input-height-internal) - 1.2rem) / 2 + 2px);

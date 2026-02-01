@@ -13,6 +13,7 @@ nav[role="tablist"]:not(.reset) {
     padding: var(--space-2) var(--space-5);
     color: var(--color-contrast-6);
     text-decoration: none;
+    word-break: normal;
 
     &:hover:not(:disabled, [aria-selected="true"], [aria-current="page"]) {
       background-color: var(--color-contrast-1);

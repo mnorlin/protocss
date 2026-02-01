@@ -1,5 +1,5 @@
 dialog:has(> section):not(.reset) {
-  --start-translation-internal: translateY(-100vh);
+  box-shadow: var(--shadow-popup);
   border: none;
   padding: 0;
   width: var(--width-sm);
@@ -29,7 +29,7 @@ dialog:has(> section):not(.reset) {
 }
 
 dialog:has(> section):not(.reset) {
-  transform: var(--start-translation-internal);
+  transform: scale(0);
   opacity: 0;
   transition:
     all var(--transition-duration),
@@ -38,11 +38,11 @@ dialog:has(> section):not(.reset) {
   width: fit-content;
 
   &[open] {
-    transform: translateY(0);
+    transform: scale(1);
     opacity: 1;
     border-radius: var(--border-radius);
     @starting-style {
-      transform: var(--start-translation-internal);
+      transform: scale(0);
       opacity: 0;
     }
   }

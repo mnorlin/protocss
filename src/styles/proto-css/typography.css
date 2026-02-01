@@ -16,6 +16,18 @@
 html:not(.reset) {
   font-size: 100%; /* 16px */
   line-height: var(--line-height);
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-size: 1em;
+  font-family:
+    ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 body:not(.reset) {
