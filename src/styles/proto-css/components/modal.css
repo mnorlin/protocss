@@ -2,7 +2,8 @@ dialog:has(> section):not(.reset) {
   box-shadow: var(--shadow-popup);
   border: none;
   padding: 0;
-  width: var(--width-sm);
+  width: auto;
+  max-width: 480px;
 
   button[command="close"]:empty {
     all: unset;
@@ -17,6 +18,7 @@ dialog:has(> section):not(.reset) {
       color: var(--color-contrast-4);
     }
     &:active {
+      background-color: transparent;
       color: var(--color-contrast-5);
     }
     &::before {

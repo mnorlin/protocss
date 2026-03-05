@@ -4,7 +4,7 @@ button:not(.reset, [role="tab"]),
 [role="button"]:not(.reset),
 input[type="submit"]:not(.reset) {
   position: relative;
-  transition: all var(--transition-duration) ease-in-out;
+  transition: background-color var(--transition-duration) ease-in-out;
   box-shadow: var(--shadow-clickable);
   border: 1px solid var(--color-primary);
   border-radius: var(--border-radius);
@@ -111,6 +111,8 @@ input[type="reset"]:not(.reset) {
   [role="button"]:not(.reset),
   input[type="submit"]:not(.reset),
   .button {
+    transform: translateY(-4px);
+    transition-property: background-color, padding, box-shadow, margin, transform;
     box-shadow:
       0 2px 8px 0 var(--color-contrast-3),
       inset 0 -1px 0 var(--color-primary-darker),
@@ -131,7 +133,7 @@ input[type="reset"]:not(.reset) {
       }
 
       &:is(:active, [aria-pressed="true"]) {
-        transform: translateY(4px);
+        transform: translateY(0);
         margin-bottom: 4px;
         box-shadow:
           none,

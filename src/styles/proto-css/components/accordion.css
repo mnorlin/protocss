@@ -30,7 +30,6 @@
 
 details:not(.reset) {
   position: relative;
-  transition: all var(--transition-duration) ease-in-out;
   border-radius: var(--border-radius);
   background-color: var(--color-base);
   color: var(--color-text);
@@ -39,7 +38,7 @@ details:not(.reset) {
     display: flex;
     align-items: center;
     gap: var(--space-gap);
-    transition: all var(--transition-duration);
+    transition: color var(--transition-duration) ease-in-out;
     cursor: pointer;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
@@ -56,7 +55,7 @@ details:not(.reset) {
       transform: rotate(0deg);
       transform-origin: center;
       mask: var(--symbol-chevron-down) center/contain no-repeat;
-      transition: all var(--transition-duration);
+      transition: transform var(--transition-duration);
       margin-inline-start: auto;
       background-color: currentColor;
       width: 1rem;
@@ -67,6 +66,9 @@ details:not(.reset) {
 
   /* Open accordion */
   &[open] {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+
     > summary {
       border-bottom: 1px solid var(--color-border);
       border-bottom-right-radius: 0;
@@ -94,8 +96,9 @@ details:not(.reset) {
 
   &::details-content {
     display: block;
-    transition: all var(--transition-duration) ease-in-out;
+    transition: var(--transition-duration) ease-in-out;
     transition-behavior: allow-discrete;
+    transition-property: height, padding, content-visibility;
     border: solid var(--color-border);
     border-width: 0 1px;
     padding: 0 var(--space-4);
@@ -109,17 +112,39 @@ details:not(.reset) {
     height: calc-size(auto, size);
   }
 
-  &[open]:last-of-type::details-content {
-    border-bottom-width: 1px;
+  &[open]:last-of-type {
     border-bottom-right-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
+    &::details-content {
+      border-bottom-width: 1px;
+      border-bottom-right-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
+    }
+  }
+
+  &:last-of-type {
+    > summary {
+      transition:
+        color var(--transition-duration) ease-in-out,
+        border-bottom-left-radius var(--transition-duration) var(--transition-duration)
+          ease-out,
+        border-bottom-right-radius var(--transition-duration) var(--transition-duration)
+          ease-out;
+    }
+    &[open] {
+      > summary {
+        transition-property: none;
+      }
+    }
   }
 }
 
 [data-theme="playful"] details:not(.reset) {
+  transition: margin var(--transition-duration) ease-in-out;
   margin-top: -3px;
-
   > summary {
+    transition: var(--transition-duration) ease-in-out;
+    transition-property: box-shadow, padding;
     box-shadow:
         /* spread */
       0 0 0 0 var(--color-contrast-2),
@@ -161,10 +186,5 @@ details:not(.reset) {
         /* raise */ inset 0 0 0 1px var(--color-contrast-2),
         /* top-cast */ inset 0 8px 6px -6px var(--color-contrast-2);
     }
-  }
-
-  &::details-content {
-    transition: all var(--transition-duration);
-    transition-behavior: allow-discrete;
   }
 }

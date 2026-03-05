@@ -18,8 +18,12 @@
   box-shadow: var(--shadow-input);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
+  background-position: right var(--space-form-x) center;
+  background-size: 1.2rem;
+  background-repeat: no-repeat;
   background-color: var(--color-base);
   padding: var(--space-form-y) var(--space-form-x);
+  width: 100%;
   max-width: 100%;
   line-height: var(--line-height-input);
 
@@ -40,9 +44,6 @@
   &[aria-invalid="true"] {
     border-color: var(--color-danger-2);
     background-image: var(--symbol-warning-input);
-    background-position: right var(--space-form-x) center;
-    background-size: 1.2rem;
-    background-repeat: no-repeat;
     background-color: var(--color-danger-1);
 
     &:focus,
@@ -66,21 +67,24 @@
   }
 }
 
+/**
+ * To give some descriptive text to an input, the next element after the label (if it has an 'id' attribute) gets applied styling.
+ * <label>
+ *   Age
+ *   <input name="age" type="number" aria-invalid="true" aria-describedby="age-info">
+ * </label>
+ * <span id="age-info">Age must be between 0-130</span>
+ */
+
 label:has([aria-describedby]) {
-  anchor-name: --described-input;
   & + *[id]:not(.reset, label, button, fieldset) {
-    /*
-    position: absolute;
-    top: anchor(--described-input, bottom);
-    width: anchor-size(--described-input width);
-    */
     color: var(--color-text-muted);
     font-size: var(--font-small);
   }
 
-  & + ul[id]:not(.reset) {
-    position: absolute;
-    top: anchor(--described-input, bottom);
+  & + ul[id]:not(.reset),
+  & + ol[id]:not(.reset) {
+    margin: 0;
     padding-left: var(--space-5);
   }
 }
@@ -96,11 +100,15 @@ label:has([aria-describedby]) {
 label:has([aria-invalid="true"][aria-describedby], :invalid[aria-describedby]) {
   & + *[id]:not(.reset, label, button, fieldset) {
     color: var(--color-danger-3);
-    font-size: var(--font-small);
-  }
 
-  & + ul[id]:not(.reset) {
-    padding-left: var(--space-5);
+    /* Animate height if inserted into DOM */
+    interpolate-size: allow-keywords;
+    transition: height var(--transition-duration) ease-in-out;
+    height: auto;
+    overflow: hidden;
+    @starting-style {
+      height: 0;
+    }
   }
 }
 

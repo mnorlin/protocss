@@ -61,15 +61,15 @@
   --color-warning-3: var(--color-yellow-3);
 }
 
-*[data-theme="light"] {
+*[data-theme~="light"] {
   color-scheme: light;
 }
 
-*[data-theme="dark"] {
+*[data-theme~="dark"] {
   color-scheme: dark;
 }
 
-*[data-theme="system"] {
+*[data-theme~="system"] {
   color-scheme: light dark;
 }
 
@@ -80,6 +80,12 @@ body:not(.reset) {
 
 :root {
   @media (prefers-contrast: more) {
+    --color-border: var(--color-contrast);
+    --color-text: light-dark(black, white);
+    --color-text-muted: var(--color-contrast-5);
+  }
+
+  *[data-theme~="contrast"] {
     --color-border: var(--color-contrast);
     --color-text: light-dark(black, white);
     --color-text-muted: var(--color-contrast-5);
