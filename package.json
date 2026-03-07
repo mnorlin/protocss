@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build:docs": "vite build",
-    "build:css": "postcss src/styles/index.css -o dist/protocss.min.css",
+    "build:css": "postcss src/styles/protocss/index.css -o dist/protocss.min.css",
     "format": "prettier --write ./src",
     "preview": "vite preview"
   },
