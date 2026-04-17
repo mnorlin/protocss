@@ -2,8 +2,8 @@ import hljs from "highlight.js";
 import githubSyntax from "highlight.js/styles/github.css?inline";
 import githubSyntaxDark from "highlight.js/styles/github-dark.css?inline";
 
-import switchInput from "/styles/proto-css/form/switch.css?inline";
-import tooltip from "/styles/proto-css/components/tooltip.css?inline";
+import switchInput from "/styles/protocss/form/switch.css?inline";
+import tooltip from "/styles/protocss/components/tooltip.css?inline";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { LitElement, css, html, unsafeCSS } from "lit";
 import xmlSyntax from "highlight.js/lib/languages/xml";

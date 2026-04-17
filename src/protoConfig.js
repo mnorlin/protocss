@@ -2,8 +2,8 @@ import hljs from "highlight.js";
 import githubSyntax from "highlight.js/styles/github.css?inline";
 import githubSyntaxDark from "highlight.js/styles/github-dark.css?inline";
 import { LitElement, css, html, unsafeCSS } from "lit";
-import selectStyle from "./styles/proto-css/form/select.css?inline";
-import buttonStyle from "./styles/proto-css/components/button.css?inline";
+import selectStyle from "./styles/protocss/form/select.css?inline";
+import buttonStyle from "./styles/protocss/components/button.css?inline";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import langCss from "highlight.js/lib/languages/css";
 

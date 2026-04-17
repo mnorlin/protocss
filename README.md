@@ -68,4 +68,4 @@ ProtoCSS is a lightweight CSS framework that makes semantic HTML elements look g
 
 ## License
 
-ProtoCSS is released under the [MIT License](./LICENSE.md). It uses [SVG icons](./src/styles/proto-css/symbols.css) from [Pico CSS](https://picocss.com/) and [Bootstrap](https://getbootstrap.com/).
+ProtoCSS is released under the [MIT License](./LICENSE.md). It uses [SVG icons](./src/styles/protocss/symbols.css) from [Pico CSS](https://picocss.com/) and [Bootstrap](https://getbootstrap.com/).

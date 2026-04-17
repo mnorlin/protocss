@@ -62,8 +62,8 @@ input[type="checkbox"]:not(.reset, [role="switch"]) {
     transition: var(--transition-duration) transform;
     border-radius: var(--check-border-radius-internal);
     background-color: var(--color-primary);
-    width: calc(var(--checkbox-size-internal) - 1px);
-    height: calc(var(--checkbox-size-internal) - 1px);
+    width: calc(var(--checkbox-size-internal));
+    height: calc(var(--checkbox-size-internal));
     content: "";
   }
 
