@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "highlight.js": "^11.11.1",
-    "htmx.org": "^2.0.8",
+    "htmx.org": "^2.0.10",
     "lit": "^3.3.2",
     "modern-normalize": "^3.0.1",
     "vite-plugin-html-inject": "^1.1.2"
