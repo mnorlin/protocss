@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "cssnano": "^7.1.5",
+    "cssnano": "^8.0.0",
     "fast-glob": "^3.3.3",
     "postcss": "^8.5.10",
     "postcss-cli": "^11.0.1",
