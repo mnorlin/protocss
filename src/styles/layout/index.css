@@ -21,8 +21,14 @@ body > header {
     box-shadow: none;
   }
 
+  button[popovertarget="theme-config"] {
+    anchor-name: --theme-config-anchor;
+  }
+
   [popover] {
-    margin-inline-end: 0;
+    position-anchor: --theme-config-anchor;
+    inset: auto;
+    margin: 0;
     margin-block-start: 4px;
     inset-block-start: anchor(bottom);
     inset-inline-end: anchor(end);
