@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.1](https://github.com/mnorlin/protocss/compare/v0.5.0...v0.5.1) (2026-10-06)
+
+
+### Bug Fixes
+
+* anchor dropdown menu to button ([af28d5b](https://github.com/mnorlin/protocss/commit/af28d5b5638c9289b8f35946ea99258e2bf7b014))
+* anchor settings config properly ([e3e1059](https://github.com/mnorlin/protocss/commit/e3e1059070a1946182da61c58715d5deeccd0c44))
+* update dependencies ([ac3a4a1](https://github.com/mnorlin/protocss/commit/ac3a4a1ad194bc95d6ae3901d414638a0369e810))
+
 ## [0.5.0](https://github.com/mnorlin/protocss/compare/v0.4.0...v0.5.0) (2026-04-17)
 
 
