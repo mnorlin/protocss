@@ -1,4 +1,11 @@
+/* Scope the anchor name so each dropdown attaches to its own button */
+:has(> button[type="button"][commandfor][command="toggle-popover"] ~ ul[popover]) {
+  anchor-scope: --dropdown-anchor-internal;
+}
+
 button[type="button"][commandfor][command="toggle-popover"] {
+  anchor-name: --dropdown-anchor-internal;
+
   &::after {
     display: inline-block;
     vertical-align: middle;
@@ -14,6 +21,9 @@ button[type="button"][commandfor][command="toggle-popover"] {
 
   & ~ ul[popover] {
     position: absolute;
+    position-anchor: --dropdown-anchor-internal;
+    position-try-fallbacks: flip-block;
+    inset: auto;
     top: anchor(bottom);
     margin-top: var(--space-1);
     margin-inline-start: 0;
