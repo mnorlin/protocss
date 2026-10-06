@@ -27,9 +27,9 @@ body > header {
 
   [popover] {
     position-anchor: --theme-config-anchor;
-    inset: auto;
     margin: 0;
     margin-block-start: 4px;
+    inset: auto;
     inset-block-start: anchor(bottom);
     inset-inline-end: anchor(end);
     box-shadow: var(--shadow-popup);

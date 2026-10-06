@@ -137,9 +137,11 @@ export class ProtoCode extends LitElement {
       </div>
       <div
         class="code"
-        style="${this.preview
-          ? "--internal-border-radius: 0 0 var(--border-radius) var(--border-radius)"
-          : "--internal-border-radius: var(--border-radius)"}"
+        style="${
+          this.preview
+            ? "--internal-border-radius: 0 0 var(--border-radius) var(--border-radius)"
+            : "--internal-border-radius: var(--border-radius)"
+        }"
       >
         <div class="controls" hidden>
           <div style="display: flex; justify-content: end;">
